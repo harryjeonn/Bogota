@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--홈-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="Home" id="Y6W-OH-hqX" customClass="HomeViewController" customModule="bogota" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="PHi-wN-Jtu">
+                                <rect key="frame" x="20" y="124" width="374" height="689"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xKJ-3Q-5xy">
+                                <rect key="frame" x="20" y="64" width="330" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="ks6-4Q-fwa"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y9V-fz-MZV">
+                                <rect key="frame" x="358" y="66" width="36" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Y9V-fz-MZV" secondAttribute="height" id="9Nf-7J-knD"/>
+                                    <constraint firstAttribute="width" constant="36" id="c3l-V5-axf"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="magnifyingglass" catalog="system"/>
+                                <connections>
+                                    <action selector="searchButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="0iG-gP-XE4"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="xKJ-3Q-5xy" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="5aH-45-8ZJ"/>
+                            <constraint firstItem="PHi-wN-Jtu" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="LH7-8r-svw"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="PHi-wN-Jtu" secondAttribute="trailing" constant="20" id="LQz-Le-FHh"/>
+                            <constraint firstItem="Y9V-fz-MZV" firstAttribute="leading" secondItem="xKJ-3Q-5xy" secondAttribute="trailing" constant="8" id="cpu-jK-Ubn"/>
+                            <constraint firstItem="PHi-wN-Jtu" firstAttribute="top" secondItem="xKJ-3Q-5xy" secondAttribute="bottom" constant="20" id="fPR-aH-0Wa"/>
+                            <constraint firstItem="Y9V-fz-MZV" firstAttribute="centerY" secondItem="xKJ-3Q-5xy" secondAttribute="centerY" id="ikI-9S-Nvq"/>
+                            <constraint firstItem="xKJ-3Q-5xy" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="jDF-1b-jVi"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="PHi-wN-Jtu" secondAttribute="bottom" id="kIC-BZ-2yF"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Y9V-fz-MZV" secondAttribute="trailing" constant="20" id="wJw-Kj-xCz"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="홈" image="tabbar_home" id="jGb-ZC-DYX"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="searchButton" destination="Y9V-fz-MZV" id="oES-nD-ccT"/>
+                        <outlet property="searchTextField" destination="xKJ-3Q-5xy" id="RW1-NK-Des"/>
+                        <outlet property="tableView" destination="PHi-wN-Jtu" id="6Fb-sz-XZ1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-662.31884057971024" y="-162.05357142857142"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <image name="tabbar_home" width="24" height="24"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

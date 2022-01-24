@@ -13,6 +13,12 @@
 		BDA82E3A279E691B005D5683 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDA82E38279E691B005D5683 /* Main.storyboard */; };
 		BDA82E3C279E691C005D5683 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDA82E3B279E691C005D5683 /* Assets.xcassets */; };
 		BDA82E3F279E691C005D5683 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDA82E3D279E691C005D5683 /* LaunchScreen.storyboard */; };
+		BDF9F339279E7FE900E4DAB3 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDF9F338279E7FE900E4DAB3 /* Home.storyboard */; };
+		BDF9F33B279E819C00E4DAB3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF9F33A279E819C00E4DAB3 /* HomeViewController.swift */; };
+		BDF9F33F279E82E700E4DAB3 /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDF9F33E279E82E700E4DAB3 /* Map.storyboard */; };
+		BDF9F341279E82F000E4DAB3 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF9F340279E82F000E4DAB3 /* MapViewController.swift */; };
+		BDF9F345279E9AE500E4DAB3 /* HomeStationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF9F343279E9AE500E4DAB3 /* HomeStationCell.swift */; };
+		BDF9F346279E9AE500E4DAB3 /* HomeStationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BDF9F344279E9AE500E4DAB3 /* HomeStationCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +30,12 @@
 		BDA82E3B279E691C005D5683 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BDA82E3E279E691C005D5683 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BDA82E40279E691C005D5683 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BDF9F338279E7FE900E4DAB3 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Home.storyboard; path = bogota/Home/Home.storyboard; sourceTree = SOURCE_ROOT; };
+		BDF9F33A279E819C00E4DAB3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = Bogota/Home/ViewController/HomeViewController.swift; sourceTree = SOURCE_ROOT; };
+		BDF9F33E279E82E700E4DAB3 /* Map.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Map.storyboard; path = Bogota/Map/Map.storyboard; sourceTree = SOURCE_ROOT; };
+		BDF9F340279E82F000E4DAB3 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = Bogota/Map/ViewController/MapViewController.swift; sourceTree = SOURCE_ROOT; };
+		BDF9F343279E9AE500E4DAB3 /* HomeStationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeStationCell.swift; path = Bogota/Home/View/HomeStationCell.swift; sourceTree = SOURCE_ROOT; };
+		BDF9F344279E9AE500E4DAB3 /* HomeStationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = HomeStationCell.xib; path = Bogota/Home/View/HomeStationCell.xib; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +68,8 @@
 		BDA82E31279E691A005D5683 /* bogota */ = {
 			isa = PBXGroup;
 			children = (
+				BDF9F33C279E82D300E4DAB3 /* Map */,
+				BDF9F334279E7F3900E4DAB3 /* Home */,
 				BDA82E32279E691A005D5683 /* AppDelegate.swift */,
 				BDA82E34279E691A005D5683 /* SceneDelegate.swift */,
 				BDA82E36279E691A005D5683 /* ViewController.swift */,
@@ -65,6 +79,50 @@
 				BDA82E40279E691C005D5683 /* Info.plist */,
 			);
 			path = bogota;
+			sourceTree = "<group>";
+		};
+		BDF9F334279E7F3900E4DAB3 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				BDF9F342279E9A2E00E4DAB3 /* View */,
+				BDF9F335279E7F4400E4DAB3 /* ViewController */,
+				BDF9F338279E7FE900E4DAB3 /* Home.storyboard */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		BDF9F335279E7F4400E4DAB3 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				BDF9F33A279E819C00E4DAB3 /* HomeViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		BDF9F33C279E82D300E4DAB3 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				BDF9F33E279E82E700E4DAB3 /* Map.storyboard */,
+				BDF9F33D279E82D700E4DAB3 /* ViewController */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		BDF9F33D279E82D700E4DAB3 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				BDF9F340279E82F000E4DAB3 /* MapViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		BDF9F342279E9A2E00E4DAB3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BDF9F343279E9AE500E4DAB3 /* HomeStationCell.swift */,
+				BDF9F344279E9AE500E4DAB3 /* HomeStationCell.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,8 +184,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				BDA82E3F279E691C005D5683 /* LaunchScreen.storyboard in Resources */,
+				BDF9F346279E9AE500E4DAB3 /* HomeStationCell.xib in Resources */,
 				BDA82E3C279E691C005D5683 /* Assets.xcassets in Resources */,
+				BDF9F33F279E82E700E4DAB3 /* Map.storyboard in Resources */,
 				BDA82E3A279E691B005D5683 /* Main.storyboard in Resources */,
+				BDF9F339279E7FE900E4DAB3 /* Home.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,8 +200,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				BDA82E37279E691A005D5683 /* ViewController.swift in Sources */,
+				BDF9F345279E9AE500E4DAB3 /* HomeStationCell.swift in Sources */,
 				BDA82E33279E691A005D5683 /* AppDelegate.swift in Sources */,
 				BDA82E35279E691A005D5683 /* SceneDelegate.swift in Sources */,
+				BDF9F341279E82F000E4DAB3 /* MapViewController.swift in Sources */,
+				BDF9F33B279E819C00E4DAB3 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
