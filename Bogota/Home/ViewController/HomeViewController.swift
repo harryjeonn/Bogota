@@ -14,14 +14,12 @@ class HomeViewController: BaseViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    private var locationManager = CLLocationManager()
+    private var locationManager = LocationManager.shared.locationManager
     
-    private var testStationList = [String]()
     private var posStations = [PosStation]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getCurrentLocation()
         setupTableView()
         setupTabbar()
         setupUI()
@@ -76,24 +74,6 @@ class HomeViewController: BaseViewController {
         
         posStations = itemList
         tableView.reloadData()
-    }
-    
-    private func getCurrentLocation() {
-        // Delegate 설정
-        locationManager.delegate = self
-        // 거리 정확도 설정
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        // 권한 허용 팝업
-        locationManager.requestWhenInUseAuthorization()
-        
-        if CLLocationManager.locationServicesEnabled() {
-            // 위치 서비스 On
-            
-            // 위치 업데이트 시작
-            locationManager.startUpdatingLocation()
-        } else {
-            // 위치 서비스 Off
-        }
     }
     
     private func getStationByPos() {
@@ -174,12 +154,5 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         headerView.addSubview(label)
         
         return headerView
-    }
-}
-
-extension HomeViewController: CLLocationManagerDelegate {
-    // 위치 정보 업데이트
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        
     }
 }
