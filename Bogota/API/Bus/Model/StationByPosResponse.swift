@@ -10,30 +10,15 @@ import Foundation
 struct StationByPosResponse: Codable {
     var comMsgHeader: ComMsgHeader?
     var msgHeader: MsgHeader?
-    var msgBody: ItemList?
+    var msgBody: PosItemList?
 }
 
-struct ComMsgHeader: Codable {
-    var errMsg: String?
-    var requestMsgID: String?
-    var responseMsgID: String?
-    var responseTime: String?
-    var returnCode: String?
-    var successYN: String?
-}
-        
-struct MsgHeader: Codable {
-    var headerCd: String?
-    var headerMsg: String?
-    var itemCount: Int?
+struct PosItemList: Codable {
+    var itemList: [PosStation]?     // 정류장 리스트
 }
 
-struct ItemList: Codable {
-    var itemList: [Station]?     // 정류장 리스트
-}
-
-struct Station: Codable {
-    var arsId: String?              // 정류장 고유번호
+struct PosStation: Codable {
+    var arsId: String?           // 정류장 고유번호
     var posX: String?            // 정류장 좌표X (GRS80)
     var posY: String?            // 정류장 좌표Y (GRS80)
     var dist: String?            // 거리

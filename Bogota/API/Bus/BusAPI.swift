@@ -52,4 +52,35 @@ class BusAPI {
         let res = try JSONDecoder().decode(StationByPosResponse.self, from: data)
         return res
     }
+    
+    // 정류소 명칭 검색
+    func getStationByNameList(_ keyword: String) async throws -> StationByNameResponse {
+        let urlStr = "http://ws.bus.go.kr/api/rest/stationinfo/getStationByName"
+        guard var urlComponents = URLComponents(string: urlStr) else { throw BusAPIError.invalidURL }
+        
+        let query: [String: String] = [
+            "serviceKey": decodingKey,
+            "resultType": "json",
+            "stSrch": keyword
+        ]
+
+        let queryItems = query.map { URLQueryItem(name: $0.key, value: $0.value) }
+        urlComponents.queryItems = queryItems
+        
+        guard let requestURL = urlComponents.url else { throw BusAPIError.invalidURL }
+        
+        let defaultSession = URLSession(configuration: .default)
+
+        let (data, response) = try await defaultSession.data(from: requestURL)
+        
+        guard let httpResponse = response as? HTTPURLResponse,
+              httpResponse.statusCode == 200 else {
+                  throw BusAPIError.network
+              }
+        
+        print("getStationByName response = \(response)")
+        
+        let res = try JSONDecoder().decode(StationByNameResponse.self, from: data)
+        return res
+    }
 }

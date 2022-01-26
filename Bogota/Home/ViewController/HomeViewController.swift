@@ -17,7 +17,7 @@ class HomeViewController: BaseViewController {
     private var locationManager = CLLocationManager()
     
     private var testStationList = [String]()
-    private var stations = [Station]()
+    private var posStations = [PosStation]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,7 +74,7 @@ class HomeViewController: BaseViewController {
         guard let msgBody = response.msgBody,
               let itemList = msgBody.itemList else { return }
         
-        stations = itemList
+        posStations = itemList
         tableView.reloadData()
     }
     
@@ -104,7 +104,9 @@ class HomeViewController: BaseViewController {
               }
         let tmX = String(format: "%.8f", lon)
         let tmY = String(format: "%.8f", lat)
+        
         showLoading()
+        
         Task {
             do {
                 let response = try await BusAPI.shared.getStationByPos(tmX: tmX, tmY: tmY)
@@ -120,37 +122,35 @@ class HomeViewController: BaseViewController {
     // MARK: - Button event
     @IBAction func searchButtonClicked(_ sender: Any) {
         print("Clicked search button")
-        // TODO: 정류소 검색
-        // 정류소 이름이나 ID 가지고 정류소 검색
-        // 위치정보와 정류소 지나는 버스 정보 필요
-        // 화면 전환
-        
-        // test code
         if let text = searchTextField.text,
            text != "" {
-            testStationList.append(text)
-            searchTextField.text = nil
+            // Tab 이동하면서 검색 API 요청
+            guard let tabBarController = tabBarController,
+                  let viewControllers = tabBarController.viewControllers else { return }
+            
+            guard let vc = viewControllers[1] as? MapViewController else { return }
+            vc.searchStationByName(text)
+            self.tabBarController?.selectedIndex = 1
         }
-        
-        tableView.reloadData()
+        searchTextField.text = nil
     }
 }
 
 // MARK: - TableView Delegate
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return stations.count
+        return posStations.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "HomeStationCell") as? HomeStationCell else { return UITableViewCell() }
-        let station = stations[indexPath.row]
+        let posStation = posStations[indexPath.row]
         
-        if let stationNm = station.stationNm {
+        if let stationNm = posStation.stationNm {
             cell.titleLabel.text = stationNm
         }
         
-        if let arsId = station.arsId {
+        if let arsId = posStation.arsId {
             cell.subTitleLabel.text = "\(arsId)"
         }
         

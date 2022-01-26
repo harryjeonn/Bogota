@@ -14,6 +14,8 @@
 		BD1847E027A0E42F00E7CE78 /* CommonPopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD1847DF27A0E42F00E7CE78 /* CommonPopupView.xib */; };
 		BD1847E327A0E66500E7CE78 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1847E227A0E66500E7CE78 /* BaseViewController.swift */; };
 		BD1847E527A0E74A00E7CE78 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1847E427A0E74A00E7CE78 /* Utils.swift */; };
+		BD1847E727A11BF800E7CE78 /* CommonResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1847E627A11BF800E7CE78 /* CommonResponse.swift */; };
+		BD1847E927A11CD300E7CE78 /* StationByNameResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1847E827A11CD300E7CE78 /* StationByNameResponse.swift */; };
 		BDA82E33279E691A005D5683 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA82E32279E691A005D5683 /* AppDelegate.swift */; };
 		BDA82E35279E691A005D5683 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA82E34279E691A005D5683 /* SceneDelegate.swift */; };
 		BDA82E37279E691A005D5683 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA82E36279E691A005D5683 /* ViewController.swift */; };
@@ -35,6 +37,8 @@
 		BD1847DF27A0E42F00E7CE78 /* CommonPopupView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CommonPopupView.xib; path = Bogota/Common/View/CommonPopupView.xib; sourceTree = SOURCE_ROOT; };
 		BD1847E227A0E66500E7CE78 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BaseViewController.swift; path = Bogota/Common/Utils/BaseViewController.swift; sourceTree = SOURCE_ROOT; };
 		BD1847E427A0E74A00E7CE78 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Utils.swift; path = Bogota/Common/Utils/Utils.swift; sourceTree = SOURCE_ROOT; };
+		BD1847E627A11BF800E7CE78 /* CommonResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CommonResponse.swift; path = Bogota/API/Bus/Model/CommonResponse.swift; sourceTree = SOURCE_ROOT; };
+		BD1847E827A11CD300E7CE78 /* StationByNameResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StationByNameResponse.swift; path = Bogota/API/Bus/Model/StationByNameResponse.swift; sourceTree = SOURCE_ROOT; };
 		BDA82E2F279E691A005D5683 /* bogota.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bogota.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDA82E32279E691A005D5683 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BDA82E34279E691A005D5683 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -90,6 +94,8 @@
 			isa = PBXGroup;
 			children = (
 				BD1847D1279FC4C300E7CE78 /* StationByPosResponse.swift */,
+				BD1847E627A11BF800E7CE78 /* CommonResponse.swift */,
+				BD1847E827A11CD300E7CE78 /* StationByNameResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -286,6 +292,7 @@
 				BDA82E37279E691A005D5683 /* ViewController.swift in Sources */,
 				BDF9F345279E9AE500E4DAB3 /* HomeStationCell.swift in Sources */,
 				BD1847D6279FC84600E7CE78 /* BusAPI.swift in Sources */,
+				BD1847E927A11CD300E7CE78 /* StationByNameResponse.swift in Sources */,
 				BDA82E33279E691A005D5683 /* AppDelegate.swift in Sources */,
 				BD1847E327A0E66500E7CE78 /* BaseViewController.swift in Sources */,
 				BD1847DA27A0CFA400E7CE78 /* HomeViewController.swift in Sources */,
@@ -293,6 +300,7 @@
 				BD1847DE27A0E42400E7CE78 /* CommonPopupView.swift in Sources */,
 				BDA82E35279E691A005D5683 /* SceneDelegate.swift in Sources */,
 				BDF9F341279E82F000E4DAB3 /* MapViewController.swift in Sources */,
+				BD1847E727A11BF800E7CE78 /* CommonResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
