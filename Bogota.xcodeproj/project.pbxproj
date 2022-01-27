@@ -18,12 +18,18 @@
 		BD1847E727A11BF800E7CE78 /* CommonResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1847E627A11BF800E7CE78 /* CommonResponse.swift */; };
 		BD1847E927A11CD300E7CE78 /* StationByNameResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1847E827A11CD300E7CE78 /* StationByNameResponse.swift */; };
 		BD1847EE27A14BA100E7CE78 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1847ED27A14BA100E7CE78 /* LocationManager.swift */; };
+		BD35A3CE27A2593900F74D4F /* StationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD35A3CD27A2593900F74D4F /* StationDetailViewController.swift */; };
+		BD35A3D027A25A2400F74D4F /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD35A3CF27A25A2400F74D4F /* Detail.storyboard */; };
+		BD35A3D327A26DB500F74D4F /* BusInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD35A3D127A26DB500F74D4F /* BusInfoCell.swift */; };
+		BD35A3D427A26DB500F74D4F /* BusInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD35A3D227A26DB500F74D4F /* BusInfoCell.xib */; };
+		BD35A3D727A2753800F74D4F /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD35A3D627A2753800F74D4F /* Route.swift */; };
 		BDA82E33279E691A005D5683 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA82E32279E691A005D5683 /* AppDelegate.swift */; };
 		BDA82E35279E691A005D5683 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA82E34279E691A005D5683 /* SceneDelegate.swift */; };
 		BDA82E37279E691A005D5683 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA82E36279E691A005D5683 /* ViewController.swift */; };
 		BDA82E3A279E691B005D5683 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDA82E38279E691B005D5683 /* Main.storyboard */; };
 		BDA82E3C279E691C005D5683 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDA82E3B279E691C005D5683 /* Assets.xcassets */; };
 		BDA82E3F279E691C005D5683 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDA82E3D279E691C005D5683 /* LaunchScreen.storyboard */; };
+		BDB9B4B027A237CB0002008C /* LowStationByUidResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB9B4AF27A237CB0002008C /* LowStationByUidResponse.swift */; };
 		BDF9F339279E7FE900E4DAB3 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDF9F338279E7FE900E4DAB3 /* Home.storyboard */; };
 		BDF9F33F279E82E700E4DAB3 /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDF9F33E279E82E700E4DAB3 /* Map.storyboard */; };
 		BDF9F341279E82F000E4DAB3 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF9F340279E82F000E4DAB3 /* MapViewController.swift */; };
@@ -45,6 +51,11 @@
 		BD1847E627A11BF800E7CE78 /* CommonResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CommonResponse.swift; path = Bogota/API/Bus/Model/CommonResponse.swift; sourceTree = SOURCE_ROOT; };
 		BD1847E827A11CD300E7CE78 /* StationByNameResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StationByNameResponse.swift; path = Bogota/API/Bus/Model/StationByNameResponse.swift; sourceTree = SOURCE_ROOT; };
 		BD1847ED27A14BA100E7CE78 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LocationManager.swift; path = Bogota/Common/Manager/LocationManager.swift; sourceTree = SOURCE_ROOT; };
+		BD35A3CD27A2593900F74D4F /* StationDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StationDetailViewController.swift; path = Bogota/Detail/ViewController/StationDetailViewController.swift; sourceTree = SOURCE_ROOT; };
+		BD35A3CF27A25A2400F74D4F /* Detail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Detail.storyboard; path = Bogota/Detail/Detail.storyboard; sourceTree = SOURCE_ROOT; };
+		BD35A3D127A26DB500F74D4F /* BusInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BusInfoCell.swift; path = Bogota/Detail/View/BusInfoCell.swift; sourceTree = SOURCE_ROOT; };
+		BD35A3D227A26DB500F74D4F /* BusInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = BusInfoCell.xib; path = Bogota/Detail/View/BusInfoCell.xib; sourceTree = SOURCE_ROOT; };
+		BD35A3D627A2753800F74D4F /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Route.swift; path = Bogota/Detail/Model/Route.swift; sourceTree = SOURCE_ROOT; };
 		BDA82E2F279E691A005D5683 /* bogota.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bogota.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDA82E32279E691A005D5683 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BDA82E34279E691A005D5683 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,7 +64,8 @@
 		BDA82E3B279E691C005D5683 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BDA82E3E279E691C005D5683 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BDA82E40279E691C005D5683 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BDF9F338279E7FE900E4DAB3 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Home.storyboard; path = bogota/Home/View/Home.storyboard; sourceTree = SOURCE_ROOT; };
+		BDB9B4AF27A237CB0002008C /* LowStationByUidResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LowStationByUidResponse.swift; path = Bogota/API/Bus/Model/LowStationByUidResponse.swift; sourceTree = SOURCE_ROOT; };
+		BDF9F338279E7FE900E4DAB3 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Home.storyboard; path = bogota/Home/Home.storyboard; sourceTree = SOURCE_ROOT; };
 		BDF9F33E279E82E700E4DAB3 /* Map.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Map.storyboard; path = Bogota/Map/Map.storyboard; sourceTree = SOURCE_ROOT; };
 		BDF9F340279E82F000E4DAB3 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = Bogota/Map/ViewController/MapViewController.swift; sourceTree = SOURCE_ROOT; };
 		BDF9F343279E9AE500E4DAB3 /* HomeStationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeStationCell.swift; path = bogota/Home/View/CustomView/HomeStationCell.swift; sourceTree = SOURCE_ROOT; };
@@ -108,9 +120,10 @@
 		BD1847D0279FC4AC00E7CE78 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				BD1847D1279FC4C300E7CE78 /* StationByPosResponse.swift */,
 				BD1847E627A11BF800E7CE78 /* CommonResponse.swift */,
+				BD1847D1279FC4C300E7CE78 /* StationByPosResponse.swift */,
 				BD1847E827A11CD300E7CE78 /* StationByNameResponse.swift */,
+				BDB9B4AF27A237CB0002008C /* LowStationByUidResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -160,6 +173,42 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
+		BD35A3CA27A258B200F74D4F /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				BD35A3CF27A25A2400F74D4F /* Detail.storyboard */,
+				BD35A3D527A2751E00F74D4F /* Model */,
+				BD35A3CC27A2590900F74D4F /* View */,
+				BD35A3CB27A2590100F74D4F /* ViewController */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		BD35A3CB27A2590100F74D4F /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				BD35A3CD27A2593900F74D4F /* StationDetailViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		BD35A3CC27A2590900F74D4F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BD35A3D127A26DB500F74D4F /* BusInfoCell.swift */,
+				BD35A3D227A26DB500F74D4F /* BusInfoCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BD35A3D527A2751E00F74D4F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BD35A3D627A2753800F74D4F /* Route.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		BDA82E26279E691A005D5683 = {
 			isa = PBXGroup;
 			children = (
@@ -185,6 +234,7 @@
 				BD1847CD279FC44900E7CE78 /* API */,
 				BDF9F33C279E82D300E4DAB3 /* Map */,
 				BDF9F334279E7F3900E4DAB3 /* Home */,
+				BD35A3CA27A258B200F74D4F /* Detail */,
 				BDA82E32279E691A005D5683 /* AppDelegate.swift */,
 				BDA82E34279E691A005D5683 /* SceneDelegate.swift */,
 				BDA82E36279E691A005D5683 /* ViewController.swift */,
@@ -199,6 +249,7 @@
 		BDF9F334279E7F3900E4DAB3 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				BDF9F338279E7FE900E4DAB3 /* Home.storyboard */,
 				BDF9F335279E7F4400E4DAB3 /* ViewController */,
 				BDF9F342279E9A2E00E4DAB3 /* View */,
 			);
@@ -233,7 +284,6 @@
 		BDF9F342279E9A2E00E4DAB3 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				BDF9F338279E7FE900E4DAB3 /* Home.storyboard */,
 				BD1847D727A0CE5700E7CE78 /* CustomView */,
 			);
 			path = View;
@@ -311,6 +361,8 @@
 				BD1847E027A0E42F00E7CE78 /* CommonPopupView.xib in Resources */,
 				BDA82E3F279E691C005D5683 /* LaunchScreen.storyboard in Resources */,
 				BDF9F346279E9AE500E4DAB3 /* HomeStationCell.xib in Resources */,
+				BD35A3D427A26DB500F74D4F /* BusInfoCell.xib in Resources */,
+				BD35A3D027A25A2400F74D4F /* Detail.storyboard in Resources */,
 				BDA82E3C279E691C005D5683 /* Assets.xcassets in Resources */,
 				BDF9F33F279E82E700E4DAB3 /* Map.storyboard in Resources */,
 				BDA82E3A279E691B005D5683 /* Main.storyboard in Resources */,
@@ -367,14 +419,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD35A3CE27A2593900F74D4F /* StationDetailViewController.swift in Sources */,
+				BD35A3D727A2753800F74D4F /* Route.swift in Sources */,
 				BD1847D2279FC4C300E7CE78 /* StationByPosResponse.swift in Sources */,
 				BDA82E37279E691A005D5683 /* ViewController.swift in Sources */,
 				BDF9F345279E9AE500E4DAB3 /* HomeStationCell.swift in Sources */,
 				BD1847D6279FC84600E7CE78 /* BusAPI.swift in Sources */,
 				BD1847E927A11CD300E7CE78 /* StationByNameResponse.swift in Sources */,
 				BDA82E33279E691A005D5683 /* AppDelegate.swift in Sources */,
+				BDB9B4B027A237CB0002008C /* LowStationByUidResponse.swift in Sources */,
 				BD1847E327A0E66500E7CE78 /* BaseViewController.swift in Sources */,
 				BD1847DA27A0CFA400E7CE78 /* HomeViewController.swift in Sources */,
+				BD35A3D327A26DB500F74D4F /* BusInfoCell.swift in Sources */,
 				BD1847E527A0E74A00E7CE78 /* Utils.swift in Sources */,
 				BD1847DE27A0E42400E7CE78 /* CommonPopupView.swift in Sources */,
 				BD1847EE27A14BA100E7CE78 /* LocationManager.swift in Sources */,

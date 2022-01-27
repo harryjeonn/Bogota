@@ -83,4 +83,35 @@ class BusAPI {
         let res = try JSONDecoder().decode(StationByNameResponse.self, from: data)
         return res
     }
+    
+    // 고유번호를 입력받은 정류소의 저상버스 도착정보
+    func getLowStationByUidList(_ arsId: String) async throws -> LowStationByUidResponse {
+        let urlStr = "http://ws.bus.go.kr/api/rest/stationinfo/getLowStationByUid"
+        guard var urlComponents = URLComponents(string: urlStr) else { throw BusAPIError.invalidURL }
+        
+        let query: [String: String] = [
+            "serviceKey": decodingKey,
+            "resultType": "json",
+            "arsId": arsId
+        ]
+
+        let queryItems = query.map { URLQueryItem(name: $0.key, value: $0.value) }
+        urlComponents.queryItems = queryItems
+        
+        guard let requestURL = urlComponents.url else { throw BusAPIError.invalidURL }
+        
+        let defaultSession = URLSession(configuration: .default)
+
+        let (data, response) = try await defaultSession.data(from: requestURL)
+        
+        guard let httpResponse = response as? HTTPURLResponse,
+              httpResponse.statusCode == 200 else {
+                  throw BusAPIError.network
+              }
+        
+        print("getStationByName response = \(response)")
+        
+        let res = try JSONDecoder().decode(LowStationByUidResponse.self, from: data)
+        return res
+    }
 }
