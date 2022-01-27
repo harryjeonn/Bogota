@@ -164,4 +164,10 @@ extension StationDetailViewController: UITableViewDelegate, UITableViewDataSourc
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // TODO: - 버스 상세화면 진입
+        let busInfo = busInfos[indexPath.row]
+        
+    }
 }
