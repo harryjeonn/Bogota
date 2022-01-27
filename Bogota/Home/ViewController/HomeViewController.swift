@@ -131,8 +131,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             cell.titleLabel.text = stationNm
         }
         
-        if let arsId = posStation.arsId {
-            cell.subTitleLabel.text = "\(arsId)"
+        if let arsId = posStation.arsId,
+           let distance = posStation.dist {
+            cell.subTitleLabel.text = "\(arsId) | \(distance)m"
         }
         
         return cell
