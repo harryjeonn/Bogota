@@ -39,6 +39,8 @@ class BusInfoCell: UITableViewCell {
         routeTypeLabel.layer.cornerRadius = 5
         routeTypeLabel.textAlignment = .center
         routeTypeLabel.font = .systemFont(ofSize: 15)
+        
+        self.selectionStyle = .none
     }
     
 }

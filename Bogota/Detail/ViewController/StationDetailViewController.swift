@@ -185,5 +185,8 @@ extension StationDetailViewController: UITableViewDelegate, UITableViewDataSourc
         // TODO: - 버스 상세화면 진입
         let busInfo = busInfos[indexPath.row]
         
+        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "BusDetailViewController") as? BusDetailViewController else { return }
+        vc.busInfo = busInfo
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }

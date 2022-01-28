@@ -25,6 +25,7 @@
 		BD35A3D727A2753800F74D4F /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD35A3D627A2753800F74D4F /* Route.swift */; };
 		BD35A3D927A3736700F74D4F /* EmptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD35A3D827A3736700F74D4F /* EmptyView.xib */; };
 		BD35A3DB27A3737700F74D4F /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD35A3DA27A3737700F74D4F /* EmptyView.swift */; };
+		BD35A3DE27A37B6600F74D4F /* BusDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD35A3DD27A37B6600F74D4F /* BusDetailViewController.swift */; };
 		BDA82E33279E691A005D5683 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA82E32279E691A005D5683 /* AppDelegate.swift */; };
 		BDA82E35279E691A005D5683 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA82E34279E691A005D5683 /* SceneDelegate.swift */; };
 		BDA82E37279E691A005D5683 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA82E36279E691A005D5683 /* ViewController.swift */; };
@@ -60,6 +61,7 @@
 		BD35A3D627A2753800F74D4F /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Route.swift; path = Bogota/Detail/Model/Route.swift; sourceTree = SOURCE_ROOT; };
 		BD35A3D827A3736700F74D4F /* EmptyView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = EmptyView.xib; path = Bogota/Common/View/EmptyView.xib; sourceTree = SOURCE_ROOT; };
 		BD35A3DA27A3737700F74D4F /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EmptyView.swift; path = Bogota/Common/View/EmptyView.swift; sourceTree = SOURCE_ROOT; };
+		BD35A3DD27A37B6600F74D4F /* BusDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BusDetailViewController.swift; path = Bogota/Detail/ViewController/BusDetailViewController.swift; sourceTree = SOURCE_ROOT; };
 		BDA82E2F279E691A005D5683 /* bogota.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bogota.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDA82E32279E691A005D5683 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BDA82E34279E691A005D5683 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				BD35A3CD27A2593900F74D4F /* StationDetailViewController.swift */,
+				BD35A3DD27A37B6600F74D4F /* BusDetailViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -430,6 +433,7 @@
 				BD35A3D727A2753800F74D4F /* Route.swift in Sources */,
 				BD1847D2279FC4C300E7CE78 /* StationByPosResponse.swift in Sources */,
 				BDA82E37279E691A005D5683 /* ViewController.swift in Sources */,
+				BD35A3DE27A37B6600F74D4F /* BusDetailViewController.swift in Sources */,
 				BDF9F345279E9AE500E4DAB3 /* HomeStationCell.swift in Sources */,
 				BD35A3DB27A3737700F74D4F /* EmptyView.swift in Sources */,
 				BD1847D6279FC84600E7CE78 /* BusAPI.swift in Sources */,
