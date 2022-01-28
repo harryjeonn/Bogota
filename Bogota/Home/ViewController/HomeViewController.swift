@@ -45,6 +45,7 @@ class HomeViewController: BaseViewController {
     
     private func setupUI() {
         // TextField
+        searchTextField.delegate = self
         searchTextField.layer.cornerRadius = 10
         searchTextField.placeholder = "정류장 검색"
         
@@ -128,9 +129,7 @@ class HomeViewController: BaseViewController {
         }
     }
     
-    // MARK: - Button event
-    @IBAction func searchButtonClicked(_ sender: Any) {
-        print("Clicked search button")
+    private func didSearch() {
         if let text = searchTextField.text,
            text != "" {
             // Tab 이동하면서 검색 API 요청
@@ -140,8 +139,15 @@ class HomeViewController: BaseViewController {
             guard let vc = viewControllers[1] as? MapViewController else { return }
             vc.searchStationByName(text)
             self.tabBarController?.selectedIndex = 1
+            searchTextField.text = nil
+        } else {
+            dismissKeyboard()
         }
-        searchTextField.text = nil
+    }
+    
+    // MARK: - Button event
+    @IBAction func searchButtonClicked(_ sender: Any) {
+        didSearch()
     }
     
     @IBAction func refreshButtonClicked(_ sender: Any) {
@@ -197,5 +203,12 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         headerView.addSubview(label)
         
         return headerView
+    }
+}
+
+extension HomeViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        didSearch()
+        return true
     }
 }
