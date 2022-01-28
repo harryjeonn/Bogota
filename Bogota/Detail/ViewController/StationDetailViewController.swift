@@ -18,6 +18,7 @@ class StationDetailViewController: BaseViewController {
     @IBOutlet weak var refreshButton: UIButton!
     
     private var busInfos = [LowBusInfo]()
+    private let emptyView = EmptyView()
     
     var ardId = ""
     var stationNm = ""
@@ -73,6 +74,17 @@ class StationDetailViewController: BaseViewController {
         tableView.rowHeight = 80
         tableView.separatorStyle = .none
         tableView.showsVerticalScrollIndicator = false
+        
+        // emptyView
+        emptyView.bounds = tableView.bounds
+        emptyView.emptyLabel.text = "정류장 정보가 없습니다."
+        tableView.addSubview(emptyView)
+        
+        emptyView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            emptyView.centerXAnchor.constraint(equalTo: tableView.centerXAnchor),
+            emptyView.centerYAnchor.constraint(equalTo: tableView.centerYAnchor)
+        ])
     }
     
     private func setupInfo() {
@@ -98,11 +110,13 @@ class StationDetailViewController: BaseViewController {
     }
     
     private func updateTableView(_ response: LowStationByUidResponse) {
-        guard let msgBody = response.msgBody,
-              let itemList = msgBody.itemList else { return }
+        if let msgBody = response.msgBody,
+           let itemList = msgBody.itemList {
+            busInfos = itemList
+            tableView.reloadData()
+        }
         
-        busInfos = itemList
-        tableView.reloadData()
+        emptyView.isHidden = !busInfos.isEmpty
     }
     
     private func getStationDetail() {
