@@ -40,6 +40,18 @@
                                     <action selector="searchButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="0iG-gP-XE4"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ww0-MU-Orp">
+                                <rect key="frame" x="334" y="733" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="0CT-3y-bmF"/>
+                                    <constraint firstAttribute="height" constant="50" id="RvR-qi-S8E"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="arrow.clockwise" catalog="system"/>
+                                <connections>
+                                    <action selector="refreshButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="gPY-4L-MTS"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -49,9 +61,11 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="PHi-wN-Jtu" secondAttribute="trailing" constant="20" id="LQz-Le-FHh"/>
                             <constraint firstItem="Y9V-fz-MZV" firstAttribute="leading" secondItem="xKJ-3Q-5xy" secondAttribute="trailing" constant="8" id="cpu-jK-Ubn"/>
                             <constraint firstItem="PHi-wN-Jtu" firstAttribute="top" secondItem="xKJ-3Q-5xy" secondAttribute="bottom" constant="20" id="fPR-aH-0Wa"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="ww0-MU-Orp" secondAttribute="trailing" constant="30" id="gyJ-8G-FYQ"/>
                             <constraint firstItem="Y9V-fz-MZV" firstAttribute="centerY" secondItem="xKJ-3Q-5xy" secondAttribute="centerY" id="ikI-9S-Nvq"/>
                             <constraint firstItem="xKJ-3Q-5xy" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="jDF-1b-jVi"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="PHi-wN-Jtu" secondAttribute="bottom" id="kIC-BZ-2yF"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="ww0-MU-Orp" secondAttribute="bottom" constant="30" id="pmG-WF-4lG"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Y9V-fz-MZV" secondAttribute="trailing" constant="20" id="wJw-Kj-xCz"/>
                         </constraints>
                     </view>
@@ -59,6 +73,7 @@
                     <navigationItem key="navigationItem" id="hx8-GG-On4"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="refreshButton" destination="ww0-MU-Orp" id="hFI-71-ZGg"/>
                         <outlet property="searchButton" destination="Y9V-fz-MZV" id="oES-nD-ccT"/>
                         <outlet property="searchTextField" destination="xKJ-3Q-5xy" id="RW1-NK-Des"/>
                         <outlet property="tableView" destination="PHi-wN-Jtu" id="6Fb-sz-XZ1"/>
@@ -86,6 +101,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="tabbar_home" width="24" height="24"/>
         <systemColor name="systemBackgroundColor">

@@ -62,7 +62,7 @@ class StationDetailViewController: BaseViewController {
         
         refreshButton.backgroundColor = .white
         refreshButton.tintColor = .black
-        refreshButton.layer.cornerRadius = showMapButton.frame.width / 2
+        refreshButton.layer.cornerRadius = refreshButton.frame.width / 2
         refreshButton.layer.shadowRadius = 1
         refreshButton.layer.shadowOpacity = 0.5
         refreshButton.layer.shadowColor = UIColor.gray.cgColor

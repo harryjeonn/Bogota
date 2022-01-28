@@ -13,6 +13,7 @@ class HomeViewController: BaseViewController {
     @IBOutlet weak var searchButton: UIButton!
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var refreshButton: UIButton!
     
     private var locationManager = LocationManager.shared
     
@@ -25,12 +26,13 @@ class HomeViewController: BaseViewController {
         setupTabbar()
         setupUI()
         setupGestures()
+        getStationByPos()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = true
-        getStationByPos()
+        
     }
     
     private func setupTabbar() {
@@ -46,6 +48,16 @@ class HomeViewController: BaseViewController {
         
         // Button
         searchButton.setImage(UIImage(named: "btn_search"), for: .normal)
+        
+        refreshButton.backgroundColor = .white
+        refreshButton.tintColor = .black
+        refreshButton.layer.cornerRadius = refreshButton.frame.width / 2
+        refreshButton.layer.shadowRadius = 1
+        refreshButton.layer.shadowOpacity = 0.5
+        refreshButton.layer.shadowColor = UIColor.gray.cgColor
+        refreshButton.layer.shadowOffset = CGSize(width: 1, height: 1)
+        refreshButton.layer.borderWidth = 0.5
+        refreshButton.layer.borderColor = UIColor.gray.cgColor
         
         // TableView
         tableView.rowHeight = 100
@@ -115,6 +127,10 @@ class HomeViewController: BaseViewController {
             self.tabBarController?.selectedIndex = 1
         }
         searchTextField.text = nil
+    }
+    
+    @IBAction func refreshButtonClicked(_ sender: Any) {
+        getStationByPos()
     }
 }
 
