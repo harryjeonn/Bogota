@@ -19,6 +19,8 @@ class HomeViewController: BaseViewController {
     
     private var posStations = [PosStation]()
     
+    private let emptyView = EmptyView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager.getCurrentLocation()
@@ -63,6 +65,17 @@ class HomeViewController: BaseViewController {
         tableView.rowHeight = 100
         tableView.separatorStyle = .none
         tableView.showsVerticalScrollIndicator = false
+        
+        // emptyView
+        emptyView.bounds = tableView.bounds
+        emptyView.emptyLabel.text = "정류장 정보가 없습니다."
+        tableView.addSubview(emptyView)
+        
+        emptyView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            emptyView.centerXAnchor.constraint(equalTo: tableView.centerXAnchor),
+            emptyView.centerYAnchor.constraint(equalTo: tableView.centerYAnchor)
+        ])
     }
     
     private func setupTableView() {
@@ -83,11 +96,13 @@ class HomeViewController: BaseViewController {
     }
     
     private func updateTableView(_ response: StationByPosResponse) {
-        guard let msgBody = response.msgBody,
-              let itemList = msgBody.itemList else { return }
+        if let msgBody = response.msgBody,
+           let itemList = msgBody.itemList {
+            posStations = itemList
+            tableView.reloadData()
+        }
         
-        posStations = itemList
-        tableView.reloadData()
+        emptyView.isHidden = !posStations.isEmpty
     }
     
     private func getStationByPos() {
