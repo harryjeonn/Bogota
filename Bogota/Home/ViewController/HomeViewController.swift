@@ -14,12 +14,13 @@ class HomeViewController: BaseViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    private var locationManager = LocationManager.shared.locationManager
+    private var locationManager = LocationManager.shared
     
     private var posStations = [PosStation]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        locationManager.getCurrentLocation()
         setupTableView()
         setupTabbar()
         setupUI()
@@ -78,8 +79,8 @@ class HomeViewController: BaseViewController {
     }
     
     private func getStationByPos() {
-        guard let lat = locationManager.location?.coordinate.latitude,
-              let lon = locationManager.location?.coordinate.longitude else {
+        guard let lat = locationManager.locManager.location?.coordinate.latitude,
+              let lon = locationManager.locManager.location?.coordinate.longitude else {
                   print("Error: Can not load location")
                   return
               }

@@ -11,7 +11,7 @@ import NMapsMap
 class MapViewController: BaseViewController {
     @IBOutlet weak var mapView: NMFMapView!
     
-    private var locationManager = LocationManager.shared.locationManager
+    private var locationManager = LocationManager.shared
     
     private var stations = [NameStation]()
     private var markers = [NMFMarker]()
@@ -27,8 +27,8 @@ class MapViewController: BaseViewController {
     }
     
     private func setupMapView() {
-        guard let lat = locationManager.location?.coordinate.latitude,
-              let lon = locationManager.location?.coordinate.longitude else {
+        guard let lat = locationManager.locManager.location?.coordinate.latitude,
+              let lon = locationManager.locManager.location?.coordinate.longitude else {
                   print("Error: Can not load location")
                   return
               }

@@ -11,21 +11,21 @@ import CoreLocation
 class LocationManager: NSObject {
     static let shared = LocationManager()
     
-    var locationManager = CLLocationManager()
+    var locManager = CLLocationManager()
     
-    private func getCurrentLocation() {
+    func getCurrentLocation() {
         // delegate
-        locationManager.delegate = self
+        locManager.delegate = self
         // 거리 정확도 설정
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locManager.desiredAccuracy = kCLLocationAccuracyBest
         // 권한 허용 팝업
-        locationManager.requestWhenInUseAuthorization()
+        locManager.requestWhenInUseAuthorization()
         
         if CLLocationManager.locationServicesEnabled() {
             // 위치 서비스 On
             
             // 위치 업데이트 시작
-            locationManager.startUpdatingLocation()
+            locManager.startUpdatingLocation()
         } else {
             // 위치 서비스 Off
         }
