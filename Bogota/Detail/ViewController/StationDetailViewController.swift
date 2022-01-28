@@ -103,10 +103,12 @@ class StationDetailViewController: BaseViewController {
     private func updateInfo() {
         if let sectNm = busInfos.last?.sectNm,
            let findIndex: String.Index = sectNm.firstIndex(of: "~") {
-            directionLabel.text = "\(sectNm[...sectNm.index(before: findIndex)]) 방면"
+//            directionLabel.text = "\(sectNm[...sectNm.index(before: findIndex)]) 방면"
         } else {
             directionLabel.text = ""
         }
+        // TODO: - 진행방향 찾아서 수정 필요
+        directionLabel.text = ""
     }
     
     private func updateTableView(_ response: LowStationByUidResponse) {
