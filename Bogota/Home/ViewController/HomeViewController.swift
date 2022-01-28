@@ -179,12 +179,12 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("select cell")
-        guard let ardId = posStations[indexPath.row].arsId,
+        guard let arsId = posStations[indexPath.row].arsId,
               let stationNm = posStations[indexPath.row].stationNm else { return }
         
         let sb = UIStoryboard(name: "Detail", bundle: nil)
         guard let vc = sb.instantiateViewController(withIdentifier: "StationDetailViewController") as? StationDetailViewController else { return }
-        vc.ardId = ardId
+        vc.arsId = arsId
         vc.stationNm = stationNm
         self.navigationController?.pushViewController(vc, animated: true)
         

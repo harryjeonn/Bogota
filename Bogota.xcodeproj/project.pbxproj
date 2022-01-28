@@ -26,6 +26,9 @@
 		BD35A3D927A3736700F74D4F /* EmptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD35A3D827A3736700F74D4F /* EmptyView.xib */; };
 		BD35A3DB27A3737700F74D4F /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD35A3DA27A3737700F74D4F /* EmptyView.swift */; };
 		BD35A3DE27A37B6600F74D4F /* BusDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD35A3DD27A37B6600F74D4F /* BusDetailViewController.swift */; };
+		BD35A3E027A3BC0700F74D4F /* StationByRouteResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD35A3DF27A3BC0700F74D4F /* StationByRouteResponse.swift */; };
+		BD35A3E327A3BEA400F74D4F /* BusRouteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD35A3E127A3BEA400F74D4F /* BusRouteCell.swift */; };
+		BD35A3E427A3BEA400F74D4F /* BusRouteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD35A3E227A3BEA400F74D4F /* BusRouteCell.xib */; };
 		BDA82E33279E691A005D5683 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA82E32279E691A005D5683 /* AppDelegate.swift */; };
 		BDA82E35279E691A005D5683 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA82E34279E691A005D5683 /* SceneDelegate.swift */; };
 		BDA82E37279E691A005D5683 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA82E36279E691A005D5683 /* ViewController.swift */; };
@@ -33,6 +36,7 @@
 		BDA82E3C279E691C005D5683 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDA82E3B279E691C005D5683 /* Assets.xcassets */; };
 		BDA82E3F279E691C005D5683 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDA82E3D279E691C005D5683 /* LaunchScreen.storyboard */; };
 		BDB9B4B027A237CB0002008C /* LowStationByUidResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB9B4AF27A237CB0002008C /* LowStationByUidResponse.swift */; };
+		BDE1E40A27B356E200E83E63 /* BusPosByRtidListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE1E40927B356E200E83E63 /* BusPosByRtidListResponse.swift */; };
 		BDF9F339279E7FE900E4DAB3 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDF9F338279E7FE900E4DAB3 /* Home.storyboard */; };
 		BDF9F33F279E82E700E4DAB3 /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDF9F33E279E82E700E4DAB3 /* Map.storyboard */; };
 		BDF9F341279E82F000E4DAB3 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF9F340279E82F000E4DAB3 /* MapViewController.swift */; };
@@ -62,6 +66,9 @@
 		BD35A3D827A3736700F74D4F /* EmptyView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = EmptyView.xib; path = Bogota/Common/View/EmptyView.xib; sourceTree = SOURCE_ROOT; };
 		BD35A3DA27A3737700F74D4F /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EmptyView.swift; path = Bogota/Common/View/EmptyView.swift; sourceTree = SOURCE_ROOT; };
 		BD35A3DD27A37B6600F74D4F /* BusDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BusDetailViewController.swift; path = Bogota/Detail/ViewController/BusDetailViewController.swift; sourceTree = SOURCE_ROOT; };
+		BD35A3DF27A3BC0700F74D4F /* StationByRouteResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StationByRouteResponse.swift; path = Bogota/API/Bus/Model/StationByRouteResponse.swift; sourceTree = SOURCE_ROOT; };
+		BD35A3E127A3BEA400F74D4F /* BusRouteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BusRouteCell.swift; path = Bogota/Detail/View/BusRouteCell.swift; sourceTree = SOURCE_ROOT; };
+		BD35A3E227A3BEA400F74D4F /* BusRouteCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = BusRouteCell.xib; path = Bogota/Detail/View/BusRouteCell.xib; sourceTree = SOURCE_ROOT; };
 		BDA82E2F279E691A005D5683 /* bogota.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bogota.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDA82E32279E691A005D5683 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BDA82E34279E691A005D5683 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -71,6 +78,7 @@
 		BDA82E3E279E691C005D5683 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BDA82E40279E691C005D5683 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BDB9B4AF27A237CB0002008C /* LowStationByUidResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LowStationByUidResponse.swift; path = Bogota/API/Bus/Model/LowStationByUidResponse.swift; sourceTree = SOURCE_ROOT; };
+		BDE1E40927B356E200E83E63 /* BusPosByRtidListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BusPosByRtidListResponse.swift; path = Bogota/API/Bus/Model/BusPosByRtidListResponse.swift; sourceTree = SOURCE_ROOT; };
 		BDF9F338279E7FE900E4DAB3 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Home.storyboard; path = bogota/Home/Home.storyboard; sourceTree = SOURCE_ROOT; };
 		BDF9F33E279E82E700E4DAB3 /* Map.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Map.storyboard; path = Bogota/Map/Map.storyboard; sourceTree = SOURCE_ROOT; };
 		BDF9F340279E82F000E4DAB3 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = Bogota/Map/ViewController/MapViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -130,6 +138,8 @@
 				BD1847D1279FC4C300E7CE78 /* StationByPosResponse.swift */,
 				BD1847E827A11CD300E7CE78 /* StationByNameResponse.swift */,
 				BDB9B4AF27A237CB0002008C /* LowStationByUidResponse.swift */,
+				BD35A3DF27A3BC0700F74D4F /* StationByRouteResponse.swift */,
+				BDE1E40927B356E200E83E63 /* BusPosByRtidListResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -206,6 +216,8 @@
 			children = (
 				BD35A3D127A26DB500F74D4F /* BusInfoCell.swift */,
 				BD35A3D227A26DB500F74D4F /* BusInfoCell.xib */,
+				BD35A3E127A3BEA400F74D4F /* BusRouteCell.swift */,
+				BD35A3E227A3BEA400F74D4F /* BusRouteCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -371,6 +383,7 @@
 				BDA82E3F279E691C005D5683 /* LaunchScreen.storyboard in Resources */,
 				BDF9F346279E9AE500E4DAB3 /* HomeStationCell.xib in Resources */,
 				BD35A3D427A26DB500F74D4F /* BusInfoCell.xib in Resources */,
+				BD35A3E427A3BEA400F74D4F /* BusRouteCell.xib in Resources */,
 				BD35A3D927A3736700F74D4F /* EmptyView.xib in Resources */,
 				BD35A3D027A25A2400F74D4F /* Detail.storyboard in Resources */,
 				BDA82E3C279E691C005D5683 /* Assets.xcassets in Resources */,
@@ -431,14 +444,17 @@
 			files = (
 				BD35A3CE27A2593900F74D4F /* StationDetailViewController.swift in Sources */,
 				BD35A3D727A2753800F74D4F /* Route.swift in Sources */,
+				BD35A3E327A3BEA400F74D4F /* BusRouteCell.swift in Sources */,
 				BD1847D2279FC4C300E7CE78 /* StationByPosResponse.swift in Sources */,
 				BDA82E37279E691A005D5683 /* ViewController.swift in Sources */,
 				BD35A3DE27A37B6600F74D4F /* BusDetailViewController.swift in Sources */,
+				BD35A3E027A3BC0700F74D4F /* StationByRouteResponse.swift in Sources */,
 				BDF9F345279E9AE500E4DAB3 /* HomeStationCell.swift in Sources */,
 				BD35A3DB27A3737700F74D4F /* EmptyView.swift in Sources */,
 				BD1847D6279FC84600E7CE78 /* BusAPI.swift in Sources */,
 				BD1847E927A11CD300E7CE78 /* StationByNameResponse.swift in Sources */,
 				BDA82E33279E691A005D5683 /* AppDelegate.swift in Sources */,
+				BDE1E40A27B356E200E83E63 /* BusPosByRtidListResponse.swift in Sources */,
 				BDB9B4B027A237CB0002008C /* LowStationByUidResponse.swift in Sources */,
 				BD1847E327A0E66500E7CE78 /* BaseViewController.swift in Sources */,
 				BD1847DA27A0CFA400E7CE78 /* HomeViewController.swift in Sources */,

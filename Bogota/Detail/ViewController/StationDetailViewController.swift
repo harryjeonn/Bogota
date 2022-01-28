@@ -20,7 +20,7 @@ class StationDetailViewController: BaseViewController {
     private var busInfos = [LowBusInfo]()
     private let emptyView = EmptyView()
     
-    var ardId = ""
+    var arsId = ""
     var stationNm = ""
 
     override func viewDidLoad() {
@@ -88,7 +88,7 @@ class StationDetailViewController: BaseViewController {
     }
     
     private func setupInfo() {
-        ardIdLabel.text = "\(ardId)"
+        ardIdLabel.text = "\(arsId)"
         stationNameLabel.text = stationNm
     }
     
@@ -125,7 +125,7 @@ class StationDetailViewController: BaseViewController {
         showLoading()
         Task {
             do {
-                let response = try await BusAPI.shared.getLowStationByUidList(ardId)
+                let response = try await BusAPI.shared.getLowStationByUidList(arsId)
                 print(response)
                 self.updateTableView(response)
                 self.updateInfo()
@@ -187,6 +187,7 @@ extension StationDetailViewController: UITableViewDelegate, UITableViewDataSourc
         
         guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "BusDetailViewController") as? BusDetailViewController else { return }
         vc.busInfo = busInfo
+        vc.arsId = arsId
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }
