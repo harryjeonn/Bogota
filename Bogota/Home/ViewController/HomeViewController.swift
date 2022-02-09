@@ -40,7 +40,7 @@ class HomeViewController: BaseViewController {
     private func setupTabbar() {
         // TabBar 색상 설정
         self.tabBarController?.tabBar.tintColor = .black
-        self.tabBarController?.tabBar.backgroundColor = UIColor(red: 247/255, green: 247/255, blue: 247/255, alpha: 1.0)
+        self.tabBarController?.tabBar.backgroundColor = .tabBarBgColor
     }
     
     private func setupUI() {

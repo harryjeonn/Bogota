@@ -26,7 +26,7 @@ class CommonPopupView: UIView {
     private func loadView() {
         let view = Bundle.main.loadNibNamed("CommonPopupView", owner: self, options: nil)?.first as! UIView
         view.frame = bounds
-        view.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.2)
+        view.backgroundColor = .clearColor
         setupContentView()
         addGesture()
         addSubview(view)

@@ -51,13 +51,13 @@ enum RouteType {
     func color() -> UIColor {
         switch self {
         case .gansun:
-            return UIColor(red: 65/255, green: 131/255, blue: 227/255, alpha: 1.0)
+            return .blueColor
         case .jisun, .village:
-            return UIColor(red: 94/255, green: 197/255, blue: 112/255, alpha: 1.0)
+            return .greenColor
         case .cycle:
-            return UIColor(red: 250/255, green: 225/255, blue: 106/255, alpha: 1.0)
+            return .yellowColor
         case .wideArea:
-            return UIColor(red: 235/255, green: 82/255, blue: 53/255, alpha: 1.0)
+            return .redColor
         default:
             return .gray
         }

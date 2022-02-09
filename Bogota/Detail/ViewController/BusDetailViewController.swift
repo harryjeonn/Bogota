@@ -194,7 +194,7 @@ extension BusDetailViewController: UITableViewDelegate, UITableViewDataSource {
         
         // 선택 정류장 셀
         if route.arsId == arsId {
-            cell.backgroundColor = UIColor(red: 240/255, green: 255/255, blue: 255/255, alpha: 1.0)
+            cell.backgroundColor = .skyColor
             if let firstArrMsg = busInfo?.arrmsg1 {
                 cell.firstArrMsgLabel.text = firstArrMsg
             }
@@ -227,11 +227,11 @@ extension BusDetailViewController: UITableViewDelegate, UITableViewDataSource {
         // 각 정류장 구간 별 속도 시각화
         if let sectSpd = route.sectSpd {
             if Int(sectSpd)! <= 10 {
-                cell.lineView.backgroundColor = UIColor(red: 235/255, green: 82/255, blue: 53/255, alpha: 1.0)
+                cell.lineView.backgroundColor = .redColor
             } else if Int(sectSpd)! <= 20 {
-                cell.lineView.backgroundColor = UIColor(red: 250/255, green: 225/255, blue: 106/255, alpha: 1.0)
+                cell.lineView.backgroundColor = .yellowColor
             } else {
-                cell.lineView.backgroundColor = UIColor(red: 94/255, green: 197/255, blue: 112/255, alpha: 1.0)
+                cell.lineView.backgroundColor = .greenColor
             }
         }
         
