@@ -10,19 +10,18 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BusRouteCell" rowHeight="60" id="KGk-i7-Jjw" customClass="BusRouteCell" customModule="bogota" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BusRouteCell" rowHeight="148" id="KGk-i7-Jjw" customClass="BusRouteCell" customModule="bogota" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="148"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="148"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v0M-ro-uCP">
-                        <rect key="frame" x="40" y="0.0" width="3" height="60"/>
+                        <rect key="frame" x="40" y="0.0" width="3" height="148"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.down.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="kHM-K1-R4W">
-                                <rect key="frame" x="-6" y="23" width="15" height="14"/>
-                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.down.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="kHM-K1-R4W">
+                                <rect key="frame" x="-6" y="67" width="15" height="14"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="kHM-K1-R4W" secondAttribute="height" id="WF7-85-THt"/>
@@ -30,9 +29,9 @@
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bus" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="EqG-pb-46K">
-                                <rect key="frame" x="-6" y="4" width="15" height="16.5"/>
+                                <rect key="frame" x="-8.5" y="4" width="20" height="21.5"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="15" id="1qR-vT-efc"/>
+                                    <constraint firstAttribute="width" constant="20" id="1qR-vT-efc"/>
                                     <constraint firstAttribute="width" secondItem="EqG-pb-46K" secondAttribute="height" id="c8u-ml-IfN"/>
                                 </constraints>
                             </imageView>
@@ -43,10 +42,11 @@
                             <constraint firstAttribute="width" constant="3" id="OWY-4h-fWM"/>
                             <constraint firstItem="kHM-K1-R4W" firstAttribute="centerX" secondItem="v0M-ro-uCP" secondAttribute="centerX" id="PnR-oa-abs"/>
                             <constraint firstItem="EqG-pb-46K" firstAttribute="width" secondItem="EqG-pb-46K" secondAttribute="height" id="QxZ-Vj-luW"/>
+                            <constraint firstAttribute="height" constant="148" id="zeC-aC-OVD"/>
                         </constraints>
                     </view>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="MTv-bU-PYv">
-                        <rect key="frame" x="63" y="9.5" width="41.5" height="41"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="MTv-bU-PYv">
+                        <rect key="frame" x="63" y="15.5" width="41.5" height="45"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hEK-Jw-tcW">
                                 <rect key="frame" x="0.0" y="0.0" width="41.5" height="20.5"/>
@@ -55,7 +55,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vdC-Yk-Hrg">
-                                <rect key="frame" x="0.0" y="20.5" width="41.5" height="20.5"/>
+                                <rect key="frame" x="0.0" y="24.5" width="41.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -63,7 +63,7 @@
                         </subviews>
                     </stackView>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Jxz-Gd-5Na">
-                        <rect key="frame" x="270.5" y="5.5" width="41.5" height="49"/>
+                        <rect key="frame" x="63" y="68.5" width="41.5" height="49"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d73-MU-i6X">
                                 <rect key="frame" x="0.0" y="0.0" width="41.5" height="20.5"/>
@@ -83,34 +83,36 @@
                 <constraints>
                     <constraint firstItem="v0M-ro-uCP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="40" id="2Ig-zr-SzI"/>
                     <constraint firstItem="v0M-ro-uCP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="3Yd-MW-U2P"/>
-                    <constraint firstAttribute="trailing" secondItem="Jxz-Gd-5Na" secondAttribute="trailing" constant="8" id="8eL-A2-SG4"/>
-                    <constraint firstItem="Jxz-Gd-5Na" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="BVC-Tq-aEy"/>
+                    <constraint firstItem="MTv-bU-PYv" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15.5" id="BZn-81-yKG"/>
                     <constraint firstItem="MTv-bU-PYv" firstAttribute="leading" secondItem="v0M-ro-uCP" secondAttribute="trailing" constant="20" id="U7G-mf-mwH"/>
                     <constraint firstAttribute="bottom" secondItem="v0M-ro-uCP" secondAttribute="bottom" id="bI0-Ng-8TS"/>
+                    <constraint firstItem="Jxz-Gd-5Na" firstAttribute="leading" secondItem="v0M-ro-uCP" secondAttribute="trailing" constant="20" id="bYJ-16-WIV"/>
                     <constraint firstItem="EqG-pb-46K" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="f1q-t5-2ko"/>
+                    <constraint firstItem="Jxz-Gd-5Na" firstAttribute="top" secondItem="MTv-bU-PYv" secondAttribute="bottom" constant="8" id="opf-Gc-EVR"/>
                     <constraint firstItem="kHM-K1-R4W" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="owB-Ph-XAl"/>
-                    <constraint firstItem="MTv-bU-PYv" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="yN1-eV-aFa"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="busImageView" destination="EqG-pb-46K" id="zHU-xG-hiL"/>
+                <outlet property="busImageViewTopConstraint" destination="f1q-t5-2ko" id="cPg-bH-r0O"/>
                 <outlet property="downImageView" destination="kHM-K1-R4W" id="qif-pe-nyX"/>
                 <outlet property="firstArrMsgLabel" destination="d73-MU-i6X" id="GPG-TJ-sk5"/>
                 <outlet property="lineView" destination="v0M-ro-uCP" id="X6U-2T-EtQ"/>
                 <outlet property="lineViewBottomConstraint" destination="bI0-Ng-8TS" id="F74-Ff-0XP"/>
+                <outlet property="lineViewHeightConstraint" destination="zeC-aC-OVD" id="g59-HM-bbc"/>
                 <outlet property="lineViewTopConstraint" destination="3Yd-MW-U2P" id="Vvr-uU-vsX"/>
                 <outlet property="secondArrMsgLabel" destination="nvd-yf-zUv" id="G4D-lq-5Jv"/>
                 <outlet property="stationIdLabel" destination="vdC-Yk-Hrg" id="EIN-va-gaT"/>
                 <outlet property="stationLabel" destination="hEK-Jw-tcW" id="O7O-Yo-gu8"/>
             </connections>
-            <point key="canvasLocation" x="131.8840579710145" y="135.9375"/>
+            <point key="canvasLocation" x="131.8840579710145" y="164.73214285714286"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="bus" catalog="system" width="128" height="122"/>
-        <image name="chevron.down.circle" catalog="system" width="128" height="121"/>
+        <image name="chevron.down.circle.fill" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

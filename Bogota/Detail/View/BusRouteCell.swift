@@ -11,7 +11,9 @@ class BusRouteCell: UITableViewCell {
     @IBOutlet weak var lineView: UIView!
     @IBOutlet weak var lineViewTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var lineViewBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var lineViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var busImageView: UIImageView!
+    @IBOutlet weak var busImageViewTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var downImageView: UIImageView!
     @IBOutlet weak var stationLabel: UILabel!
     @IBOutlet weak var stationIdLabel: UILabel!
@@ -31,6 +33,8 @@ class BusRouteCell: UITableViewCell {
     }
     
     private func setupUI() {
+        stationLabel.numberOfLines = 0
+        
         stationLabel.font = .systemFont(ofSize: 17)
         stationIdLabel.font = .systemFont(ofSize: 14)
         firstArrMsgLabel.font = .systemFont(ofSize: 14)
@@ -41,12 +45,12 @@ class BusRouteCell: UITableViewCell {
         firstArrMsgLabel.textColor = .red
         secondArrMsgLabel.textColor = .red
         
-        firstArrMsgLabel.textAlignment = .right
-        secondArrMsgLabel.textAlignment = .right
-        
         downImageView.layer.cornerRadius = downImageView.frame.width / 2
+        downImageView.tintColor = .lightGray
+        downImageView.backgroundColor = .white
         
-        busImageView.isHidden = true
+        busImageView.tintColor = .blueColor
+        busImageView.backgroundColor = .white
         
         self.selectionStyle = .none
     }

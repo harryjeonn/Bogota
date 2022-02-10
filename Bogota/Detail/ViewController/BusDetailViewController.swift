@@ -108,8 +108,7 @@ class BusDetailViewController: BaseViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        tableView.rowHeight = 80
-        
+        tableView.rowHeight = UITableView.automaticDimension
         
         let nib = UINib(nibName: "BusRouteCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "BusRouteCell")
@@ -140,6 +139,7 @@ class BusDetailViewController: BaseViewController {
                 guard let busRouteId = busInfo?.busRouteId else { return }
                 let response = try await BusAPI.shared.getBusPosByRtidList(busRouteId)
                 self.updateBusPosition(response)
+                print(response)
             } catch {
                 print("*** Error: \(error.localizedDescription) - \(error)")
                 self.showCommonPopupView(title: "불러오기 실패", desc: "정보를 불러올 수 없습니다.\n잠시 후 다시 시도해주세요.")
@@ -214,10 +214,12 @@ extension BusDetailViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "BusRouteCell") as? BusRouteCell else { return UITableViewCell() }
         
         let route = routes[indexPath.row]
+        var busStartPoint: CGFloat = 0
         
         // 선택 정류장 셀
         if route.arsId == arsId {
             cell.backgroundColor = .skyColor
+            cell.busImageView.backgroundColor = .skyColor
             if let firstArrMsg = busInfo?.arrmsg1 {
                 cell.firstArrMsgLabel.text = firstArrMsg
             }
@@ -227,10 +229,15 @@ extension BusDetailViewController: UITableViewDelegate, UITableViewDataSource {
             }
             cell.firstArrMsgLabel.isHidden = false
             cell.secondArrMsgLabel.isHidden = false
+            cell.lineViewHeightConstraint.constant = 140
+            tableView.estimatedRowHeight = 140
+            busStartPoint = 70
         } else {
             cell.backgroundColor = .clear
             cell.firstArrMsgLabel.isHidden = true
             cell.secondArrMsgLabel.isHidden = true
+            cell.lineViewHeightConstraint.constant = 80
+            tableView.estimatedRowHeight = 80
         }
         
         // 각 정류장 이름과 정류장 번호
@@ -239,9 +246,11 @@ extension BusDetailViewController: UITableViewDelegate, UITableViewDataSource {
         
         // 첫 정류장과 마지막 정류장 라인 디테일
         if routes.first == route {
-            cell.lineViewTopConstraint.constant = 30
+            cell.lineViewHeightConstraint.constant /= 2
+            cell.lineViewTopConstraint.constant = cell.lineViewHeightConstraint.constant
         } else if routes.last == route {
-            cell.lineViewBottomConstraint.constant = 30
+            cell.lineViewHeightConstraint.constant /= 2
+            cell.lineViewBottomConstraint.constant = cell.lineViewHeightConstraint.constant
         } else {
             cell.lineViewTopConstraint.constant = 0
             cell.lineViewBottomConstraint.constant = 0
@@ -262,12 +271,20 @@ extension BusDetailViewController: UITableViewDelegate, UITableViewDataSource {
         var isBusHide = true
         busPositions.forEach { busPosition in
             if busPosition.busType == "1" && busPosition.lastStnId == route.station {
+                if let fullSectDist = busPosition.fullSectDist,
+                   let sectDist = busPosition.sectDist {
+                    if (Float(fullSectDist)! / 2) <= Float(sectDist)! {
+                        cell.busImageViewTopConstraint.constant = (busStartPoint / 2) + 50
+                    } else {
+                        cell.busImageViewTopConstraint.constant = (busStartPoint / 3) + 5
+                    }
+                }
+                
                 isBusHide = false
             }
         }
         
         cell.busImageView.isHidden = isBusHide
-        
         
         return cell
     }
