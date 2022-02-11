@@ -19,11 +19,16 @@ class BusDetailViewController: BaseViewController {
     
     var busInfo: LowBusInfo?
     var arsId: String?
+    var busRoute: BusRoute?
+    var busRouteId: String?
     private var routes = [RouteInfo]()
     private var busPositions = [BusPosition]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let busInfo = busInfo {
+            busRouteId = busInfo.busRouteId
+        }
         setupUI()
         setupTableView()
         getStationByRoute()
@@ -76,32 +81,64 @@ class BusDetailViewController: BaseViewController {
     }
     
     private func updateBusInfo() {
-        guard let busInfo = busInfo else { return }
-        
-        if let rtNm = busInfo.rtNm {
-            busNumerLabel.text = rtNm
+        if let busInfo = busInfo {
+            if let rtNm = busInfo.rtNm {
+                busNumerLabel.text = rtNm
+            }
+            
+            if let sectNm = busInfo.sectNm {
+                directionLabel.text = "\(sectNm)"
+            }
+            
+            if let routeType = busInfo.routeType {
+                busTypeLabel.text = Route.shared.convertRouteType(routeType).title()
+                busTypeLabel.backgroundColor = Route.shared.convertRouteType(routeType).color()
+            }
+            
+            if var firstTime = busInfo.firstTm,
+               var lastTime = busInfo.lastTm {
+                let insertIndex = firstTime.index(firstTime.startIndex, offsetBy: 2)
+                firstTime.insert(":", at: insertIndex)
+                lastTime.insert(":", at: insertIndex)
+                busTimeLabel.text = "운행시간 \(firstTime)~  \(lastTime)"
+            }
+            
+            if let term = busInfo.term {
+                intervalLabel.text = "배차간격 \(term)분"
+            }
+        } else if let busRoute = busRoute {
+            if let rtNm = busRoute.busRouteNm {
+                busNumerLabel.text = rtNm
+            }
+            
+            if let edStationNm = busRoute.edStationNm,
+               let stStationNm = busRoute.stStationNm {
+                directionLabel.text = "\(edStationNm) <-> \(stStationNm)"
+            }
+            
+            if let routeType = busRoute.routeType {
+                busTypeLabel.text = Route.shared.convertRouteType(routeType).title()
+                busTypeLabel.backgroundColor = Route.shared.convertRouteType(routeType).color()
+            }
+            
+            if var firstTime = busRoute.firstBusTm,
+               var lastTime = busRoute.lastLowTm {
+                let startIndex = firstTime.index(firstTime.startIndex, offsetBy: 8)
+                let endIndex = firstTime.index(firstTime.startIndex, offsetBy: 11)
+                firstTime = String(firstTime[startIndex...endIndex])
+                lastTime = String(lastTime[startIndex...endIndex])
+                
+                let insertIndex = firstTime.index(firstTime.startIndex, offsetBy: 2)
+                firstTime.insert(":", at: insertIndex)
+                lastTime.insert(":", at: insertIndex)
+                busTimeLabel.text = "운행시간 \(firstTime) ~ \(lastTime)"
+            }
+            
+            if let term = busRoute.term {
+                intervalLabel.text = "배차간격 \(term)분"
+            }
         }
         
-        if let sectNm = busInfo.sectNm {
-            directionLabel.text = "\(sectNm)"
-        }
-        
-        if let routeType = busInfo.routeType {
-            busTypeLabel.text = Route.shared.convertRouteType(routeType).title()
-            busTypeLabel.backgroundColor = Route.shared.convertRouteType(routeType).color()
-        }
-        
-        if var firstTime = busInfo.firstTm,
-           var lastTime = busInfo.lastTm {
-            let insertIndex = firstTime.index(firstTime.startIndex, offsetBy: 2)
-            firstTime.insert(":", at: insertIndex)
-            lastTime.insert(":", at: insertIndex)
-            busTimeLabel.text = "운행시간 \(firstTime)~  \(lastTime)"
-        }
-        
-        if let term = busInfo.term {
-            intervalLabel.text = "배차간격 \(term)분"
-        }
     }
     
     private func setupTableView() {
@@ -119,7 +156,7 @@ class BusDetailViewController: BaseViewController {
         
         Task {
             do {
-                guard let busRouteId = busInfo?.busRouteId else { return }
+                guard let busRouteId = busRouteId else { return }
                 let response = try await BusAPI.shared.getStationByRoute(busRouteId)
                 self.updateRoute(response)
                 self.moveScroll()
@@ -136,7 +173,7 @@ class BusDetailViewController: BaseViewController {
         
         Task {
             do {
-                guard let busRouteId = busInfo?.busRouteId else { return }
+                guard let busRouteId = busRouteId else { return }
                 let response = try await BusAPI.shared.getBusPosByRtidList(busRouteId)
                 self.updateBusPosition(response)
                 print(response)

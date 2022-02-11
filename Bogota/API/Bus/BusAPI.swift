@@ -176,4 +176,40 @@ class BusAPI {
         let res = try JSONDecoder().decode(BusPosByRtidListResponse.self, from: data)
         return res
     }
+    
+    //MARK: - 노선번호에 해당하는 노선 목록 조회
+    func getBusRouteList(_ strSrch: String) async throws -> BusRouteListResponse {
+        let urlStr = "http://ws.bus.go.kr/api/rest/busRouteInfo/getBusRouteList"
+        guard var urlComponents = URLComponents(string: urlStr) else { throw BusAPIError.invalidURL }
+        
+        let query: [String: String] = [
+            "serviceKey": decodingKey,
+            "resultType": "json",
+            "strSrch": strSrch
+        ]
+
+        let queryItems = query.map { URLQueryItem(name: $0.key, value: $0.value) }
+        urlComponents.queryItems = queryItems
+        
+        guard let requestURL = urlComponents.url else { throw BusAPIError.invalidURL }
+        
+        let defaultSession = URLSession(configuration: .default)
+
+        let (data, response) = try await defaultSession.data(from: requestURL)
+        
+        guard let httpResponse = response as? HTTPURLResponse,
+              httpResponse.statusCode == 200 else {
+                  throw BusAPIError.network
+              }
+        
+        print("getBusPosByRtidList response = \(response)")
+        
+        let res = try JSONDecoder().decode(BusRouteListResponse.self, from: data)
+        return res
+    }
+    
+    //MARK: -
+    func getStationByUidItem(_ arsId: String) {
+        
+    }
 }

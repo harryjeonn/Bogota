@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchGuideView" customModule="bogota" customModuleProvider="target">
+            <connections>
+                <outlet property="busButton" destination="wbS-Q9-JHz" id="7iv-pK-CUB"/>
+                <outlet property="stationButton" destination="abY-bX-ck4" id="lpI-5T-kB8"/>
+                <outlet property="tableView" destination="3qp-aN-aKa" id="pPo-n2-y5t"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Gkg-V3-Yq8">
+                    <rect key="frame" x="20" y="44" width="374" height="50"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="abY-bX-ck4">
+                            <rect key="frame" x="0.0" y="0.0" width="187" height="50"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="Button"/>
+                            <connections>
+                                <action selector="stationButtonClicked:" destination="-1" eventType="touchUpInside" id="vSm-Sx-gkZ"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wbS-Q9-JHz">
+                            <rect key="frame" x="187" y="0.0" width="187" height="50"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="Button"/>
+                            <connections>
+                                <action selector="busButtonClicked:" destination="-1" eventType="touchUpInside" id="2sZ-nk-x0q"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="xlo-hd-9Qu"/>
+                    </constraints>
+                </stackView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="3qp-aN-aKa">
+                    <rect key="frame" x="0.0" y="94" width="414" height="768"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </tableView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="3qp-aN-aKa" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="0rq-qO-CQC"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Gkg-V3-Yq8" secondAttribute="trailing" constant="20" id="Pao-On-j2e"/>
+                <constraint firstItem="3qp-aN-aKa" firstAttribute="top" secondItem="Gkg-V3-Yq8" secondAttribute="bottom" id="WcK-RL-ip0"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="3qp-aN-aKa" secondAttribute="trailing" id="dir-rv-fNi"/>
+                <constraint firstItem="Gkg-V3-Yq8" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="dyh-hS-k5M"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="3qp-aN-aKa" secondAttribute="bottom" id="lav-xV-Jqt"/>
+                <constraint firstItem="Gkg-V3-Yq8" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="lxT-DX-Vy8"/>
+            </constraints>
+            <point key="canvasLocation" x="132" y="131"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

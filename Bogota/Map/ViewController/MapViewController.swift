@@ -23,7 +23,13 @@ class MapViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        setupNavigationBar()
+    }
+    
+    private func setupNavigationBar() {
+        let searchBarView = SearchBarView()
+        navigationItem.titleView = searchBarView
+        searchBarView.delegate = self
     }
     
     private func setupMapView() {
@@ -85,7 +91,11 @@ class MapViewController: BaseViewController {
         
         infoWindow.touchHandler = { (overlay: NMFOverlay) -> Bool in
             // TODO: - 화면 전환
-            print("tap infowindow")
+            let sb = UIStoryboard(name: "Detail", bundle: nil)
+            guard let vc = sb.instantiateViewController(withIdentifier: "StationDetailViewController") as? StationDetailViewController else { return false }
+            vc.arsId = arsId
+            vc.stationNm = stNm
+            self.navigationController?.pushViewController(vc, animated: true)
             return true
         };
         
@@ -117,22 +127,23 @@ class MapViewController: BaseViewController {
     }
     
     func searchStationByName(_ keyword: String) {
+        self.showLoading()
         Task {
             do {
                 let response = try await BusAPI.shared.getStationByNameList(keyword)
                 print(response)
-                guard let items = response.msgBody?.itemList else { return }
-                self.stations = items
-                self.makeMarker()
-                self.setupMapView()
+                self.hideLoading()
+                if let items = response.msgBody?.itemList {
+                    self.stations = items
+                    self.makeMarker()
+                    self.setupMapView()
+                } else {
+                    self.showCommonPopupView(title: "검색결과", desc: "검색 결과가 없습니다.")
+                }
             } catch {
                 print("*** Error: \(error.localizedDescription) - \(error)")
                 self.showCommonPopupView(title: "불러오기 실패", desc: "정보를 불러올 수 없습니다.\n잠시 후 다시 시도해주세요.")
             }
-        }
-        
-        if stations.isEmpty {
-            self.showCommonPopupView(title: "검색결과", desc: "검색 결과가 없습니다.")
         }
     }
 }
@@ -140,5 +151,16 @@ class MapViewController: BaseViewController {
 extension MapViewController: NMFMapViewTouchDelegate {
     func mapView(_ mapView: NMFMapView, didTapMap latlng: NMGLatLng, point: CGPoint) {
         closeAllInfoWindow()
+    }
+}
+
+extension MapViewController: SearchBarViewDelegate {
+    func searchButtonClicked(text: String, searchType: SearchType) {
+        let sb = UIStoryboard(name: "Search", bundle: nil)
+        guard let vc = sb.instantiateViewController(withIdentifier: "SearchViewController") as? SearchViewController else { return }
+        let upperText = text.uppercased()
+        vc.keyword = upperText
+        vc.searchType = searchType
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }

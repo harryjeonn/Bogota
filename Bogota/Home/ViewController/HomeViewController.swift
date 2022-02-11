@@ -9,9 +9,6 @@ import UIKit
 import CoreLocation
 
 class HomeViewController: BaseViewController {
-    @IBOutlet weak var searchTextField: UITextField!
-    @IBOutlet weak var searchButton: UIButton!
-    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var refreshButton: UIButton!
     
@@ -33,8 +30,13 @@ class HomeViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.isNavigationBarHidden = true
-        
+        setupNavigationBar()
+    }
+    
+    private func setupNavigationBar() {
+        let searchBarView = SearchBarView()
+        navigationItem.titleView = searchBarView
+        searchBarView.delegate = self
     }
     
     private func setupTabbar() {
@@ -44,14 +46,7 @@ class HomeViewController: BaseViewController {
     }
     
     private func setupUI() {
-        // TextField
-        searchTextField.delegate = self
-        searchTextField.layer.cornerRadius = 10
-        searchTextField.placeholder = "정류장 검색"
-        
         // Button
-        searchButton.setImage(UIImage(named: "btn_search"), for: .normal)
-        
         refreshButton.backgroundColor = .white
         refreshButton.tintColor = .black
         refreshButton.layer.cornerRadius = refreshButton.frame.width / 2
@@ -129,26 +124,7 @@ class HomeViewController: BaseViewController {
         }
     }
     
-    private func didSearch() {
-        if let text = searchTextField.text,
-           text != "" {
-            // Tab 이동하면서 검색 API 요청
-            guard let tabBarController = tabBarController,
-                  let viewControllers = tabBarController.viewControllers else { return }
-            
-            guard let vc = viewControllers[1] as? MapViewController else { return }
-            vc.searchStationByName(text)
-            self.tabBarController?.selectedIndex = 1
-            searchTextField.text = nil
-        } else {
-            dismissKeyboard()
-        }
-    }
-    
     // MARK: - Button event
-    @IBAction func searchButtonClicked(_ sender: Any) {
-        didSearch()
-    }
     
     @IBAction func refreshButtonClicked(_ sender: Any) {
         getStationByPos()
@@ -206,9 +182,13 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-extension HomeViewController: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        didSearch()
-        return true
+extension HomeViewController: SearchBarViewDelegate {
+    func searchButtonClicked(text: String, searchType: SearchType) {
+        let sb = UIStoryboard(name: "Search", bundle: nil)
+        guard let vc = sb.instantiateViewController(withIdentifier: "SearchViewController") as? SearchViewController else { return }
+        let upperText = text.uppercased()
+        vc.keyword = upperText
+        vc.searchType = searchType
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
