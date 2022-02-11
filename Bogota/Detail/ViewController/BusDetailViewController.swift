@@ -210,6 +210,17 @@ extension BusDetailViewController: UITableViewDelegate, UITableViewDataSource {
         return routes.count
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let arsId = routes[indexPath.row].arsId,
+              let stationNm = routes[indexPath.row].stationNm else { return }
+        
+        let sb = UIStoryboard(name: "Detail", bundle: nil)
+        guard let vc = sb.instantiateViewController(withIdentifier: "StationDetailViewController") as? StationDetailViewController else { return }
+        vc.arsId = arsId
+        vc.stationNm = stationNm
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "BusRouteCell") as? BusRouteCell else { return UITableViewCell() }
         
