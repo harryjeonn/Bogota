@@ -232,11 +232,11 @@ extension BusDetailViewController: UITableViewDelegate, UITableViewDataSource {
             cell.backgroundColor = .skyColor
             cell.busImageView.backgroundColor = .skyColor
             if let firstArrMsg = busInfo?.arrmsg1 {
-                cell.firstArrMsgLabel.text = firstArrMsg
+                cell.firstArrMsgLabel.text = Utils.shared.formatArrMsg(firstArrMsg)
             }
             
             if let secondArrMsg = busInfo?.arrmsg2 {
-                cell.secondArrMsgLabel.text = secondArrMsg
+                cell.secondArrMsgLabel.text = Utils.shared.formatArrMsg(secondArrMsg)
             }
             cell.firstArrMsgLabel.isHidden = false
             cell.secondArrMsgLabel.isHidden = false
