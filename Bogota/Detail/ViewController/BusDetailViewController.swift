@@ -86,8 +86,8 @@ class BusDetailViewController: BaseViewController {
                 busNumerLabel.text = rtNm
             }
             
-            if let sectNm = busInfo.sectNm {
-                directionLabel.text = "\(sectNm)"
+            if let adirection = busInfo.adirection {
+                directionLabel.text = "\(adirection) 방향"
             }
             
             if let routeType = busInfo.routeType {
