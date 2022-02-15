@@ -77,7 +77,7 @@ class StationDetailViewController: BaseViewController {
         
         // emptyView
         emptyView.bounds = tableView.bounds
-        emptyView.emptyLabel.text = "정류장 정보가 없습니다."
+        emptyView.emptyLabel.text = "버스 정보가 없습니다."
         tableView.addSubview(emptyView)
         
         emptyView.translatesAutoresizingMaskIntoConstraints = false
