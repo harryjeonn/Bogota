@@ -322,7 +322,7 @@ extension BusDetailViewController: UITableViewDelegate, UITableViewDataSource {
                 if let fullSectDist = busPosition.fullSectDist,
                    let sectDist = busPosition.sectDist {
                     if (Float(fullSectDist)! / 2) <= Float(sectDist)! {
-                        cell.busImageViewTopConstraint.constant = (busStartPoint / 2) + 50
+                        cell.busImageViewTopConstraint.constant = (busStartPoint / 2) + 55
                     } else {
                         cell.busImageViewTopConstraint.constant = (busStartPoint / 3) + 5
                     }
