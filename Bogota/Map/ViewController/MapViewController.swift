@@ -33,7 +33,6 @@ class MapViewController: BaseViewController {
     
     private func setupNavigationBar() {
         navigationItem.titleView = self.searchBarView
-        searchBarView.delegate = self
     }
     
     private func setupMapView() {
@@ -155,48 +154,5 @@ class MapViewController: BaseViewController {
 extension MapViewController: NMFMapViewTouchDelegate {
     func mapView(_ mapView: NMFMapView, didTapMap latlng: NMGLatLng, point: CGPoint) {
         closeAllInfoWindow()
-    }
-}
-
-extension MapViewController: SearchBarViewDelegate {
-    func cellClicked(searchHistoryModel: SearchHistoryModel) {
-        let sb = UIStoryboard(name: "Detail", bundle: nil)
-        switch searchHistoryModel.type {
-        case .station:
-            guard let vc = sb.instantiateViewController(withIdentifier: "StationDetailViewController") as? StationDetailViewController else { return }
-            if let stationName = searchHistoryModel.stationName,
-               let arsId = searchHistoryModel.arsId {
-                vc.stationNm = stationName
-                vc.arsId = arsId
-            }
-            self.navigationController?.pushViewController(vc, animated: true)
-        case .bus:
-            guard let vc = sb.instantiateViewController(withIdentifier: "BusDetailViewController") as? BusDetailViewController else { return }
-            
-            if let busRoute = searchHistoryModel.busRoute,
-               let busRouteId = busRoute.busRouteId {
-                vc.busRoute = busRoute
-                vc.busRouteId = busRouteId
-            }
-            
-            self.navigationController?.pushViewController(vc, animated: true)
-        default:
-            break
-        }
-    }
-    
-    func searchButtonClicked(text: String?, searchType: SearchType?, isActive: Bool?) {
-        if let _ = isActive {
-            searchBarView.textField.becomeFirstResponder()
-        }
-        
-        let sb = UIStoryboard(name: "Search", bundle: nil)
-        guard let vc = sb.instantiateViewController(withIdentifier: "SearchViewController") as? SearchViewController,
-              let text = text,
-              let searchType = searchType else { return }
-        let upperText = text.uppercased()
-        vc.keyword = upperText
-        vc.searchType = searchType
-        self.navigationController?.pushViewController(vc, animated: true)
     }
 }

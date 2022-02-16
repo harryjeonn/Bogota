@@ -21,34 +21,14 @@ class BusAPI {
     //MARK: - 좌표기반 근접 정류소 조회
     func getStationByPos(tmX: String, tmY: String) async throws -> StationByPosResponse {
         let urlStr = "http://ws.bus.go.kr/api/rest/stationinfo/getStationByPos"
-        guard var urlComponents = URLComponents(string: urlStr) else { throw BusAPIError.invalidURL }
-        
-        let radius = 500
         
         let query: [String: String] = [
-            "serviceKey": decodingKey,
             "tmX": "\(tmX)",
             "tmY": "\(tmY)",
-            "radius": "\(radius)",
-            "resultType": "json"
+            "radius": "500"
         ]
-
-        let queryItems = query.map { URLQueryItem(name: $0.key, value: $0.value) }
-        urlComponents.queryItems = queryItems
         
-        guard let requestURL = urlComponents.url else { throw BusAPIError.invalidURL }
-        
-        let defaultSession = URLSession(configuration: .default)
-
-        let (data, response) = try await defaultSession.data(from: requestURL)
-        
-        guard let httpResponse = response as? HTTPURLResponse,
-              httpResponse.statusCode == 200 else {
-                  throw BusAPIError.network
-              }
-        
-        print("getStationByPos response = \(response)")
-        
+        let data = try await request(urlStr: urlStr, query: query)
         let res = try JSONDecoder().decode(StationByPosResponse.self, from: data)
         return res
     }
@@ -56,30 +36,12 @@ class BusAPI {
     //MARK: - 정류소 명칭 검색
     func getStationByNameList(_ keyword: String) async throws -> StationByNameResponse {
         let urlStr = "http://ws.bus.go.kr/api/rest/stationinfo/getStationByName"
-        guard var urlComponents = URLComponents(string: urlStr) else { throw BusAPIError.invalidURL }
         
         let query: [String: String] = [
-            "serviceKey": decodingKey,
-            "resultType": "json",
             "stSrch": keyword
         ]
 
-        let queryItems = query.map { URLQueryItem(name: $0.key, value: $0.value) }
-        urlComponents.queryItems = queryItems
-        
-        guard let requestURL = urlComponents.url else { throw BusAPIError.invalidURL }
-        
-        let defaultSession = URLSession(configuration: .default)
-
-        let (data, response) = try await defaultSession.data(from: requestURL)
-        
-        guard let httpResponse = response as? HTTPURLResponse,
-              httpResponse.statusCode == 200 else {
-                  throw BusAPIError.network
-              }
-        
-        print("getStationByName response = \(response)")
-        
+        let data = try await request(urlStr: urlStr, query: query)
         let res = try JSONDecoder().decode(StationByNameResponse.self, from: data)
         return res
     }
@@ -87,30 +49,12 @@ class BusAPI {
     //MARK: - 고유번호를 입력받은 정류소의 저상버스 도착정보
     func getLowStationByUidList(_ arsId: String) async throws -> LowStationByUidResponse {
         let urlStr = "http://ws.bus.go.kr/api/rest/stationinfo/getLowStationByUid"
-        guard var urlComponents = URLComponents(string: urlStr) else { throw BusAPIError.invalidURL }
         
         let query: [String: String] = [
-            "serviceKey": decodingKey,
-            "resultType": "json",
             "arsId": arsId
         ]
 
-        let queryItems = query.map { URLQueryItem(name: $0.key, value: $0.value) }
-        urlComponents.queryItems = queryItems
-        
-        guard let requestURL = urlComponents.url else { throw BusAPIError.invalidURL }
-        
-        let defaultSession = URLSession(configuration: .default)
-
-        let (data, response) = try await defaultSession.data(from: requestURL)
-        
-        guard let httpResponse = response as? HTTPURLResponse,
-              httpResponse.statusCode == 200 else {
-                  throw BusAPIError.network
-              }
-        
-        print("getLowStationByUidList response = \(response)")
-        
+        let data = try await request(urlStr: urlStr, query: query)
         let res = try JSONDecoder().decode(LowStationByUidResponse.self, from: data)
         return res
     }
@@ -118,30 +62,12 @@ class BusAPI {
     //MARK: - 노선 별 경유 정류소 조회 서비스
     func getStationByRoute(_ busRouteId: String) async throws -> StationByRouteResponse {
         let urlStr = "http://ws.bus.go.kr/api/rest/busRouteInfo/getStaionByRoute"
-        guard var urlComponents = URLComponents(string: urlStr) else { throw BusAPIError.invalidURL }
-        
+
         let query: [String: String] = [
-            "serviceKey": decodingKey,
-            "resultType": "json",
             "busRouteId": busRouteId
         ]
 
-        let queryItems = query.map { URLQueryItem(name: $0.key, value: $0.value) }
-        urlComponents.queryItems = queryItems
-        
-        guard let requestURL = urlComponents.url else { throw BusAPIError.invalidURL }
-        
-        let defaultSession = URLSession(configuration: .default)
-
-        let (data, response) = try await defaultSession.data(from: requestURL)
-        
-        guard let httpResponse = response as? HTTPURLResponse,
-              httpResponse.statusCode == 200 else {
-                  throw BusAPIError.network
-              }
-        
-        print("getStationByName response = \(response)")
-        
+        let data = try await request(urlStr: urlStr, query: query)
         let res = try JSONDecoder().decode(StationByRouteResponse.self, from: data)
         return res
     }
@@ -149,30 +75,12 @@ class BusAPI {
     //MARK: - 노선ID로 차량들의 위치정보를 조회
     func getBusPosByRtidList(_ busRouteId: String) async throws -> BusPosByRtidListResponse {
         let urlStr = "http://ws.bus.go.kr/api/rest/buspos/getBusPosByRtid"
-        guard var urlComponents = URLComponents(string: urlStr) else { throw BusAPIError.invalidURL }
-        
+
         let query: [String: String] = [
-            "serviceKey": decodingKey,
-            "resultType": "json",
             "busRouteId": busRouteId
         ]
 
-        let queryItems = query.map { URLQueryItem(name: $0.key, value: $0.value) }
-        urlComponents.queryItems = queryItems
-        
-        guard let requestURL = urlComponents.url else { throw BusAPIError.invalidURL }
-        
-        let defaultSession = URLSession(configuration: .default)
-
-        let (data, response) = try await defaultSession.data(from: requestURL)
-        
-        guard let httpResponse = response as? HTTPURLResponse,
-              httpResponse.statusCode == 200 else {
-                  throw BusAPIError.network
-              }
-        
-        print("getBusPosByRtidList response = \(response)")
-        
+        let data = try await request(urlStr: urlStr, query: query)
         let res = try JSONDecoder().decode(BusPosByRtidListResponse.self, from: data)
         return res
     }
@@ -180,13 +88,24 @@ class BusAPI {
     //MARK: - 노선번호에 해당하는 노선 목록 조회
     func getBusRouteList(_ strSrch: String) async throws -> BusRouteListResponse {
         let urlStr = "http://ws.bus.go.kr/api/rest/busRouteInfo/getBusRouteList"
-        guard var urlComponents = URLComponents(string: urlStr) else { throw BusAPIError.invalidURL }
         
         let query: [String: String] = [
-            "serviceKey": decodingKey,
-            "resultType": "json",
             "strSrch": strSrch
         ]
+        
+        let data = try await request(urlStr: urlStr, query: query)
+        let res = try JSONDecoder().decode(BusRouteListResponse.self, from: data)
+        
+        return res
+    }
+    
+    //MARK: - 실제 API 통신하는 부분
+    func request(urlStr: String, query: [String: String]) async throws -> Data {
+        var query = query
+        query.updateValue(decodingKey, forKey: "serviceKey")
+        query.updateValue("json", forKey: "resultType")
+        
+        guard var urlComponents = URLComponents(string: urlStr) else { throw BusAPIError.invalidURL }
 
         let queryItems = query.map { URLQueryItem(name: $0.key, value: $0.value) }
         urlComponents.queryItems = queryItems
@@ -202,14 +121,8 @@ class BusAPI {
                   throw BusAPIError.network
               }
         
-        print("getBusPosByRtidList response = \(response)")
+        print("\(urlStr) response = \(response)")
         
-        let res = try JSONDecoder().decode(BusRouteListResponse.self, from: data)
-        return res
-    }
-    
-    //MARK: -
-    func getStationByUidItem(_ arsId: String) {
-        
+        return data
     }
 }
