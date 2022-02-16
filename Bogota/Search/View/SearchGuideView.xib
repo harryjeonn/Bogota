@@ -45,17 +45,17 @@
                     </constraints>
                 </stackView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="3qp-aN-aKa">
-                    <rect key="frame" x="0.0" y="94" width="414" height="768"/>
+                    <rect key="frame" x="20" y="114" width="374" height="748"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="3qp-aN-aKa" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="0rq-qO-CQC"/>
+                <constraint firstItem="3qp-aN-aKa" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="0rq-qO-CQC"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Gkg-V3-Yq8" secondAttribute="trailing" constant="20" id="Pao-On-j2e"/>
-                <constraint firstItem="3qp-aN-aKa" firstAttribute="top" secondItem="Gkg-V3-Yq8" secondAttribute="bottom" id="WcK-RL-ip0"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="3qp-aN-aKa" secondAttribute="trailing" id="dir-rv-fNi"/>
+                <constraint firstItem="3qp-aN-aKa" firstAttribute="top" secondItem="Gkg-V3-Yq8" secondAttribute="bottom" constant="20" id="WcK-RL-ip0"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="3qp-aN-aKa" secondAttribute="trailing" constant="20" id="dir-rv-fNi"/>
                 <constraint firstItem="Gkg-V3-Yq8" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="dyh-hS-k5M"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="3qp-aN-aKa" secondAttribute="bottom" id="lav-xV-Jqt"/>
                 <constraint firstItem="Gkg-V3-Yq8" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="lxT-DX-Vy8"/>

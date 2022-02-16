@@ -8,7 +8,8 @@
 import UIKit
 
 protocol SearchBarViewDelegate {
-    func searchButtonClicked(text: String, searchType: SearchType)
+    func searchButtonClicked(text: String?, searchType: SearchType?, isActive: Bool?)
+    func cellClicked(searchHistoryModel: SearchHistoryModel)
 }
 
 class SearchBarView: UIView {
@@ -16,6 +17,7 @@ class SearchBarView: UIView {
     @IBOutlet weak var searchButton: UIButton!
     
     var delegate: SearchBarViewDelegate?
+    var isActive = false
     let searchGuideView = SearchGuideView()
     
     override init(frame: CGRect) {
@@ -46,16 +48,20 @@ class SearchBarView: UIView {
         textField.delegate = self
         textField.layer.cornerRadius = 10
         textField.placeholder = "정류장, 정류장 번호 검색"
+        textField.returnKeyType = .search
+        
+        searchGuideView.delegate = self
     }
     
     private func search() {
         if let text = textField.text,
            text != "" {
             if searchGuideView.isStation {
-                delegate?.searchButtonClicked(text: text, searchType: .station)
+                delegate?.searchButtonClicked(text: text, searchType: .station, isActive: nil)
             } else {
-                delegate?.searchButtonClicked(text: text, searchType: .bus)
+                delegate?.searchButtonClicked(text: text, searchType: .bus, isActive: nil)
             }
+            searchGuideView.removeFromSuperview()
         } else {
             dismissKeyboard()
         }
@@ -67,6 +73,7 @@ class SearchBarView: UIView {
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         searchGuideView.addGestureRecognizer(tap)
+        tap.cancelsTouchesInView = false
         
         searchGuideView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -75,6 +82,17 @@ class SearchBarView: UIView {
             searchGuideView.trailingAnchor.constraint(equalTo: topViewController.view.safeAreaLayoutGuide.trailingAnchor, constant: 0),
             searchGuideView.bottomAnchor.constraint(equalTo: topViewController.view.safeAreaLayoutGuide.bottomAnchor, constant: 0)
         ])
+        
+        searchButton.setImage(nil, for: .normal)
+        searchButton.setTitle("취소", for: .normal)
+        isActive = true
+    }
+    
+    func removeGuideView() {
+        searchGuideView.removeFromSuperview()
+        searchButton.setTitle("", for: .normal)
+        searchButton.setImage(UIImage(named: "btn_search"), for: .normal)
+        isActive = false
     }
     
     @objc func dismissKeyboard() {
@@ -82,12 +100,18 @@ class SearchBarView: UIView {
     }
 
     @IBAction func searchButtonClicked(_ sender: Any) {
-        search()
+        if isActive {
+            dismissKeyboard()
+            removeGuideView()
+        } else {
+            delegate?.searchButtonClicked(text: nil, searchType: nil, isActive: isActive)
+        }
     }
 }
 
 extension SearchBarView: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        removeGuideView()
         search()
         return true
     }
@@ -95,8 +119,15 @@ extension SearchBarView: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         addGuideView()
     }
+}
+
+extension SearchBarView: SearchGuideViewDelegate {
+    func cellClicked(searchHistoryModel: SearchHistoryModel) {
+        removeGuideView()
+        delegate?.cellClicked(searchHistoryModel: searchHistoryModel)
+    }
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        searchGuideView.removeFromSuperview()
+    func didScroll() {
+        dismissKeyboard()
     }
 }

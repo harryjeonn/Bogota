@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum SearchType {
+enum SearchType: Codable {
     case bus
     case station
     

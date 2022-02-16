@@ -9,6 +9,8 @@ import Foundation
 import UIKit
 
 class BaseViewController: UIViewController {
+    let searchBarView = SearchBarView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -22,6 +24,12 @@ class BaseViewController: UIViewController {
         // Navigation Bar 경계선 지우기
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        searchBarView.removeGuideView()
+        searchBarView.textField.text = nil
     }
     
     

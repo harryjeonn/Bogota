@@ -31,5 +31,13 @@ class SearchBusCell: UITableViewCell {
         typeLabel.layer.cornerRadius = 5
         typeLabel.textAlignment = .center
         typeLabel.font = .systemFont(ofSize: 15)
+        
+        directionLabel.textColor = .gray
+        directionLabel.font = .systemFont(ofSize: 14)
+        
+        idLabel.textColor = .gray
+        idLabel.font = .systemFont(ofSize: 14)
+        
+        self.selectionStyle = .none
     }
 }

@@ -48,6 +48,7 @@
 		BDE7964D27B9E7980086CD6B /* SearchBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BDE7964C27B9E7980086CD6B /* SearchBarView.xib */; };
 		BDE7964F27BA10AC0086CD6B /* SearchGuideView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BDE7964E27BA10AC0086CD6B /* SearchGuideView.xib */; };
 		BDE7965127BA10B80086CD6B /* SearchGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE7965027BA10B80086CD6B /* SearchGuideView.swift */; };
+		BDED587B27BCBED500CBD762 /* SearchHistoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDED587A27BCBED500CBD762 /* SearchHistoryModel.swift */; };
 		BDF9F339279E7FE900E4DAB3 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDF9F338279E7FE900E4DAB3 /* Home.storyboard */; };
 		BDF9F33F279E82E700E4DAB3 /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDF9F33E279E82E700E4DAB3 /* Map.storyboard */; };
 		BDF9F341279E82F000E4DAB3 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF9F340279E82F000E4DAB3 /* MapViewController.swift */; };
@@ -101,6 +102,7 @@
 		BDE7964C27B9E7980086CD6B /* SearchBarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SearchBarView.xib; path = Bogota/Common/View/SearchBarView.xib; sourceTree = SOURCE_ROOT; };
 		BDE7964E27BA10AC0086CD6B /* SearchGuideView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SearchGuideView.xib; path = Bogota/Search/View/SearchGuideView.xib; sourceTree = SOURCE_ROOT; };
 		BDE7965027BA10B80086CD6B /* SearchGuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchGuideView.swift; path = Bogota/Search/View/SearchGuideView.swift; sourceTree = SOURCE_ROOT; };
+		BDED587A27BCBED500CBD762 /* SearchHistoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchHistoryModel.swift; path = Bogota/Search/Model/SearchHistoryModel.swift; sourceTree = SOURCE_ROOT; };
 		BDF9F338279E7FE900E4DAB3 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Home.storyboard; path = bogota/Home/Home.storyboard; sourceTree = SOURCE_ROOT; };
 		BDF9F33E279E82E700E4DAB3 /* Map.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Map.storyboard; path = Bogota/Map/Map.storyboard; sourceTree = SOURCE_ROOT; };
 		BDF9F340279E82F000E4DAB3 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = Bogota/Map/ViewController/MapViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -290,6 +292,7 @@
 			isa = PBXGroup;
 			children = (
 				BDA32DAB27B65147007E1983 /* SearchType.swift */,
+				BDED587A27BCBED500CBD762 /* SearchHistoryModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -524,6 +527,7 @@
 				BD35A3DB27A3737700F74D4F /* EmptyView.swift in Sources */,
 				BD1847D6279FC84600E7CE78 /* BusAPI.swift in Sources */,
 				BD1847E927A11CD300E7CE78 /* StationByNameResponse.swift in Sources */,
+				BDED587B27BCBED500CBD762 /* SearchHistoryModel.swift in Sources */,
 				BDA82E33279E691A005D5683 /* AppDelegate.swift in Sources */,
 				BDE1E40A27B356E200E83E63 /* BusPosByRtidListResponse.swift in Sources */,
 				BDA32DA927B64318007E1983 /* BusRouteListResponse.swift in Sources */,

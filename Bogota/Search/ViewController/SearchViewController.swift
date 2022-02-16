@@ -137,6 +137,17 @@ class SearchViewController: BaseViewController {
             self.hideLoading()
         }
     }
+    
+    private func saveHistory(_ saveHistory: SearchHistoryModel) {
+        if let searchHistoryData = UserDefaults.standard.value(forKey: "searchHistory") as? Data {
+            var searchHistories = try? PropertyListDecoder().decode([SearchHistoryModel].self, from: searchHistoryData)
+            searchHistories?.insert(saveHistory, at: 0)
+            UserDefaults.standard.set(try? PropertyListEncoder().encode(searchHistories), forKey: "searchHistory")
+        } else {
+            let searchHistories = [saveHistory]
+            UserDefaults.standard.set(try? PropertyListEncoder().encode(searchHistories), forKey: "searchHistory")
+        }
+    }
 }
 
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
@@ -217,9 +228,15 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
                 vc.arsId = arsId
             }
             
+            let saveModel = SearchHistoryModel(type: .station, stationName: stNm, arsId: arsId, busRoute: nil)
+            saveHistory(saveModel)
+            
             self.navigationController?.pushViewController(vc, animated: true)
         case .bus:
             let busRoute = busRoutes[indexPath.row]
+            
+            let saveModel = SearchHistoryModel(type: .bus, stationName: nil, arsId: nil, busRoute: busRoute)
+            saveHistory(saveModel)
             
             guard let vc = sb.instantiateViewController(withIdentifier: "BusDetailViewController") as? BusDetailViewController else { return }
             vc.busRoute = busRoute
@@ -271,17 +288,11 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
                 cell.directionLabel.text = ""
             }
             
-            cell.directionLabel.textColor = .gray
-            cell.directionLabel.font = .systemFont(ofSize: 14)
-            
             if let term = busRoute.term {
                 cell.idLabel.text = "배차간격 \(term)분"
             } else {
                 cell.idLabel.text = ""
             }
-            
-            cell.idLabel.textColor = .gray
-            cell.idLabel.font = .systemFont(ofSize: 14)
             
             return cell
         default:
