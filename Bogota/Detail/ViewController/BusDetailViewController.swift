@@ -334,6 +334,32 @@ extension BusDetailViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.busImageView.isHidden = isBusHide
         
+        // 회차지
+        if let trnstnid = route.trnstnid {
+            if route.station == trnstnid {
+                cell.downImageView.image = UIImage(systemName: "arrow.uturn.down")
+                cell.downImageView.tintColor = .lightGray
+                cell.downImageView.backgroundColor = .clear
+                
+                cell.downImageStackView.layer.cornerRadius = 5
+                cell.downImageStackView.layer.borderWidth = 1
+                cell.downImageStackView.layoutMargins = UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2)
+                
+                cell.roundLabel.isHidden = false
+            } else {
+                cell.downImageView.image = UIImage(systemName: "chevron.down.circle.fill")
+                cell.downImageView.tintColor = .white
+                cell.downImageView.backgroundColor = .lightGray
+                cell.downImageView.layer.cornerRadius = cell.downImageView.frame.width / 2
+                
+                cell.downImageStackView.layer.borderWidth = 0
+                cell.downImageStackView.layer.cornerRadius = cell.downImageStackView.frame.width / 2
+                cell.downImageStackView.layoutMargins = .zero
+                
+                cell.roundLabel.isHidden = true
+            }
+        }
+        
         return cell
     }
 }

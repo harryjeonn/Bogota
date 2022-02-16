@@ -14,7 +14,10 @@ class BusRouteCell: UITableViewCell {
     @IBOutlet weak var lineViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var busImageView: UIImageView!
     @IBOutlet weak var busImageViewTopConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var downImageStackView: UIStackView!
     @IBOutlet weak var downImageView: UIImageView!
+    @IBOutlet weak var roundLabel: UILabel!
     @IBOutlet weak var stationLabel: UILabel!
     @IBOutlet weak var stationIdLabel: UILabel!
     @IBOutlet weak var firstArrMsgLabel: UILabel!
@@ -39,15 +42,20 @@ class BusRouteCell: UITableViewCell {
         stationIdLabel.font = .systemFont(ofSize: 14)
         firstArrMsgLabel.font = .systemFont(ofSize: 14)
         secondArrMsgLabel.font = .systemFont(ofSize: 14)
+        roundLabel.font = .systemFont(ofSize: 14)
         
         stationLabel.textColor = .black
         stationIdLabel.textColor = .gray
         firstArrMsgLabel.textColor = .red
         secondArrMsgLabel.textColor = .red
+        roundLabel.textColor = .lightGray
         
-        downImageView.layer.cornerRadius = downImageView.frame.width / 2
-        downImageView.tintColor = .lightGray
-        downImageView.backgroundColor = .white
+        downImageStackView.backgroundColor = .white
+        downImageStackView.layer.borderColor = UIColor.lightGray.cgColor
+        
+        downImageView.backgroundColor = .clear
+        
+        roundLabel.text = "회차"
         
         busImageView.tintColor = .blueColor
         busImageView.backgroundColor = .white
