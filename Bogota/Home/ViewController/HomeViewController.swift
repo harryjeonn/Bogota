@@ -156,7 +156,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("select cell")
         guard let arsId = posStations[indexPath.row].arsId,
               let stationNm = posStations[indexPath.row].stationNm else { return }
         

@@ -17,22 +17,80 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XQ2-Vd-PKX" customClass="NMFMapView">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="623"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mOw-uq-Mnf">
+                                <rect key="frame" x="0.0" y="713" width="414" height="100"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_bus_stop" translatesAutoresizingMaskIntoConstraints="NO" id="0V0-hA-fhe">
+                                        <rect key="frame" x="20" y="25" width="50" height="50"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="bp4-Y9-cvN"/>
+                                            <constraint firstAttribute="width" secondItem="0V0-hA-fhe" secondAttribute="height" multiplier="1:1" id="pL7-lV-0EF"/>
+                                        </constraints>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="s8W-4C-hfR">
+                                        <rect key="frame" x="78" y="27.5" width="78" height="45.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="정류소 이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="czS-7Z-rup">
+                                                <rect key="frame" x="0.0" y="0.0" width="78" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="진행 방향" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kWP-66-61Q">
+                                                <rect key="frame" x="0.0" y="28.5" width="52.5" height="17"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gec-jn-oIF">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain"/>
+                                        <connections>
+                                            <action selector="infoViewClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="dHi-g9-AG3"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="gec-jn-oIF" secondAttribute="bottom" id="4Ah-a1-CTp"/>
+                                    <constraint firstItem="s8W-4C-hfR" firstAttribute="leading" secondItem="0V0-hA-fhe" secondAttribute="trailing" constant="8" symbolic="YES" id="PSw-aW-CBI"/>
+                                    <constraint firstAttribute="trailing" secondItem="gec-jn-oIF" secondAttribute="trailing" id="TfP-Hm-DxJ"/>
+                                    <constraint firstItem="gec-jn-oIF" firstAttribute="top" secondItem="mOw-uq-Mnf" secondAttribute="top" id="aK9-7D-0Yl"/>
+                                    <constraint firstAttribute="height" constant="100" id="bR1-9k-3RV"/>
+                                    <constraint firstItem="gec-jn-oIF" firstAttribute="leading" secondItem="mOw-uq-Mnf" secondAttribute="leading" id="eFA-FN-siJ"/>
+                                    <constraint firstItem="0V0-hA-fhe" firstAttribute="centerY" secondItem="mOw-uq-Mnf" secondAttribute="centerY" id="jWj-Y4-YK4"/>
+                                    <constraint firstItem="s8W-4C-hfR" firstAttribute="centerY" secondItem="0V0-hA-fhe" secondAttribute="centerY" id="oGF-Tl-3cW"/>
+                                    <constraint firstItem="0V0-hA-fhe" firstAttribute="width" secondItem="0V0-hA-fhe" secondAttribute="height" multiplier="1:1" id="r3L-Et-PHi"/>
+                                    <constraint firstItem="0V0-hA-fhe" firstAttribute="leading" secondItem="mOw-uq-Mnf" secondAttribute="leading" constant="20" id="xaZ-zF-nM6"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="mOw-uq-Mnf" secondAttribute="trailing" id="JDA-rY-20s"/>
                             <constraint firstItem="XQ2-Vd-PKX" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="NsN-sW-FFd"/>
+                            <constraint firstItem="mOw-uq-Mnf" firstAttribute="top" secondItem="XQ2-Vd-PKX" secondAttribute="bottom" constant="2" id="X3r-fY-0LY"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="XQ2-Vd-PKX" secondAttribute="trailing" id="YpI-Kd-4J0"/>
+                            <constraint firstItem="mOw-uq-Mnf" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="aUI-YM-f2O"/>
+                            <constraint firstItem="mOw-uq-Mnf" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="lfE-hx-IG9"/>
                             <constraint firstItem="XQ2-Vd-PKX" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="t53-0T-etD"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="XQ2-Vd-PKX" secondAttribute="bottom" id="xde-K0-WvX"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Uct-vC-5F3"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="infoView" destination="mOw-uq-Mnf" id="ubL-bA-2ID"/>
+                        <outlet property="infoViewHeight" destination="bR1-9k-3RV" id="K3f-ae-0cl"/>
+                        <outlet property="infoViewSubTitleLabel" destination="kWP-66-61Q" id="9qe-kO-DUP"/>
+                        <outlet property="infoViewTitleLabel" destination="czS-7Z-rup" id="bvP-f6-rOE"/>
                         <outlet property="mapView" destination="XQ2-Vd-PKX" id="PTA-o2-xZe"/>
                     </connections>
                 </viewController>
@@ -61,6 +119,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="icon_bus_stop" width="50" height="50"/>
         <image name="tabbar_map" width="20" height="20"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -139,12 +139,24 @@ class StationDetailViewController: BaseViewController {
     }
 
     @IBAction func showMapButtonClicked(_ sender: Any) {
-        guard let tabBarController = tabBarController,
-              let viewControllers = tabBarController.viewControllers else { return }
         
-        guard let vc = viewControllers[1] as? MapViewController else { return }
-        // TODO: - 화면 이동하면서 지도 중심 맞추기 (정류장 고유번호 사용)
+        // TabBarController에서 원하는 ViewController 가져오기
+        guard let tabBarController = tabBarController,
+              let viewControllers = tabBarController.viewControllers,
+              let naviVC = viewControllers[1] as? UINavigationController,
+              let vc = naviVC.viewControllers.first as? MapViewController else { return }
+        
+        vc.arsId = arsId
+        vc.stationName = self.stationNm
+        
+        // 지도 탭으로 이동
         self.tabBarController?.selectedIndex = 1
+        
+        // 지도 탭에 있을 때 화면전환
+        if let topVC = Utils.shared.topViewController(),
+           topVC is MapViewController == false {
+            topVC.navigationController?.popToRootViewController(animated: true)
+        }
     }
     
     @IBAction func refreshButtonClicked(_ sender: Any) {
