@@ -48,6 +48,12 @@
                                             </label>
                                         </subviews>
                                     </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ye-hR-shM">
+                                        <rect key="frame" x="381.5" y="39" width="12.5" height="22"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="chevron.right" catalog="system"/>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gec-jn-oIF">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                                         <state key="normal" title="Button"/>
@@ -60,12 +66,14 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="gec-jn-oIF" secondAttribute="bottom" id="4Ah-a1-CTp"/>
+                                    <constraint firstItem="7Ye-hR-shM" firstAttribute="centerY" secondItem="mOw-uq-Mnf" secondAttribute="centerY" id="Ngw-Ac-cjJ"/>
                                     <constraint firstItem="s8W-4C-hfR" firstAttribute="leading" secondItem="0V0-hA-fhe" secondAttribute="trailing" constant="8" symbolic="YES" id="PSw-aW-CBI"/>
                                     <constraint firstAttribute="trailing" secondItem="gec-jn-oIF" secondAttribute="trailing" id="TfP-Hm-DxJ"/>
                                     <constraint firstItem="gec-jn-oIF" firstAttribute="top" secondItem="mOw-uq-Mnf" secondAttribute="top" id="aK9-7D-0Yl"/>
                                     <constraint firstAttribute="height" constant="100" id="bR1-9k-3RV"/>
                                     <constraint firstItem="gec-jn-oIF" firstAttribute="leading" secondItem="mOw-uq-Mnf" secondAttribute="leading" id="eFA-FN-siJ"/>
                                     <constraint firstItem="0V0-hA-fhe" firstAttribute="centerY" secondItem="mOw-uq-Mnf" secondAttribute="centerY" id="jWj-Y4-YK4"/>
+                                    <constraint firstAttribute="trailing" secondItem="7Ye-hR-shM" secondAttribute="trailing" constant="20" id="nDi-uc-wfw"/>
                                     <constraint firstItem="s8W-4C-hfR" firstAttribute="centerY" secondItem="0V0-hA-fhe" secondAttribute="centerY" id="oGF-Tl-3cW"/>
                                     <constraint firstItem="0V0-hA-fhe" firstAttribute="width" secondItem="0V0-hA-fhe" secondAttribute="height" multiplier="1:1" id="r3L-Et-PHi"/>
                                     <constraint firstItem="0V0-hA-fhe" firstAttribute="leading" secondItem="mOw-uq-Mnf" secondAttribute="leading" constant="20" id="xaZ-zF-nM6"/>
@@ -119,6 +127,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="chevron.right" catalog="system" width="96" height="128"/>
         <image name="icon_bus_stop" width="50" height="50"/>
         <image name="tabbar_map" width="20" height="20"/>
         <systemColor name="systemBackgroundColor">

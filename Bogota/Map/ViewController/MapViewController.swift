@@ -174,6 +174,8 @@ class MapViewController: BaseViewController {
         infoView.layer.shadowColor = UIColor.gray.cgColor
         infoView.layer.shadowOffset = CGSize(width: 0, height: -1)
         
+        infoViewSubTitleLabel.textColor = .gray
+        
         hideInfoView()
     }
     
