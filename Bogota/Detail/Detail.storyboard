@@ -26,13 +26,13 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ws2-FF-F0H">
-                                        <rect key="frame" x="187" y="128" width="40" height="40"/>
+                                        <rect key="frame" x="187" y="101" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="4h8-za-YEQ"/>
                                             <constraint firstAttribute="height" constant="40" id="Ozx-p2-W6O"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="BTN"/>
                                         <connections>
                                             <action selector="showMapButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="6hv-4P-hRr"/>
                                         </connections>
@@ -54,16 +54,27 @@
                                             </label>
                                         </subviews>
                                     </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="92X-wz-IkN">
+                                        <rect key="frame" x="185.5" y="143" width="43" height="29"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="showMapButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="oH9-M2-Fes"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="uss-Px-bwO" firstAttribute="centerX" secondItem="G1o-P5-dPe" secondAttribute="centerX" id="Aaa-ZA-9Rk"/>
                                     <constraint firstItem="cO7-lo-P23" firstAttribute="top" secondItem="G1o-P5-dPe" secondAttribute="top" constant="20" id="Caz-6r-N7H"/>
-                                    <constraint firstAttribute="bottom" secondItem="Ws2-FF-F0H" secondAttribute="bottom" constant="12" id="ayL-g6-WCN"/>
                                     <constraint firstAttribute="height" constant="180" id="eB4-Zv-UQv"/>
+                                    <constraint firstItem="92X-wz-IkN" firstAttribute="top" secondItem="Ws2-FF-F0H" secondAttribute="bottom" constant="2" id="euy-86-Mgc"/>
+                                    <constraint firstAttribute="bottom" secondItem="92X-wz-IkN" secondAttribute="bottom" constant="8" id="gH2-mI-aKI"/>
                                     <constraint firstItem="uss-Px-bwO" firstAttribute="top" secondItem="cO7-lo-P23" secondAttribute="bottom" constant="8" id="gqQ-0B-qZX"/>
                                     <constraint firstItem="cO7-lo-P23" firstAttribute="centerX" secondItem="G1o-P5-dPe" secondAttribute="centerX" id="j1w-NT-bs3"/>
                                     <constraint firstItem="Ws2-FF-F0H" firstAttribute="centerX" secondItem="G1o-P5-dPe" secondAttribute="centerX" id="z5m-oe-cRf"/>
+                                    <constraint firstItem="92X-wz-IkN" firstAttribute="centerX" secondItem="Ws2-FF-F0H" secondAttribute="centerX" id="zY9-tZ-ncI"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="YQa-Yn-14a">
@@ -103,6 +114,7 @@
                         <outlet property="directionLabel" destination="BsT-gi-O49" id="hT1-41-81Y"/>
                         <outlet property="refreshButton" destination="zk5-Jl-JcX" id="f6U-z9-YN2"/>
                         <outlet property="showMapButton" destination="Ws2-FF-F0H" id="Y9A-jK-LwQ"/>
+                        <outlet property="showMapTitleButton" destination="92X-wz-IkN" id="BLz-9y-kyT"/>
                         <outlet property="stationNameLabel" destination="cO7-lo-P23" id="4py-nR-1X4"/>
                         <outlet property="tableView" destination="YQa-Yn-14a" id="b6t-Mc-bwv"/>
                     </connections>

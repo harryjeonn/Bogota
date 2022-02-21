@@ -13,6 +13,7 @@ class StationDetailViewController: BaseViewController {
     @IBOutlet weak var stationNameLabel: UILabel!
     @IBOutlet weak var directionLabel: UILabel!
     @IBOutlet weak var showMapButton: UIButton!
+    @IBOutlet weak var showMapTitleButton: UIButton!
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var refreshButton: UIButton!
@@ -60,6 +61,9 @@ class StationDetailViewController: BaseViewController {
         showMapButton.layer.shadowOpacity = 0.5
         showMapButton.layer.shadowColor = UIColor.gray.cgColor
         showMapButton.layer.shadowOffset = CGSize(width: 0, height: 0)
+        
+        showMapTitleButton.setTitle("지도", for: .normal)
+        showMapTitleButton.tintColor = .gray
         
         refreshButton.backgroundColor = .white
         refreshButton.tintColor = .black
