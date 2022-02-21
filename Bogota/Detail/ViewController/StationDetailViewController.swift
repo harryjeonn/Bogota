@@ -57,10 +57,7 @@ class StationDetailViewController: BaseViewController {
         showMapButton.setImage(UIImage(named: "tabbar_map"), for: .normal)
         showMapButton.backgroundColor = .white
         showMapButton.layer.cornerRadius = showMapButton.frame.width / 2
-        showMapButton.layer.shadowRadius = 2
-        showMapButton.layer.shadowOpacity = 0.5
-        showMapButton.layer.shadowColor = UIColor.gray.cgColor
-        showMapButton.layer.shadowOffset = CGSize(width: 0, height: 0)
+        showMapButton.addShadow(radius: 2, opacity: 0.5, width: 0, height: 0)
         
         showMapTitleButton.setTitle("지도", for: .normal)
         showMapTitleButton.tintColor = .gray
@@ -68,10 +65,7 @@ class StationDetailViewController: BaseViewController {
         refreshButton.backgroundColor = .white
         refreshButton.tintColor = .black
         refreshButton.layer.cornerRadius = refreshButton.frame.width / 2
-        refreshButton.layer.shadowRadius = 1
-        refreshButton.layer.shadowOpacity = 0.5
-        refreshButton.layer.shadowColor = UIColor.gray.cgColor
-        refreshButton.layer.shadowOffset = CGSize(width: 1, height: 1)
+        refreshButton.addShadow(radius: 1, opacity: 0.5, width: 1, height: 1)
         refreshButton.layer.borderWidth = 0.5
         refreshButton.layer.borderColor = UIColor.gray.cgColor
         

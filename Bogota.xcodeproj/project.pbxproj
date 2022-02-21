@@ -41,6 +41,7 @@
 		BDA82E3A279E691B005D5683 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDA82E38279E691B005D5683 /* Main.storyboard */; };
 		BDA82E3C279E691C005D5683 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDA82E3B279E691C005D5683 /* Assets.xcassets */; };
 		BDA82E3F279E691C005D5683 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDA82E3D279E691C005D5683 /* LaunchScreen.storyboard */; };
+		BDAB846D27C360C30046661C /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAB846C27C360C30046661C /* UIButton+Extension.swift */; };
 		BDB9B4B027A237CB0002008C /* LowStationByUidResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB9B4AF27A237CB0002008C /* LowStationByUidResponse.swift */; };
 		BDE1E40A27B356E200E83E63 /* BusPosByRtidListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE1E40927B356E200E83E63 /* BusPosByRtidListResponse.swift */; };
 		BDE1E40C27B3BDC200E83E63 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE1E40B27B3BDC200E83E63 /* UIColor+Extension.swift */; };
@@ -95,6 +96,7 @@
 		BDA82E3B279E691C005D5683 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BDA82E3E279E691C005D5683 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BDA82E40279E691C005D5683 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BDAB846C27C360C30046661C /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIButton+Extension.swift"; path = "Bogota/Common/Utils/UIButton+Extension.swift"; sourceTree = SOURCE_ROOT; };
 		BDB9B4AF27A237CB0002008C /* LowStationByUidResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LowStationByUidResponse.swift; path = Bogota/API/Bus/Model/LowStationByUidResponse.swift; sourceTree = SOURCE_ROOT; };
 		BDE1E40927B356E200E83E63 /* BusPosByRtidListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BusPosByRtidListResponse.swift; path = Bogota/API/Bus/Model/BusPosByRtidListResponse.swift; sourceTree = SOURCE_ROOT; };
 		BDE1E40B27B3BDC200E83E63 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIColor+Extension.swift"; path = "Bogota/Common/Utils/UIColor+Extension.swift"; sourceTree = SOURCE_ROOT; };
@@ -207,6 +209,7 @@
 				BD1847E227A0E66500E7CE78 /* BaseViewController.swift */,
 				BD1847E427A0E74A00E7CE78 /* Utils.swift */,
 				BDE1E40B27B3BDC200E83E63 /* UIColor+Extension.swift */,
+				BDAB846C27C360C30046661C /* UIButton+Extension.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -535,6 +538,7 @@
 				BDE7965127BA10B80086CD6B /* SearchGuideView.swift in Sources */,
 				BD1847E327A0E66500E7CE78 /* BaseViewController.swift in Sources */,
 				BDE7964B27B9E78E0086CD6B /* SearchBarView.swift in Sources */,
+				BDAB846D27C360C30046661C /* UIButton+Extension.swift in Sources */,
 				BDA32DA327B623CC007E1983 /* SearchViewController.swift in Sources */,
 				BDE1E40C27B3BDC200E83E63 /* UIColor+Extension.swift in Sources */,
 				BD1847DA27A0CFA400E7CE78 /* HomeViewController.swift in Sources */,

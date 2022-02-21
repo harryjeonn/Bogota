@@ -72,10 +72,7 @@ class BusDetailViewController: BaseViewController {
         refreshButton.backgroundColor = .white
         refreshButton.tintColor = .black
         refreshButton.layer.cornerRadius = refreshButton.frame.width / 2
-        refreshButton.layer.shadowRadius = 1
-        refreshButton.layer.shadowOpacity = 0.5
-        refreshButton.layer.shadowColor = UIColor.gray.cgColor
-        refreshButton.layer.shadowOffset = CGSize(width: 1, height: 1)
+        refreshButton.addShadow(radius: 1, opacity: 0.5, width: 1, height: 1)
         refreshButton.layer.borderWidth = 0.5
         refreshButton.layer.borderColor = UIColor.gray.cgColor
     }

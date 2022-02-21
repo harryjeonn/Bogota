@@ -79,6 +79,29 @@
                                     <constraint firstItem="0V0-hA-fhe" firstAttribute="leading" secondItem="mOw-uq-Mnf" secondAttribute="leading" constant="20" id="xaZ-zF-nM6"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dFg-2b-PDf">
+                                <rect key="frame" x="302" y="100" width="100" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="G30-KF-4k2"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="searchAroundButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="1O6-ce-GXJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZIZ-I8-CYI">
+                                <rect key="frame" x="362" y="142" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="8m8-4n-Vwa"/>
+                                    <constraint firstAttribute="width" secondItem="ZIZ-I8-CYI" secondAttribute="height" id="Tdf-PM-Fbz"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="goMyLocationButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="hJA-rZ-5Oh"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -88,6 +111,10 @@
                             <constraint firstItem="mOw-uq-Mnf" firstAttribute="top" secondItem="XQ2-Vd-PKX" secondAttribute="bottom" constant="2" id="X3r-fY-0LY"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="XQ2-Vd-PKX" secondAttribute="trailing" id="YpI-Kd-4J0"/>
                             <constraint firstItem="mOw-uq-Mnf" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="aUI-YM-f2O"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="ZIZ-I8-CYI" secondAttribute="trailing" constant="12" id="gBW-dC-bUZ"/>
+                            <constraint firstItem="ZIZ-I8-CYI" firstAttribute="top" secondItem="dFg-2b-PDf" secondAttribute="bottom" constant="12" id="gJe-n1-oAk"/>
+                            <constraint firstItem="dFg-2b-PDf" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="12" id="gkS-Ec-c2D"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="dFg-2b-PDf" secondAttribute="trailing" constant="12" id="kMY-xT-Efl"/>
                             <constraint firstItem="mOw-uq-Mnf" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="lfE-hx-IG9"/>
                             <constraint firstItem="XQ2-Vd-PKX" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="t53-0T-etD"/>
                         </constraints>
@@ -95,11 +122,13 @@
                     <navigationItem key="navigationItem" id="Uct-vC-5F3"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="goMyLocationButton" destination="ZIZ-I8-CYI" id="zip-iF-u72"/>
                         <outlet property="infoView" destination="mOw-uq-Mnf" id="ubL-bA-2ID"/>
                         <outlet property="infoViewHeight" destination="bR1-9k-3RV" id="K3f-ae-0cl"/>
                         <outlet property="infoViewSubTitleLabel" destination="kWP-66-61Q" id="9qe-kO-DUP"/>
                         <outlet property="infoViewTitleLabel" destination="czS-7Z-rup" id="bvP-f6-rOE"/>
                         <outlet property="mapView" destination="XQ2-Vd-PKX" id="PTA-o2-xZe"/>
+                        <outlet property="searchAroundButton" destination="dFg-2b-PDf" id="Mcs-JO-xGL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

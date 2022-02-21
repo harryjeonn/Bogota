@@ -14,6 +14,8 @@ class MapViewController: BaseViewController {
     @IBOutlet weak var infoViewHeight: NSLayoutConstraint!
     @IBOutlet weak var infoViewTitleLabel: UILabel!
     @IBOutlet weak var infoViewSubTitleLabel: UILabel!
+    @IBOutlet weak var searchAroundButton: UIButton!
+    @IBOutlet weak var goMyLocationButton: UIButton!
     
     private var locationManager = LocationManager.shared
     
@@ -29,7 +31,7 @@ class MapViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupMapView()
-        setupInfoView()
+        setupUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -42,25 +44,46 @@ class MapViewController: BaseViewController {
         super.viewDidDisappear(animated)
     }
     
+    private func setupUI() {
+        setupInfoView()
+        
+        // 주변 정류장 버튼
+        searchAroundButton.backgroundColor = .white
+        searchAroundButton.layer.cornerRadius = 10
+        searchAroundButton.setTitle("내 주변 정류장", for: .normal)
+        searchAroundButton.titleLabel?.font = .systemFont(ofSize: 14)
+        searchAroundButton.addShadow(radius: 1, opacity: 0.5, width: 1, height: 1)
+        searchAroundButton.layer.borderWidth = 0.5
+        searchAroundButton.layer.borderColor = UIColor.gray.cgColor
+        searchAroundButton.tintColor = .blueColor
+        
+        // 내 위치 버튼
+        goMyLocationButton.backgroundColor = .white
+        goMyLocationButton.layer.cornerRadius = goMyLocationButton.frame.width / 2
+        goMyLocationButton.setTitle("", for: .normal)
+        goMyLocationButton.setImage(UIImage(systemName: "location.north.fill"), for: .normal)
+        goMyLocationButton.addShadow(radius: 1, opacity: 0.5, width: 1, height: 1)
+        goMyLocationButton.layer.borderWidth = 0.5
+        goMyLocationButton.layer.borderColor = UIColor.gray.cgColor
+        goMyLocationButton.tintColor = .blueColor
+    }
+    
     private func setupNavigationBar() {
         navigationItem.titleView = self.searchBarView
     }
     
     // MARK: - Map
     private func setupMapView() {
-        guard let lat = locationManager.locManager.location?.coordinate.latitude,
-              let lon = locationManager.locManager.location?.coordinate.longitude else {
-                  print("Error: Can not load location")
-                  return
-              }
+        guard let coord = getCurrentCoord() else { return }
         
-        mapView.latitude = lat
-        mapView.longitude = lon
+        mapView.latitude = coord.latitude
+        mapView.longitude = coord.longitude
         mapView.zoomLevel = 16
         
         mapView.positionMode = .direction
         
         mapView.touchDelegate = self
+        mapView.addCameraDelegate(delegate: self)
     }
     
     private func cameraUpdate(latStr: String, lngStr: String, isAnimation: Bool) {
@@ -75,6 +98,15 @@ class MapViewController: BaseViewController {
         }
         
         mapView.moveCamera(cameraUpdate)
+    }
+    
+    private func getCurrentCoord() -> CLLocationCoordinate2D? {
+        guard let coord = locationManager.locManager.location?.coordinate else {
+            print("Error: Can not load location")
+            self.showCommonPopupView(title: "위치정보", desc: "위치정보를 불러올 수 없습니다.\n잠시 후 다시 시도해주세요.")
+            return nil
+        }
+        return coord
     }
     
     // MARK: - Marker
@@ -220,7 +252,11 @@ class MapViewController: BaseViewController {
                 if let items = response.msgBody?.itemList {
                     self.stations = items
                     self.setupSelectedMarker()
-                    self.getStationByPos()
+                    
+                    guard let selectStation = selectStation,
+                          let tmY = selectStation.tmY,
+                          let tmX = selectStation.tmX else { return }
+                    self.getStationByPos(tmX: tmX, tmY: tmY)
                 }
             } catch {
                 print("*** Error: \(error.localizedDescription) - \(error)")
@@ -230,13 +266,10 @@ class MapViewController: BaseViewController {
         }
     }
     
-    private func getStationByPos() {
+    private func getStationByPos(tmX: String, tmY: String) {
         self.showLoading()
         Task {
             do {
-                guard let selectStation = selectStation,
-                      let tmY = selectStation.tmY,
-                      let tmX = selectStation.tmX else { return }
                 let response = try await BusAPI.shared.getStationByPos(tmX: tmX, tmY: tmY)
                 print(response)
                 if let msgBody = response.msgBody,
@@ -262,11 +295,32 @@ class MapViewController: BaseViewController {
         vc.stationNm = stationNm
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
+    @IBAction func searchAroundButtonClicked(_ sender: Any) {
+        guard let coord = getCurrentCoord() else { return }
+        let tmX = String(format: "%.8f", coord.longitude)
+        let tmY = String(format: "%.8f", coord.latitude)
+        
+        getStationByPos(tmX: tmX, tmY: tmY)
+    }
+    
+    @IBAction func goMyLocationButtonClicked(_ sender: Any) {
+        guard let coord = getCurrentCoord() else { return }
+        cameraUpdate(latStr: "\(coord.latitude)", lngStr: "\(coord.longitude)", isAnimation: true)
+        goMyLocationButton.tintColor = .blueColor
+    }
 }
 
-extension MapViewController: NMFMapViewTouchDelegate {
+extension MapViewController: NMFMapViewTouchDelegate, NMFMapViewCameraDelegate {
     func mapView(_ mapView: NMFMapView, didTapMap latlng: NMGLatLng, point: CGPoint) {
         setDefaultAllMarkers()
         hideInfoView()
+    }
+    
+    func mapView(_ mapView: NMFMapView, cameraDidChangeByReason reason: Int, animated: Bool) {
+        guard let coord = getCurrentCoord() else { return }
+        if mapView.cameraPosition.target.lat != coord.latitude && mapView.cameraPosition.target.lng != coord.longitude {
+            goMyLocationButton.tintColor = .lightGray
+        }
     }
 }
