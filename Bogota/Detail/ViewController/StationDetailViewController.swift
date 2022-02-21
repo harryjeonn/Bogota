@@ -114,7 +114,7 @@ class StationDetailViewController: BaseViewController {
     private func updateTableView(_ response: LowStationByUidResponse) {
         if let msgBody = response.msgBody,
            let itemList = msgBody.itemList {
-            busInfos = itemList
+            busInfos = itemList.filter({ $0.arsId != "0" })
             tableView.reloadData()
         }
         

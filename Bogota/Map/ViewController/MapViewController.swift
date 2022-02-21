@@ -239,7 +239,7 @@ class MapViewController: BaseViewController {
                 print(response)
                 if let msgBody = response.msgBody,
                    let itemList = msgBody.itemList {
-                    self.makeAroundMarker(itemList)
+                    self.makeAroundMarker(itemList.filter({ $0.arsId != "0" }))
                     self.cameraUpdate(latStr: tmY, lngStr: tmX, isAnimation: false)
                 }
             } catch {

@@ -96,7 +96,7 @@ class HomeViewController: BaseViewController {
     private func updateTableView(_ response: StationByPosResponse) {
         if let msgBody = response.msgBody,
            let itemList = msgBody.itemList {
-            posStations = itemList
+            posStations = itemList.filter({ $0.arsId != "0" })
             tableView.reloadData()
         }
         

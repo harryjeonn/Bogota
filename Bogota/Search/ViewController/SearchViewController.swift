@@ -93,7 +93,7 @@ class SearchViewController: BaseViewController {
                 filteredItemList.append(item)
             }
         }
-        return filteredItemList
+        return filteredItemList.filter({ $0.arsId != "0" })
     }
     
     private func getBusRouteList() {
@@ -126,7 +126,7 @@ class SearchViewController: BaseViewController {
                 print(response)
                 if let msgBody = response.msgBody,
                    let itemList = msgBody.itemList {
-                    nameStations = itemList
+                    nameStations = itemList.filter({ $0.arsId != "0" })
                     emptyView.isHidden = true
                     tableView.reloadData()
                 }
