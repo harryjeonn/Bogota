@@ -113,7 +113,7 @@ class HomeViewController: BaseViewController {
         
         Task {
             do {
-                let response = try await BusAPI.shared.getStationByPos(tmX: tmX, tmY: tmY)
+                let response = try await BusAPI.shared.getStationByPos(tmX: tmX, tmY: tmY, radius: "500")
                 self.updateTableView(response)
             } catch {
                 print("*** Error: \(error.localizedDescription) - \(error)")

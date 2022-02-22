@@ -19,13 +19,13 @@ class BusAPI {
     private let decodingKey = "k8TV0tzwFHNJE4z7KzTipafjxxhhC3EFYBxQdW9/ouXJed3WkRjL8haC7LPgdozPFALzfWx0HwCZ7JjRxPPuzQ=="
     
     //MARK: - 좌표기반 근접 정류소 조회
-    func getStationByPos(tmX: String, tmY: String) async throws -> StationByPosResponse {
+    func getStationByPos(tmX: String, tmY: String, radius: String) async throws -> StationByPosResponse {
         let urlStr = "http://ws.bus.go.kr/api/rest/stationinfo/getStationByPos"
         
         let query: [String: String] = [
-            "tmX": "\(tmX)",
-            "tmY": "\(tmY)",
-            "radius": "500"
+            "tmX": tmX,
+            "tmY": tmY,
+            "radius": radius
         ]
         
         let data = try await request(urlStr: urlStr, query: query)

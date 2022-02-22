@@ -102,10 +102,20 @@
                                     <action selector="goMyLocationButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="hJA-rZ-5Oh"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mtM-iR-SBV">
+                                <rect key="frame" x="220" y="100" width="70" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="LdX-6L-86k"/>
+                                    <constraint firstAttribute="height" constant="30" id="OzJ-T3-v9e"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="mtM-iR-SBV" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="12" id="3CE-tu-30b"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="mOw-uq-Mnf" secondAttribute="trailing" id="JDA-rY-20s"/>
                             <constraint firstItem="XQ2-Vd-PKX" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="NsN-sW-FFd"/>
                             <constraint firstItem="mOw-uq-Mnf" firstAttribute="top" secondItem="XQ2-Vd-PKX" secondAttribute="bottom" constant="2" id="X3r-fY-0LY"/>
@@ -116,12 +126,14 @@
                             <constraint firstItem="dFg-2b-PDf" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="12" id="gkS-Ec-c2D"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="dFg-2b-PDf" secondAttribute="trailing" constant="12" id="kMY-xT-Efl"/>
                             <constraint firstItem="mOw-uq-Mnf" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="lfE-hx-IG9"/>
+                            <constraint firstItem="dFg-2b-PDf" firstAttribute="leading" secondItem="mtM-iR-SBV" secondAttribute="trailing" constant="12" id="sMG-Ws-xp4"/>
                             <constraint firstItem="XQ2-Vd-PKX" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="t53-0T-etD"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Uct-vC-5F3"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="distanceTextField" destination="mtM-iR-SBV" id="fzD-C7-wgc"/>
                         <outlet property="goMyLocationButton" destination="ZIZ-I8-CYI" id="zip-iF-u72"/>
                         <outlet property="infoView" destination="mOw-uq-Mnf" id="ubL-bA-2ID"/>
                         <outlet property="infoViewHeight" destination="bR1-9k-3RV" id="K3f-ae-0cl"/>

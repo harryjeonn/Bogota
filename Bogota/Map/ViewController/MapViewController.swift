@@ -16,6 +16,7 @@ class MapViewController: BaseViewController {
     @IBOutlet weak var infoViewSubTitleLabel: UILabel!
     @IBOutlet weak var searchAroundButton: UIButton!
     @IBOutlet weak var goMyLocationButton: UIButton!
+    @IBOutlet weak var distanceTextField: UITextField!
     
     private var locationManager = LocationManager.shared
     
@@ -25,12 +26,16 @@ class MapViewController: BaseViewController {
     private var selectedMarkerWidth: CGFloat = 30
     private var unselectedMarkerWidth: CGFloat = 20
     
+    private var pickerView = UIPickerView()
+    private var pickerViewList = ["100", "300", "500", "1000"]
+    
     var stationName: String?
     var arsId: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupMapView()
+        setupPickerView()
         setupUI()
     }
     
@@ -66,6 +71,21 @@ class MapViewController: BaseViewController {
         goMyLocationButton.layer.borderWidth = 0.5
         goMyLocationButton.layer.borderColor = UIColor.gray.cgColor
         goMyLocationButton.tintColor = .blueColor
+        
+        distanceTextField.backgroundColor = .white
+        distanceTextField.layer.cornerRadius = 10
+        distanceTextField.layer.shadowRadius = 1
+        distanceTextField.layer.shadowOpacity = 0.5
+        distanceTextField.layer.shadowColor = UIColor.gray.cgColor
+        distanceTextField.layer.shadowOffset = CGSize(width: 1, height: 1)
+        distanceTextField.layer.borderWidth = 0.5
+        distanceTextField.layer.borderColor = UIColor.gray.cgColor
+        distanceTextField.tintColor = .clear
+        distanceTextField.inputView = pickerView
+        distanceTextField.textAlignment = .center
+        distanceTextField.textColor = .blueColor
+        distanceTextField.font = .systemFont(ofSize: 14)
+//        distanceTextField.text = "\(pickerViewList[2])m"
     }
     
     private func setupNavigationBar() {
@@ -270,12 +290,15 @@ class MapViewController: BaseViewController {
         self.showLoading()
         Task {
             do {
-                let response = try await BusAPI.shared.getStationByPos(tmX: tmX, tmY: tmY)
+                let response = try await BusAPI.shared.getStationByPos(tmX: tmX, tmY: tmY, radius: getSelectDistance())
                 print(response)
                 if let msgBody = response.msgBody,
                    let itemList = msgBody.itemList {
                     self.makeAroundMarker(itemList.filter({ $0.arsId != "0" }))
                     self.cameraUpdate(latStr: tmY, lngStr: tmX, isAnimation: false)
+                } else {
+                    self.removeAllMarker()
+                    self.showCommonPopupView(title: "검색 실패", desc: "검색 범위 내 정류장이 없습니다.")
                 }
             } catch {
                 print("*** Error: \(error.localizedDescription) - \(error)")
@@ -283,6 +306,52 @@ class MapViewController: BaseViewController {
             }
             self.hideLoading()
         }
+    }
+    
+    // MARK: - PickerView
+    private func setupPickerView() {
+        pickerView.delegate = self
+        pickerView.dataSource = self
+        
+        let toolbar = UIToolbar()
+        toolbar.tintColor = .blueColor
+        toolbar.frame = CGRect(x: 0, y: 0, width: 0, height: 45)
+        
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        
+        toolbar.setItems([flexSpace, createToolBarButtonItem()], animated: true)
+        
+        distanceTextField.inputAccessoryView = toolbar
+        
+        pickerView.selectRow(2, inComponent: 0, animated: true)
+        distanceTextField.text = "\(getSelectDistance())m"
+    }
+    
+    private func createToolBarButtonItem() -> UIBarButtonItem {
+        let doneButton = UIBarButtonItem()
+        doneButton.title = "완료"
+        doneButton.target = self
+        doneButton.action = #selector(doneButtonClicked)
+        
+        return doneButton
+    }
+    
+    private func getSelectDistance() -> String {
+        let selectItem = pickerView.selectedRow(inComponent: 0)
+        pickerView.selectRow(selectItem, inComponent: 0, animated: true)
+        
+        return pickerViewList[selectItem]
+    }
+    
+    @objc private func doneButtonClicked() {
+        let distance = getSelectDistance()
+        
+        if distance == "1000" {
+            distanceTextField.text = "1km"
+        } else {
+            distanceTextField.text = "\(distance)m"
+        }
+        self.view.endEditing(true)
     }
     
     // MARK: - Tap Event
@@ -321,6 +390,24 @@ extension MapViewController: NMFMapViewTouchDelegate, NMFMapViewCameraDelegate {
         guard let coord = getCurrentCoord() else { return }
         if mapView.cameraPosition.target.lat != coord.latitude && mapView.cameraPosition.target.lng != coord.longitude {
             goMyLocationButton.tintColor = .lightGray
+        }
+    }
+}
+
+extension MapViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pickerViewList.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        if pickerViewList[row] == "1000" {
+            return "1km"
+        } else {
+            return "\(pickerViewList[row])m"
         }
     }
 }
