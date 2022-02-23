@@ -31,12 +31,27 @@
                     <view key="view" contentMode="scaleToFill" id="geG-7E-PP7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="CiC-8r-x4O">
+                                <rect key="frame" x="20" y="108" width="374" height="705"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="PKs-8g-eqs"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="CiC-8r-x4O" firstAttribute="leading" secondItem="PKs-8g-eqs" secondAttribute="leading" constant="20" id="F00-Aa-uUa"/>
+                            <constraint firstItem="PKs-8g-eqs" firstAttribute="bottom" secondItem="CiC-8r-x4O" secondAttribute="bottom" id="LCW-QX-T41"/>
+                            <constraint firstItem="CiC-8r-x4O" firstAttribute="top" secondItem="PKs-8g-eqs" secondAttribute="top" constant="20" id="Ns1-oy-i1O"/>
+                            <constraint firstItem="PKs-8g-eqs" firstAttribute="trailing" secondItem="CiC-8r-x4O" secondAttribute="trailing" constant="20" id="Yo8-6X-3Yf"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="즐겨찾기" image="star" catalog="system" id="aUh-Nv-s8L"/>
+                    <tabBarItem key="tabBarItem" title="즐겨찾기" image="tabbar_favorite" id="aUh-Nv-s8L"/>
                     <navigationItem key="navigationItem" id="INO-Q2-snV"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="CiC-8r-x4O" id="s2V-rO-ncX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rr9-dv-BVu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -44,7 +59,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="star" catalog="system" width="128" height="116"/>
+        <image name="tabbar_favorite" width="24" height="24"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

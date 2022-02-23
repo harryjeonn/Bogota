@@ -16,6 +16,8 @@ class BusDetailViewController: BaseViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var refreshButton: UIButton!
     @IBOutlet weak var intervalLabel: UILabel!
+    @IBOutlet weak var addFavoriteButton: UIButton!
+    @IBOutlet weak var addFavoriteTitleButton: UIButton!
     
     var busInfo: LowBusInfo?
     var arsId: String?
@@ -23,6 +25,8 @@ class BusDetailViewController: BaseViewController {
     var busRouteId: String?
     private var routes = [RouteInfo]()
     private var busPositions = [BusPosition]()
+    private var saveFavorite: FavoriteModel?
+    private var isFavorite = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +38,11 @@ class BusDetailViewController: BaseViewController {
         getStationByRoute()
         getBusPosByRtidList()
         updateBusInfo()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        checkFavorite()
     }
     
     private func setupUI() {
@@ -75,6 +84,25 @@ class BusDetailViewController: BaseViewController {
         refreshButton.addShadow(radius: 1, opacity: 0.5, width: 1, height: 1)
         refreshButton.layer.borderWidth = 0.5
         refreshButton.layer.borderColor = UIColor.gray.cgColor
+        
+        addFavoriteButton.setTitle("", for: .normal)
+        addFavoriteButton.backgroundColor = .white
+        addFavoriteButton.layer.cornerRadius = addFavoriteButton.frame.width / 2
+        addFavoriteButton.addShadow(radius: 2, opacity: 0.5, width: 0, height: 0)
+        
+        addFavoriteTitleButton.setTitle("즐겨찾기", for: .normal)
+        addFavoriteTitleButton.tintColor = .gray
+    }
+    
+    private func checkFavorite() {
+        saveFavorite = FavoriteModel(type: .bus, stationName: nil, arsId: nil, busRoute: busRoute, busInfo: busInfo)
+        if Favorite.shared.checkContains(saveFavorite!) {
+            isFavorite = true
+            addFavoriteButton.setImage(UIImage(named: "icon_favorite"), for: .normal)
+        } else {
+            isFavorite = false
+            addFavoriteButton.setImage(UIImage(named: "tabbar_favorite"), for: .normal)
+        }
     }
     
     private func updateBusInfo() {
@@ -221,6 +249,20 @@ class BusDetailViewController: BaseViewController {
             }
             self.hideLoading()
         }
+    }
+    
+    @IBAction func addFavoriteButtonClicked(_ sender: Any) {
+        guard let saveFavorite = saveFavorite else { return }
+        if isFavorite {
+            Favorite.shared.deleteFavorite(saveFavorite)
+            addFavoriteButton.setImage(UIImage(named: "tabbar_favorite"), for: .normal)
+            self.showCommonPopupView(title: "해제 완료", desc: "즐겨찾기 해제되었습니다.")
+        } else {
+            Favorite.shared.saveFavorite(saveFavorite)
+            addFavoriteButton.setImage(UIImage(named: "icon_favorite"), for: .normal)
+            self.showCommonPopupView(title: "추가 완료", desc: "즐겨찾기에 추가되었습니다.")
+        }
+        isFavorite = !isFavorite
     }
 }
 

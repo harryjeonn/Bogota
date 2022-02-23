@@ -44,6 +44,7 @@
 		BDAB846D27C360C30046661C /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAB846C27C360C30046661C /* UIButton+Extension.swift */; };
 		BDB2CFB627C5F3330011C8A8 /* Favorite.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDB2CFB527C5F3330011C8A8 /* Favorite.storyboard */; };
 		BDB2CFB927C5F3B50011C8A8 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB2CFB827C5F3B50011C8A8 /* FavoriteViewController.swift */; };
+		BDB2CFBD27C60B4F0011C8A8 /* FavoriteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB2CFBC27C60B4F0011C8A8 /* FavoriteModel.swift */; };
 		BDB9B4B027A237CB0002008C /* LowStationByUidResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB9B4AF27A237CB0002008C /* LowStationByUidResponse.swift */; };
 		BDE1E40A27B356E200E83E63 /* BusPosByRtidListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE1E40927B356E200E83E63 /* BusPosByRtidListResponse.swift */; };
 		BDE1E40C27B3BDC200E83E63 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE1E40B27B3BDC200E83E63 /* UIColor+Extension.swift */; };
@@ -101,6 +102,7 @@
 		BDAB846C27C360C30046661C /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIButton+Extension.swift"; path = "Bogota/Common/Utils/UIButton+Extension.swift"; sourceTree = SOURCE_ROOT; };
 		BDB2CFB527C5F3330011C8A8 /* Favorite.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Favorite.storyboard; path = Bogota/Favorite/Favorite.storyboard; sourceTree = SOURCE_ROOT; };
 		BDB2CFB827C5F3B50011C8A8 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FavoriteViewController.swift; path = Bogota/Favorite/ViewController/FavoriteViewController.swift; sourceTree = SOURCE_ROOT; };
+		BDB2CFBC27C60B4F0011C8A8 /* FavoriteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FavoriteModel.swift; path = Bogota/Favorite/Model/FavoriteModel.swift; sourceTree = SOURCE_ROOT; };
 		BDB9B4AF27A237CB0002008C /* LowStationByUidResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LowStationByUidResponse.swift; path = Bogota/API/Bus/Model/LowStationByUidResponse.swift; sourceTree = SOURCE_ROOT; };
 		BDE1E40927B356E200E83E63 /* BusPosByRtidListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BusPosByRtidListResponse.swift; path = Bogota/API/Bus/Model/BusPosByRtidListResponse.swift; sourceTree = SOURCE_ROOT; };
 		BDE1E40B27B3BDC200E83E63 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIColor+Extension.swift"; path = "Bogota/Common/Utils/UIColor+Extension.swift"; sourceTree = SOURCE_ROOT; };
@@ -347,6 +349,7 @@
 			isa = PBXGroup;
 			children = (
 				BDB2CFB527C5F3330011C8A8 /* Favorite.storyboard */,
+				BDB2CFBB27C60B3F0011C8A8 /* Model */,
 				BDB2CFB727C5F3A30011C8A8 /* ViewController */,
 			);
 			path = Favorite;
@@ -358,6 +361,14 @@
 				BDB2CFB827C5F3B50011C8A8 /* FavoriteViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		BDB2CFBB27C60B3F0011C8A8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BDB2CFBC27C60B4F0011C8A8 /* FavoriteModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		BDF9F334279E7F3900E4DAB3 /* Home */ = {
@@ -557,6 +568,7 @@
 				BDA82E33279E691A005D5683 /* AppDelegate.swift in Sources */,
 				BDE1E40A27B356E200E83E63 /* BusPosByRtidListResponse.swift in Sources */,
 				BDA32DA927B64318007E1983 /* BusRouteListResponse.swift in Sources */,
+				BDB2CFBD27C60B4F0011C8A8 /* FavoriteModel.swift in Sources */,
 				BDB9B4B027A237CB0002008C /* LowStationByUidResponse.swift in Sources */,
 				BDE7965127BA10B80086CD6B /* SearchGuideView.swift in Sources */,
 				BD1847E327A0E66500E7CE78 /* BaseViewController.swift in Sources */,

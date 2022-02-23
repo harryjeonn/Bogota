@@ -161,12 +161,12 @@ extension SearchGuideView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-            if editingStyle == .delete {
-                searchHistories.remove(at: indexPath.row)
-                UserDefaults.standard.set(try? PropertyListEncoder().encode(searchHistories), forKey: "searchHistory")
-                tableView.deleteRows(at: [indexPath], with: .fade)
-            }
+        if editingStyle == .delete {
+            searchHistories.remove(at: indexPath.row)
+            UserDefaults.standard.set(try? PropertyListEncoder().encode(searchHistories), forKey: "searchHistory")
+            tableView.deleteRows(at: [indexPath], with: .fade)
         }
+    }
     
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         delegate?.didScroll()

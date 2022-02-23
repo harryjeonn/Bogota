@@ -14,12 +14,16 @@ class StationDetailViewController: BaseViewController {
     @IBOutlet weak var directionLabel: UILabel!
     @IBOutlet weak var showMapButton: UIButton!
     @IBOutlet weak var showMapTitleButton: UIButton!
+    @IBOutlet weak var addFavoriteButton: UIButton!
+    @IBOutlet weak var addFavoriteTitleButton: UIButton!
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var refreshButton: UIButton!
     
     private var busInfos = [LowBusInfo]()
     private let emptyView = EmptyView()
+    private var saveFavorite: FavoriteModel?
+    private var isFavorite = false
     
     var arsId = ""
     var stationNm = ""
@@ -34,7 +38,7 @@ class StationDetailViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        checkFavorite()
     }
     
     private func setupUI() {
@@ -62,6 +66,14 @@ class StationDetailViewController: BaseViewController {
         
         showMapTitleButton.setTitle("지도", for: .normal)
         showMapTitleButton.tintColor = .gray
+        
+        addFavoriteButton.setTitle("", for: .normal)
+        addFavoriteButton.backgroundColor = .white
+        addFavoriteButton.layer.cornerRadius = addFavoriteButton.frame.width / 2
+        addFavoriteButton.addShadow(radius: 2, opacity: 0.5, width: 0, height: 0)
+        
+        addFavoriteTitleButton.setTitle("즐겨찾기", for: .normal)
+        addFavoriteTitleButton.tintColor = .gray
         
         refreshButton.backgroundColor = .white
         refreshButton.tintColor = .black
@@ -97,6 +109,17 @@ class StationDetailViewController: BaseViewController {
         
         let nib = UINib(nibName: "BusInfoCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "BusInfoCell")
+    }
+    
+    private func checkFavorite() {
+        saveFavorite = FavoriteModel(type: .station, stationName: stationNm, arsId: arsId, busRoute: nil)
+        if Favorite.shared.checkContains(saveFavorite!) {
+            isFavorite = true
+            addFavoriteButton.setImage(UIImage(named: "icon_favorite"), for: .normal)
+        } else {
+            isFavorite = false
+            addFavoriteButton.setImage(UIImage(named: "tabbar_favorite"), for: .normal)
+        }
     }
     
     private func updateInfo() {
@@ -162,6 +185,20 @@ class StationDetailViewController: BaseViewController {
     
     @IBAction func refreshButtonClicked(_ sender: Any) {
         getStationDetail()
+    }
+    
+    @IBAction func addFavoriteButtonClicked(_ sender: Any) {
+        guard let saveFavorite = saveFavorite else { return }
+        if isFavorite {
+            Favorite.shared.deleteFavorite(saveFavorite)
+            addFavoriteButton.setImage(UIImage(named: "tabbar_favorite"), for: .normal)
+            self.showCommonPopupView(title: "해제 완료", desc: "즐겨찾기 해제되었습니다.")
+        } else {
+            Favorite.shared.saveFavorite(saveFavorite)
+            addFavoriteButton.setImage(UIImage(named: "icon_favorite"), for: .normal)
+            self.showCommonPopupView(title: "추가 완료", desc: "즐겨찾기에 추가되었습니다.")
+        }
+        isFavorite = !isFavorite
     }
 }
 
