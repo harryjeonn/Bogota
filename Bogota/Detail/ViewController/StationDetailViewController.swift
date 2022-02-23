@@ -52,6 +52,7 @@ class StationDetailViewController: BaseViewController {
         directionLabel.textColor = .gray
         directionLabel.font = .systemFont(ofSize: 17)
         directionLabel.textAlignment = .center
+        directionLabel.text = ""
         
         showMapButton.setTitle("", for: .normal)
         showMapButton.setImage(UIImage(named: "tabbar_map"), for: .normal)
