@@ -38,11 +38,22 @@
                     <connections>
                         <segue destination="IjI-NT-RYI" kind="relationship" relationship="viewControllers" id="Xv5-3t-gME"/>
                         <segue destination="Uzt-YB-fTy" kind="relationship" relationship="viewControllers" id="mkm-l4-2ul"/>
+                        <segue destination="kKO-Xj-Wfm" kind="relationship" relationship="viewControllers" id="jdy-pM-9Xo"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cU4-76-hb6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="131.8840579710145" y="115.84821428571428"/>
+        </scene>
+        <!--Favorite-->
+        <scene sceneID="YCM-N0-PEK">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Favorite" id="kKO-Xj-Wfm" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="lz5-n9-ELe"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Nh-w5-6JE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1082" y="5"/>
         </scene>
     </scenes>
 </document>

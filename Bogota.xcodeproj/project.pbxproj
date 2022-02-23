@@ -42,6 +42,8 @@
 		BDA82E3C279E691C005D5683 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDA82E3B279E691C005D5683 /* Assets.xcassets */; };
 		BDA82E3F279E691C005D5683 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDA82E3D279E691C005D5683 /* LaunchScreen.storyboard */; };
 		BDAB846D27C360C30046661C /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAB846C27C360C30046661C /* UIButton+Extension.swift */; };
+		BDB2CFB627C5F3330011C8A8 /* Favorite.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDB2CFB527C5F3330011C8A8 /* Favorite.storyboard */; };
+		BDB2CFB927C5F3B50011C8A8 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB2CFB827C5F3B50011C8A8 /* FavoriteViewController.swift */; };
 		BDB9B4B027A237CB0002008C /* LowStationByUidResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB9B4AF27A237CB0002008C /* LowStationByUidResponse.swift */; };
 		BDE1E40A27B356E200E83E63 /* BusPosByRtidListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE1E40927B356E200E83E63 /* BusPosByRtidListResponse.swift */; };
 		BDE1E40C27B3BDC200E83E63 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE1E40B27B3BDC200E83E63 /* UIColor+Extension.swift */; };
@@ -97,6 +99,8 @@
 		BDA82E3E279E691C005D5683 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BDA82E40279E691C005D5683 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BDAB846C27C360C30046661C /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIButton+Extension.swift"; path = "Bogota/Common/Utils/UIButton+Extension.swift"; sourceTree = SOURCE_ROOT; };
+		BDB2CFB527C5F3330011C8A8 /* Favorite.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Favorite.storyboard; path = Bogota/Favorite/Favorite.storyboard; sourceTree = SOURCE_ROOT; };
+		BDB2CFB827C5F3B50011C8A8 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FavoriteViewController.swift; path = Bogota/Favorite/ViewController/FavoriteViewController.swift; sourceTree = SOURCE_ROOT; };
 		BDB9B4AF27A237CB0002008C /* LowStationByUidResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LowStationByUidResponse.swift; path = Bogota/API/Bus/Model/LowStationByUidResponse.swift; sourceTree = SOURCE_ROOT; };
 		BDE1E40927B356E200E83E63 /* BusPosByRtidListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BusPosByRtidListResponse.swift; path = Bogota/API/Bus/Model/BusPosByRtidListResponse.swift; sourceTree = SOURCE_ROOT; };
 		BDE1E40B27B3BDC200E83E63 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIColor+Extension.swift"; path = "Bogota/Common/Utils/UIColor+Extension.swift"; sourceTree = SOURCE_ROOT; };
@@ -323,8 +327,9 @@
 			children = (
 				BD1847DB27A0E3D800E7CE78 /* Common */,
 				BD1847CD279FC44900E7CE78 /* API */,
-				BDF9F33C279E82D300E4DAB3 /* Map */,
 				BDF9F334279E7F3900E4DAB3 /* Home */,
+				BDF9F33C279E82D300E4DAB3 /* Map */,
+				BDB2CFB427C5F2FA0011C8A8 /* Favorite */,
 				BDA32D9D27B62347007E1983 /* Search */,
 				BD35A3CA27A258B200F74D4F /* Detail */,
 				BDA82E32279E691A005D5683 /* AppDelegate.swift */,
@@ -336,6 +341,23 @@
 				BDA82E40279E691C005D5683 /* Info.plist */,
 			);
 			path = bogota;
+			sourceTree = "<group>";
+		};
+		BDB2CFB427C5F2FA0011C8A8 /* Favorite */ = {
+			isa = PBXGroup;
+			children = (
+				BDB2CFB527C5F3330011C8A8 /* Favorite.storyboard */,
+				BDB2CFB727C5F3A30011C8A8 /* ViewController */,
+			);
+			path = Favorite;
+			sourceTree = "<group>";
+		};
+		BDB2CFB727C5F3A30011C8A8 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				BDB2CFB827C5F3B50011C8A8 /* FavoriteViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		BDF9F334279E7F3900E4DAB3 /* Home */ = {
@@ -460,6 +482,7 @@
 				BD35A3E427A3BEA400F74D4F /* BusRouteCell.xib in Resources */,
 				BD35A3D927A3736700F74D4F /* EmptyView.xib in Resources */,
 				BD35A3D027A25A2400F74D4F /* Detail.storyboard in Resources */,
+				BDB2CFB627C5F3330011C8A8 /* Favorite.storyboard in Resources */,
 				BDA82E3C279E691C005D5683 /* Assets.xcassets in Resources */,
 				BDF9F33F279E82E700E4DAB3 /* Map.storyboard in Resources */,
 				BDA82E3A279E691B005D5683 /* Main.storyboard in Resources */,
@@ -539,6 +562,7 @@
 				BD1847E327A0E66500E7CE78 /* BaseViewController.swift in Sources */,
 				BDE7964B27B9E78E0086CD6B /* SearchBarView.swift in Sources */,
 				BDAB846D27C360C30046661C /* UIButton+Extension.swift in Sources */,
+				BDB2CFB927C5F3B50011C8A8 /* FavoriteViewController.swift in Sources */,
 				BDA32DA327B623CC007E1983 /* SearchViewController.swift in Sources */,
 				BDE1E40C27B3BDC200E83E63 /* UIColor+Extension.swift in Sources */,
 				BD1847DA27A0CFA400E7CE78 /* HomeViewController.swift in Sources */,
