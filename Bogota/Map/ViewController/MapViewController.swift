@@ -23,8 +23,8 @@ class MapViewController: BaseViewController {
     private var stations = [NameStation]()
     private var selectStation: NameStation?
     private var markers = [NMFMarker]()
-    private var selectedMarkerWidth: CGFloat = 30
-    private var unselectedMarkerWidth: CGFloat = 20
+    private var selectedMarkerWidth: CGFloat = 40
+    private var unselectedMarkerWidth: CGFloat = 30
     
     private var pickerView = UIPickerView()
     private var pickerViewList = ["100", "300", "500", "1000"]
@@ -171,12 +171,14 @@ class MapViewController: BaseViewController {
         
         if isSelected {
             marker.width = selectedMarkerWidth
+            marker.iconImage = NMFOverlayImage(name: "icon_selected_station")
             showInfoView()
             updateInfoView(marker)
         } else {
             marker.width = unselectedMarkerWidth
+            marker.iconImage = NMFOverlayImage(name: "icon_unselected_station")
         }
-        marker.height = marker.width * 1.6
+        marker.height = marker.width
         
         markerTouchHandler(marker)
         markers.append(marker)
@@ -189,11 +191,14 @@ class MapViewController: BaseViewController {
             if let marker = overlay as? NMFMarker {
                 if marker.width == self.unselectedMarkerWidth {
                     marker.width = self.selectedMarkerWidth
+                    marker.iconImage = NMFOverlayImage(name: "icon_selected_station")
                     self.showInfoView()
                     self.updateInfoView(marker)
+                } else {
+                    marker.width = self.unselectedMarkerWidth
+                    marker.iconImage = NMFOverlayImage(name: "icon_unselected_station")
                 }
-                
-                marker.height = marker.width * 1.6
+                marker.height = marker.width
                 
                 if let stationInfo = marker.userInfo["stationInfo"] as? PosStation {
                     if let gpsY = stationInfo.gpsY,
@@ -215,7 +220,8 @@ class MapViewController: BaseViewController {
     private func setDefaultAllMarkers() {
         markers.forEach { marker in
             marker.width = unselectedMarkerWidth
-            marker.height = marker.width * 1.6
+            marker.iconImage = NMFOverlayImage(name: "icon_unselected_station")
+            marker.height = marker.width
         }
     }
     
