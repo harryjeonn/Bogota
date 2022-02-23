@@ -47,6 +47,8 @@ class MapViewController: BaseViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
+        stationName = nil
+        arsId = nil
     }
     
     private func setupUI() {
