@@ -99,12 +99,12 @@ class StationDetailViewController: BaseViewController {
     }
     
     private func updateInfo() {
-        if let sectNm = busInfos.last?.sectNm,
-           let findIndex: String.Index = sectNm.firstIndex(of: "~") {
+//        if let sectNm = busInfos.last?.sectNm,
+//           let findIndex: String.Index = sectNm.firstIndex(of: "~") {
 //            directionLabel.text = "\(sectNm[...sectNm.index(before: findIndex)]) 방면"
-        } else {
-            directionLabel.text = ""
-        }
+//        } else {
+//            directionLabel.text = ""
+//        }
         // TODO: - 진행방향 찾아서 수정 필요
         directionLabel.text = ""
     }
@@ -123,10 +123,12 @@ class StationDetailViewController: BaseViewController {
         showLoading()
         Task {
             do {
-                let response = try await BusAPI.shared.getLowStationByUidList(arsId)
-                print(response)
-                self.updateTableView(response)
-                self.updateInfo()
+                if let response = try await BusAPI.shared.getLowStationByUidList(arsId) {
+                    self.busInfos = response.filter({ $0.arsId != "0" })
+                    self.tableView.reloadData()
+                    emptyView.isHidden = !busInfos.isEmpty
+                    self.updateInfo()
+                }
             } catch {
                 print("*** Error: \(error.localizedDescription) - \(error)")
                 self.showCommonPopupView(title: "불러오기 실패", desc: "정보를 불러올 수 없습니다.\n잠시 후 다시 시도해주세요.")

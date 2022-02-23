@@ -90,16 +90,6 @@ class HomeViewController: BaseViewController {
         tap.cancelsTouchesInView = false
     }
     
-    private func updateTableView(_ response: StationByPosResponse) {
-        if let msgBody = response.msgBody,
-           let itemList = msgBody.itemList {
-            posStations = itemList.filter({ $0.arsId != "0" })
-            tableView.reloadData()
-        }
-        
-        emptyView.isHidden = !posStations.isEmpty
-    }
-    
     private func getStationByPos() {
         guard let lat = locationManager.locManager.location?.coordinate.latitude,
               let lon = locationManager.locManager.location?.coordinate.longitude else {
@@ -113,8 +103,11 @@ class HomeViewController: BaseViewController {
         
         Task {
             do {
-                let response = try await BusAPI.shared.getStationByPos(tmX: tmX, tmY: tmY, radius: "500")
-                self.updateTableView(response)
+                if let response = try await BusAPI.shared.getStationByPos(tmX: tmX, tmY: tmY, radius: "500") {
+                    self.posStations = response.filter({ $0.arsId != "0" })
+                    self.tableView.reloadData()
+                }
+                emptyView.isHidden = !posStations.isEmpty
             } catch {
                 print("*** Error: \(error.localizedDescription) - \(error)")
                 self.showCommonPopupView(title: "불러오기 실패", desc: "정보를 불러올 수 없습니다.\n잠시 후 다시 시도해주세요.")

@@ -70,11 +70,8 @@ class SearchViewController: BaseViewController {
         self.showLoading()
         Task {
             do {
-                let response = try await BusAPI.shared.getLowStationByUidList(keyword)
-                print(response)
-                if let msgBody = response.msgBody,
-                   let itemList = msgBody.itemList {
-                    arsIdStations = filteredItemList(itemList)
+                if let response = try await BusAPI.shared.getLowStationByUidList(keyword) {
+                    arsIdStations = filteredItemList(response)
                     emptyView.isHidden = true
                     tableView.reloadData()
                 }
@@ -101,11 +98,8 @@ class SearchViewController: BaseViewController {
         self.showLoading()
         Task {
             do {
-                let response = try await BusAPI.shared.getBusRouteList(keyword)
-                print(response)
-                if let msgBody = response.msgBody,
-                   let itemList = msgBody.itemList {
-                    busRoutes = itemList
+                if let response = try await BusAPI.shared.getBusRouteList(keyword) {
+                    busRoutes = response
                     emptyView.isHidden = true
                     tableView.reloadData()
                 }
@@ -122,11 +116,8 @@ class SearchViewController: BaseViewController {
         self.showLoading()
         Task {
             do {
-                let response = try await BusAPI.shared.getStationByNameList(keyword)
-                print(response)
-                if let msgBody = response.msgBody,
-                   let itemList = msgBody.itemList {
-                    nameStations = itemList.filter({ $0.arsId != "0" })
+                if let response = try await BusAPI.shared.getStationByNameList(keyword) {
+                    nameStations = response.filter({ $0.arsId != "0" })
                     emptyView.isHidden = true
                     tableView.reloadData()
                 }

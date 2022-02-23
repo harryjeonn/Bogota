@@ -268,9 +268,8 @@ class MapViewController: BaseViewController {
         self.showLoading()
         Task {
             do {
-                let response = try await BusAPI.shared.getStationByNameList(stationName)
-                if let items = response.msgBody?.itemList {
-                    self.stations = items
+                if let response = try await BusAPI.shared.getStationByNameList(stationName) {
+                    self.stations = response
                     self.setupSelectedMarker()
                     
                     guard let selectStation = selectStation,
@@ -290,11 +289,8 @@ class MapViewController: BaseViewController {
         self.showLoading()
         Task {
             do {
-                let response = try await BusAPI.shared.getStationByPos(tmX: tmX, tmY: tmY, radius: getSelectDistance())
-                print(response)
-                if let msgBody = response.msgBody,
-                   let itemList = msgBody.itemList {
-                    self.makeAroundMarker(itemList.filter({ $0.arsId != "0" }))
+                if let response = try await BusAPI.shared.getStationByPos(tmX: tmX, tmY: tmY, radius: getSelectDistance()) {
+                    self.makeAroundMarker(response.filter({ $0.arsId != "0" }))
                     self.cameraUpdate(latStr: tmY, lngStr: tmX, isAnimation: false)
                 } else {
                     self.removeAllMarker()

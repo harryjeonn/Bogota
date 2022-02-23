@@ -154,9 +154,10 @@ class BusDetailViewController: BaseViewController {
         Task {
             do {
                 guard let busRouteId = busRouteId else { return }
-                let response = try await BusAPI.shared.getStationByRoute(busRouteId)
-                self.updateRoute(response)
-                self.moveScroll()
+                if let response = try await BusAPI.shared.getStationByRoute(busRouteId) {
+                    self.routes = response
+                    self.moveScroll()
+                }
             } catch {
                 print("*** Error: \(error.localizedDescription) - \(error)")
                 self.showCommonPopupView(title: "불러오기 실패", desc: "정보를 불러올 수 없습니다.\n잠시 후 다시 시도해주세요.")
@@ -171,9 +172,9 @@ class BusDetailViewController: BaseViewController {
         Task {
             do {
                 guard let busRouteId = busRouteId else { return }
-                let response = try await BusAPI.shared.getBusPosByRtidList(busRouteId)
-                self.updateBusPosition(response)
-                print(response)
+                if let response = try await BusAPI.shared.getBusPosByRtidList(busRouteId) {
+                    self.busPositions = response
+                }
             } catch {
                 print("*** Error: \(error.localizedDescription) - \(error)")
                 self.showCommonPopupView(title: "불러오기 실패", desc: "정보를 불러올 수 없습니다.\n잠시 후 다시 시도해주세요.")
@@ -194,32 +195,13 @@ class BusDetailViewController: BaseViewController {
         }
     }
     
-    private func updateRoute(_ response: StationByRouteResponse) {
-        if let msgBody = response.msgBody,
-           let itemList = msgBody.itemList {
-            routes = itemList
-            tableView.reloadData()
-        }
-    }
-    
-    private func updateBusPosition(_ response: BusPosByRtidListResponse) {
-        if let msgBody = response.msgBody,
-           let itemList = msgBody.itemList {
-            busPositions = itemList
-            tableView.reloadData()
-        }
-    }
-    
-    private func updateArrMsg(_ response: LowStationByUidResponse) {
-        if let msgBody = response.msgBody,
-           let itemList = msgBody.itemList {
-            itemList.forEach { item in
-                if item.busRouteId == busInfo?.busRouteId {
-                    self.busInfo = item
-                }
+    private func updateArrMsg(_ response: [LowBusInfo]) {
+        response.forEach { item in
+            if item.busRouteId == busInfo?.busRouteId {
+                self.busInfo = item
             }
-            tableView.reloadData()
         }
+        tableView.reloadData()
     }
     
     @IBAction func refreshButtonClicked(_ sender: Any) {
@@ -228,8 +210,9 @@ class BusDetailViewController: BaseViewController {
         self.showLoading()
         Task {
             do {
-                let response = try await BusAPI.shared.getLowStationByUidList(arsId)
-                updateArrMsg(response)
+                if let response = try await BusAPI.shared.getLowStationByUidList(arsId) {
+                    updateArrMsg(response)
+                }
             } catch {
                 print("*** Error: \(error.localizedDescription) - \(error)")
                 self.showCommonPopupView(title: "불러오기 실패", desc: "정보를 불러올 수 없습니다.\n잠시 후 다시 시도해주세요.")
