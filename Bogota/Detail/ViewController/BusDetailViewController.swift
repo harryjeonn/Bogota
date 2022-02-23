@@ -156,6 +156,7 @@ class BusDetailViewController: BaseViewController {
                 guard let busRouteId = busRouteId else { return }
                 if let response = try await BusAPI.shared.getStationByRoute(busRouteId) {
                     self.routes = response
+                    self.tableView.reloadData()
                     self.moveScroll()
                 }
             } catch {
@@ -174,6 +175,7 @@ class BusDetailViewController: BaseViewController {
                 guard let busRouteId = busRouteId else { return }
                 if let response = try await BusAPI.shared.getBusPosByRtidList(busRouteId) {
                     self.busPositions = response
+                    self.tableView.reloadData()
                 }
             } catch {
                 print("*** Error: \(error.localizedDescription) - \(error)")
