@@ -131,13 +131,29 @@ class SearchViewController: BaseViewController {
     
     private func saveHistory(_ saveHistory: SearchHistoryModel) {
         if let searchHistoryData = UserDefaults.standard.value(forKey: "searchHistory") as? Data {
-            var searchHistories = try? PropertyListDecoder().decode([SearchHistoryModel].self, from: searchHistoryData)
-            searchHistories?.insert(saveHistory, at: 0)
-            UserDefaults.standard.set(try? PropertyListEncoder().encode(searchHistories), forKey: "searchHistory")
+            let searchHistories = try? PropertyListDecoder().decode([SearchHistoryModel].self, from: searchHistoryData)
+            guard let newHistories = createHistories(saveHistory: saveHistory, searchHistories: searchHistories) else { return }
+            UserDefaults.standard.set(try? PropertyListEncoder().encode(newHistories), forKey: "searchHistory")
         } else {
             let searchHistories = [saveHistory]
             UserDefaults.standard.set(try? PropertyListEncoder().encode(searchHistories), forKey: "searchHistory")
         }
+    }
+    
+    private func createHistories(saveHistory: SearchHistoryModel, searchHistories: [SearchHistoryModel]?) -> [SearchHistoryModel]? {
+        guard var searchHistories = searchHistories else { return nil }
+        
+        searchHistories.enumerated().forEach { index, searchHistory in
+            if saveHistory.type == .station && saveHistory.arsId == searchHistory.arsId && saveHistory.stationName == searchHistory.stationName {
+                searchHistories.remove(at: index)
+            } else if saveHistory.type == .bus && saveHistory.busRoute?.busRouteId == searchHistory.busRoute?.busRouteId {
+                searchHistories.remove(at: index)
+            }
+        }
+        
+        searchHistories.insert(saveHistory, at: 0)
+        
+        return searchHistories
     }
 }
 

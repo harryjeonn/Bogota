@@ -157,6 +157,9 @@ extension SearchGuideView: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let searchHistory = searchHistories[indexPath.row]
+        searchHistories.remove(at: indexPath.row)
+        searchHistories.insert(searchHistory, at: 0)
+        UserDefaults.standard.set(try? PropertyListEncoder().encode(searchHistories), forKey: "searchHistory")
         delegate?.cellClicked(searchHistoryModel: searchHistory)
     }
     
