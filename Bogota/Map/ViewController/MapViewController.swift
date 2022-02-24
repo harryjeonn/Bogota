@@ -392,7 +392,13 @@ extension MapViewController: NMFMapViewTouchDelegate, NMFMapViewCameraDelegate {
     
     func mapView(_ mapView: NMFMapView, cameraDidChangeByReason reason: Int, animated: Bool) {
         guard let coord = getCurrentCoord() else { return }
-        if mapView.cameraPosition.target.lat != coord.latitude && mapView.cameraPosition.target.lng != coord.longitude {
+        
+        let mapViewLat = String(format: "%.4f", mapView.cameraPosition.target.lat)
+        let mapViewLng = String(format: "%.4f", mapView.cameraPosition.target.lng)
+        let currentLat = String(format: "%.4f", coord.latitude)
+        let currentLng = String(format: "%.4f", coord.longitude)
+        
+        if mapViewLat != currentLat && mapViewLng != currentLng {
             goMyLocationButton.tintColor = .lightGray
         }
     }
