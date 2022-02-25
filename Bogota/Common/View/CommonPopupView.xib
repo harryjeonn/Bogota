@@ -31,7 +31,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P0E-j3-ZEa">
-                            <rect key="frame" x="119" y="99.5" width="42" height="21"/>
+                            <rect key="frame" x="12" y="89.5" width="256" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -55,9 +55,10 @@
                         <constraint firstAttribute="bottom" secondItem="b0u-yM-WK0" secondAttribute="bottom" constant="20" id="9NY-KO-Dix"/>
                         <constraint firstItem="b0u-yM-WK0" firstAttribute="centerX" secondItem="4Sb-NA-LPS" secondAttribute="centerX" id="Eq1-Ev-dKQ"/>
                         <constraint firstAttribute="width" constant="280" id="N8k-dw-e8W"/>
+                        <constraint firstAttribute="trailing" secondItem="P0E-j3-ZEa" secondAttribute="trailing" constant="12" id="TyC-w6-4Q1"/>
                         <constraint firstAttribute="height" constant="220" id="X0a-fx-Rkb"/>
-                        <constraint firstItem="P0E-j3-ZEa" firstAttribute="centerX" secondItem="4Sb-NA-LPS" secondAttribute="centerX" id="iXJ-gh-4q7"/>
-                        <constraint firstItem="P0E-j3-ZEa" firstAttribute="centerY" secondItem="4Sb-NA-LPS" secondAttribute="centerY" id="n3C-ka-lB6"/>
+                        <constraint firstItem="P0E-j3-ZEa" firstAttribute="centerY" secondItem="4Sb-NA-LPS" secondAttribute="centerY" constant="-10" id="fQX-Vk-nJT"/>
+                        <constraint firstItem="P0E-j3-ZEa" firstAttribute="leading" secondItem="4Sb-NA-LPS" secondAttribute="leading" constant="12" id="of6-OB-PBX"/>
                         <constraint firstItem="ss4-oV-EP5" firstAttribute="top" secondItem="4Sb-NA-LPS" secondAttribute="top" constant="20" id="wAD-Nk-rzC"/>
                     </constraints>
                 </view>

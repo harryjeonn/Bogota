@@ -41,10 +41,13 @@ class CommonPopupView: UIView {
         contentView.layer.shadowColor = UIColor.gray.cgColor
         contentView.layer.shadowOffset = CGSize(width: 0, height: 0)
         
+        titleLabel.font = .boldSystemFont(ofSize: 20)
+        
+        descriptionLabel.font = .systemFont(ofSize: 15)
         descriptionLabel.numberOfLines = 0
         descriptionLabel.textAlignment = .center
         
-        confirmButton.backgroundColor = .gray
+        confirmButton.backgroundColor = .blueColor
         confirmButton.tintColor = .white
         confirmButton.layer.cornerRadius = 10
     }
