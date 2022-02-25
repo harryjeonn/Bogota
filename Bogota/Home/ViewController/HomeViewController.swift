@@ -26,6 +26,7 @@ class HomeViewController: BaseViewController {
         setupUI()
         setupGestures()
         getStationByPos()
+        checkFirstLaunch()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -113,6 +114,13 @@ class HomeViewController: BaseViewController {
                 self.showCommonPopupView(title: "불러오기 실패", desc: "정보를 불러올 수 없습니다.\n잠시 후 다시 시도해주세요.")
             }
             self.hideLoading()
+        }
+    }
+    
+    private func checkFirstLaunch() {
+        if UserDefaults.standard.bool(forKey: "firstLaunch") == false {
+            self.showCommonPopupView(title: "안내", desc: "서울시 저상버스 전용 앱입니다.\n타 지역 및 일반 버스의 정보는 부정확할 수 있습니다.\n\n서비스 지역을 늘려 나갈 계획입니다.")
+            UserDefaults.standard.set(true, forKey: "firstLaunch")
         }
     }
     
