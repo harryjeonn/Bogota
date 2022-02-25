@@ -43,6 +43,7 @@ class BusDetailViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         checkFavorite()
+        AdmobManager.shared.addAdmobView(.bus)
     }
     
     private func setupUI() {

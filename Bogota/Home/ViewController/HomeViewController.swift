@@ -32,6 +32,7 @@ class HomeViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupNavigationBar()
+        AdmobManager.shared.addAdmobView(.home)
     }
     
     override func viewDidDisappear(_ animated: Bool) {

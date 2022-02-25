@@ -143,11 +143,11 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="YQa-Yn-14a">
-                                <rect key="frame" x="0.0" y="227" width="414" height="635"/>
+                                <rect key="frame" x="0.0" y="227" width="414" height="585"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zk5-Jl-JcX">
-                                <rect key="frame" x="334" y="782" width="50" height="50"/>
+                                <rect key="frame" x="334" y="732" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="eKR-0l-mma"/>
                                     <constraint firstAttribute="height" constant="50" id="zYk-GW-ITt"/>
@@ -164,9 +164,9 @@
                         <constraints>
                             <constraint firstItem="YQa-Yn-14a" firstAttribute="top" secondItem="G1o-P5-dPe" secondAttribute="bottom" constant="3" id="6FL-qF-H0P"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="YQa-Yn-14a" secondAttribute="trailing" id="80M-YF-EgE"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="YQa-Yn-14a" secondAttribute="bottom" id="Edq-dn-2xX"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="YQa-Yn-14a" secondAttribute="bottom" constant="50" id="Edq-dn-2xX"/>
                             <constraint firstItem="G1o-P5-dPe" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="IaQ-8H-ASm"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="zk5-Jl-JcX" secondAttribute="bottom" constant="30" id="R4i-uY-auy"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="zk5-Jl-JcX" secondAttribute="bottom" constant="80" id="R4i-uY-auy"/>
                             <constraint firstItem="G1o-P5-dPe" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="Vmj-aD-MKc"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="zk5-Jl-JcX" secondAttribute="trailing" constant="30" id="ZHn-dN-jdB"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="G1o-P5-dPe" secondAttribute="trailing" id="ed5-4B-l2q"/>
@@ -283,12 +283,12 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="KDl-gb-5YU">
-                                <rect key="frame" x="0.0" y="277" width="414" height="585"/>
+                                <rect key="frame" x="0.0" y="277" width="414" height="535"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d5G-aX-SaF">
-                                <rect key="frame" x="334" y="782" width="50" height="50"/>
+                                <rect key="frame" x="334" y="732" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="7cJ-WY-5ab"/>
                                     <constraint firstAttribute="height" constant="50" id="Owl-1h-L2V"/>
@@ -308,9 +308,9 @@
                             <constraint firstItem="Sxe-eW-RMJ" firstAttribute="trailing" secondItem="d5G-aX-SaF" secondAttribute="trailing" constant="30" id="Cg1-ik-uh4"/>
                             <constraint firstItem="KDl-gb-5YU" firstAttribute="leading" secondItem="Sxe-eW-RMJ" secondAttribute="leading" id="KbZ-g2-cFa"/>
                             <constraint firstItem="qmt-rh-xAF" firstAttribute="top" secondItem="Sxe-eW-RMJ" secondAttribute="top" id="PpY-P2-jbL"/>
-                            <constraint firstItem="Sxe-eW-RMJ" firstAttribute="bottom" secondItem="d5G-aX-SaF" secondAttribute="bottom" constant="30" id="XdT-rZ-AwV"/>
+                            <constraint firstItem="Sxe-eW-RMJ" firstAttribute="bottom" secondItem="d5G-aX-SaF" secondAttribute="bottom" constant="80" id="XdT-rZ-AwV"/>
                             <constraint firstItem="Sxe-eW-RMJ" firstAttribute="trailing" secondItem="KDl-gb-5YU" secondAttribute="trailing" id="fqH-XV-eaz"/>
-                            <constraint firstItem="Sxe-eW-RMJ" firstAttribute="bottom" secondItem="KDl-gb-5YU" secondAttribute="bottom" id="nYf-pn-b67"/>
+                            <constraint firstItem="Sxe-eW-RMJ" firstAttribute="bottom" secondItem="KDl-gb-5YU" secondAttribute="bottom" constant="50" id="nYf-pn-b67"/>
                             <constraint firstItem="qmt-rh-xAF" firstAttribute="leading" secondItem="Sxe-eW-RMJ" secondAttribute="leading" id="p1P-Ps-RPb"/>
                             <constraint firstItem="KDl-gb-5YU" firstAttribute="top" secondItem="qmt-rh-xAF" secondAttribute="bottom" constant="3" id="uZ8-Dt-Iuz"/>
                         </constraints>

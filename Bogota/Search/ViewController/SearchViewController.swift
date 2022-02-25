@@ -27,6 +27,7 @@ class SearchViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.title = "검색결과"
+        AdmobManager.shared.addAdmobView(.search)
     }
     
     private func getInfo() {

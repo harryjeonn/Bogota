@@ -42,6 +42,7 @@
 		BDA82E3C279E691C005D5683 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDA82E3B279E691C005D5683 /* Assets.xcassets */; };
 		BDA82E3F279E691C005D5683 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDA82E3D279E691C005D5683 /* LaunchScreen.storyboard */; };
 		BDAB846D27C360C30046661C /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAB846C27C360C30046661C /* UIButton+Extension.swift */; };
+		BDAD60E627C86AD5005B2549 /* AdmobManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAD60E527C86AD5005B2549 /* AdmobManager.swift */; };
 		BDB2CFB627C5F3330011C8A8 /* Favorite.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDB2CFB527C5F3330011C8A8 /* Favorite.storyboard */; };
 		BDB2CFB927C5F3B50011C8A8 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB2CFB827C5F3B50011C8A8 /* FavoriteViewController.swift */; };
 		BDB2CFBD27C60B4F0011C8A8 /* FavoriteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB2CFBC27C60B4F0011C8A8 /* FavoriteModel.swift */; };
@@ -100,6 +101,7 @@
 		BDA82E3E279E691C005D5683 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BDA82E40279E691C005D5683 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BDAB846C27C360C30046661C /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIButton+Extension.swift"; path = "Bogota/Common/Utils/UIButton+Extension.swift"; sourceTree = SOURCE_ROOT; };
+		BDAD60E527C86AD5005B2549 /* AdmobManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AdmobManager.swift; path = Bogota/Common/Manager/AdmobManager.swift; sourceTree = SOURCE_ROOT; };
 		BDB2CFB527C5F3330011C8A8 /* Favorite.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Favorite.storyboard; path = Bogota/Favorite/Favorite.storyboard; sourceTree = SOURCE_ROOT; };
 		BDB2CFB827C5F3B50011C8A8 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FavoriteViewController.swift; path = Bogota/Favorite/ViewController/FavoriteViewController.swift; sourceTree = SOURCE_ROOT; };
 		BDB2CFBC27C60B4F0011C8A8 /* FavoriteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FavoriteModel.swift; path = Bogota/Favorite/Model/FavoriteModel.swift; sourceTree = SOURCE_ROOT; };
@@ -224,6 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				BD1847ED27A14BA100E7CE78 /* LocationManager.swift */,
+				BDAD60E527C86AD5005B2549 /* AdmobManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -565,6 +568,7 @@
 				BD1847D6279FC84600E7CE78 /* BusAPI.swift in Sources */,
 				BD1847E927A11CD300E7CE78 /* StationByNameResponse.swift in Sources */,
 				BDED587B27BCBED500CBD762 /* SearchHistoryModel.swift in Sources */,
+				BDAD60E627C86AD5005B2549 /* AdmobManager.swift in Sources */,
 				BDA82E33279E691A005D5683 /* AppDelegate.swift in Sources */,
 				BDE1E40A27B356E200E83E63 /* BusPosByRtidListResponse.swift in Sources */,
 				BDA32DA927B64318007E1983 /* BusRouteListResponse.swift in Sources */,

@@ -21,6 +21,7 @@ class FavoriteViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        AdmobManager.shared.addAdmobView(.favorite)
         navigationItem.titleView = self.searchBarView
         favorites = Favorite.shared.loadFavorite()
         tableView.reloadData()

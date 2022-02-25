@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="PHi-wN-Jtu">
-                                <rect key="frame" x="20" y="108" width="374" height="705"/>
+                                <rect key="frame" x="20" y="143" width="374" height="670"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ww0-MU-Orp">
@@ -36,7 +36,7 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="PHi-wN-Jtu" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="4F3-Ns-CKS"/>
+                            <constraint firstItem="PHi-wN-Jtu" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="55" id="4F3-Ns-CKS"/>
                             <constraint firstItem="PHi-wN-Jtu" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="LH7-8r-svw"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="PHi-wN-Jtu" secondAttribute="trailing" constant="20" id="LQz-Le-FHh"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="ww0-MU-Orp" secondAttribute="trailing" constant="30" id="gyJ-8G-FYQ"/>
