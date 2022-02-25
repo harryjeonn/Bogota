@@ -8,4 +8,5 @@ target 'bogota' do
   # Pods for bogota
 
   pod 'NMapsMap'
+  pod 'Google-Mobile-Ads-SDK'
 end
