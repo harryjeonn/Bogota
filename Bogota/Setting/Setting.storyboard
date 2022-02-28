@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="l3S-v6-tnP">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--설정-->
+        <scene sceneID="XSl-bX-MQc">
+            <objects>
+                <tableViewController storyboardIdentifier="Setting" id="x7c-h5-bNe" customClass="SettingViewController" customModule="bogota" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="GNE-xV-Gpt">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="openCell" id="veI-eb-8tb">
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="veI-eb-8tb" id="TtV-4R-2Bt">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="x7c-h5-bNe" id="Jpr-5H-4P2"/>
+                            <outlet property="delegate" destination="x7c-h5-bNe" id="t3d-p1-7hx"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="설정" image="gearshape" catalog="system" selectedImage="gearshape" id="Lx2-nN-OjR"/>
+                    <navigationItem key="navigationItem" title="설정" id="SV9-lC-ahf"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="setTableView" destination="GNE-xV-Gpt" id="Mid-dn-aT3"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c90-ge-ekI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="807" y="108"/>
+        </scene>
+        <!--오픈소스 출처-->
+        <scene sceneID="Qjy-TS-gLv">
+            <objects>
+                <viewController storyboardIdentifier="OpenSourc" id="ivq-Wx-5rv" customClass="OpenSourcViewController" customModule="bogota" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NcQ-LX-Zjv">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nvt-yv-nNU">
+                                <rect key="frame" x="186" y="438" width="0.0" height="0.0"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="jqv-J6-dvN"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="오픈소스 출처" id="YPb-fs-Fgu"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FH7-Bv-L1d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1841" y="108"/>
+        </scene>
+        <!--앱 리뷰-->
+        <scene sceneID="IJA-UW-jbJ">
+            <objects>
+                <viewController storyboardIdentifier="appReview" id="VvW-bA-hkE" customClass="AppReviewViewController" customModule="bogota" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hwS-HP-5jm">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Wcz-T9-0aH"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="앱 리뷰" id="T4e-S3-jx9"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ET9-jb-2xG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2649" y="108"/>
+        </scene>
+        <!--앱 설명-->
+        <scene sceneID="Xow-0L-7pl">
+            <objects>
+                <viewController storyboardIdentifier="explanation" id="x2Y-LU-xRb" customClass="explanationViewController" customModule="bogota" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="S9g-Jx-Kgb">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X4E-me-sab">
+                                <rect key="frame" x="-98" y="218" width="0.0" height="0.0"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="안녕하세요 'bogota'는 서울시 교통약자 전용앱입니다. 향후 더 나은 서비스를위해 지역을 넓힐 계획입니다 기대해주세요!" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="8iY-57-vt0">
+                                <rect key="frame" x="30" y="74" width="344" height="748"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="VGb-BD-3lN"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="VGb-BD-3lN" firstAttribute="bottom" secondItem="8iY-57-vt0" secondAttribute="bottom" constant="40" id="Fcf-WP-lCj"/>
+                            <constraint firstItem="8iY-57-vt0" firstAttribute="leading" secondItem="VGb-BD-3lN" secondAttribute="leading" constant="30" id="YGe-an-oHf"/>
+                            <constraint firstItem="8iY-57-vt0" firstAttribute="top" secondItem="VGb-BD-3lN" secondAttribute="top" constant="30" id="Z7d-kS-KtG"/>
+                            <constraint firstItem="VGb-BD-3lN" firstAttribute="trailing" secondItem="8iY-57-vt0" secondAttribute="trailing" constant="40" id="ttn-uR-2fO"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="앱 설명" id="lra-JI-mSu"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zRq-NW-O03" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3400.0000000000005" y="107.8125"/>
+        </scene>
+        <!--기부내역-->
+        <scene sceneID="ev4-yg-7BH">
+            <objects>
+                <viewController storyboardIdentifier="Donation" id="orS-Qk-yca" customClass="DonationViewController" customModule="bogota" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eGV-MN-hum">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="8KE-cM-vr8"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="기부내역" id="Hp5-Sa-ZwE"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="75C-O5-nM0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1857" y="778"/>
+        </scene>
+        <!--개인정보처리방침-->
+        <scene sceneID="bFi-Sp-igS">
+            <objects>
+                <viewController storyboardIdentifier="Personal" id="K26-Un-FwX" customClass="PersonalViewController" customModule="bogota" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dPg-xB-dNC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ird-wg-JQw">
+                                <rect key="frame" x="207" y="54" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EUh-iH-ZW1">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="io0-IN-l1v"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="EUh-iH-ZW1" firstAttribute="bottom" secondItem="io0-IN-l1v" secondAttribute="bottom" id="7H1-iV-v6J"/>
+                            <constraint firstItem="EUh-iH-ZW1" firstAttribute="leading" secondItem="io0-IN-l1v" secondAttribute="leading" id="Eku-DE-Gfo"/>
+                            <constraint firstItem="EUh-iH-ZW1" firstAttribute="trailing" secondItem="io0-IN-l1v" secondAttribute="trailing" id="QXq-99-D7o"/>
+                            <constraint firstItem="ird-wg-JQw" firstAttribute="top" secondItem="io0-IN-l1v" secondAttribute="top" constant="10" id="XRK-Ns-NLJ"/>
+                            <constraint firstItem="EUh-iH-ZW1" firstAttribute="top" secondItem="io0-IN-l1v" secondAttribute="top" id="laJ-6F-bUv"/>
+                            <constraint firstItem="ird-wg-JQw" firstAttribute="centerX" secondItem="dPg-xB-dNC" secondAttribute="centerX" id="xYZ-l6-FvW"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="개인정보처리방침" id="Whg-NF-elq"/>
+                    <connections>
+                        <outlet property="webView" destination="EUh-iH-ZW1" id="op5-9n-5rR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="auB-aM-Ne0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2647.826086956522" y="776.78571428571422"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="j6j-v2-dUb">
+            <objects>
+                <navigationController id="l3S-v6-tnP" sceneMemberID="viewController">
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="FZM-mK-9D3">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="x7c-h5-bNe" kind="relationship" relationship="rootViewController" id="z6C-P2-qQd"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cwE-Z7-YMd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-158" y="108"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="gearshape" catalog="system" width="128" height="121"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

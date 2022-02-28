@@ -59,6 +59,13 @@
 		BDF9F341279E82F000E4DAB3 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF9F340279E82F000E4DAB3 /* MapViewController.swift */; };
 		BDF9F345279E9AE500E4DAB3 /* HomeStationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF9F343279E9AE500E4DAB3 /* HomeStationCell.swift */; };
 		BDF9F346279E9AE500E4DAB3 /* HomeStationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BDF9F344279E9AE500E4DAB3 /* HomeStationCell.xib */; };
+		CAA6DF5D27CBA5D0009D2AAF /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAA6DF5C27CBA5D0009D2AAF /* Setting.storyboard */; };
+		CAA6DF6227CBA93B009D2AAF /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA6DF6127CBA93B009D2AAF /* SettingViewController.swift */; };
+		CAA6DF6427CBBEDE009D2AAF /* OpenSourcViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA6DF6327CBBEDE009D2AAF /* OpenSourcViewController.swift */; };
+		CAA6DF6627CBBEF0009D2AAF /* DonationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA6DF6527CBBEF0009D2AAF /* DonationViewController.swift */; };
+		CAA6DF6827CBBF07009D2AAF /* AppReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA6DF6727CBBF07009D2AAF /* AppReviewViewController.swift */; };
+		CAA6DF6A27CBBF2B009D2AAF /* PersonalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA6DF6927CBBF2B009D2AAF /* PersonalViewController.swift */; };
+		CAA6DF6C27CBBF3E009D2AAF /* explanationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA6DF6B27CBBF3E009D2AAF /* explanationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -118,6 +125,13 @@
 		BDF9F340279E82F000E4DAB3 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = Bogota/Map/ViewController/MapViewController.swift; sourceTree = SOURCE_ROOT; };
 		BDF9F343279E9AE500E4DAB3 /* HomeStationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeStationCell.swift; path = bogota/Home/View/CustomView/HomeStationCell.swift; sourceTree = SOURCE_ROOT; };
 		BDF9F344279E9AE500E4DAB3 /* HomeStationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = HomeStationCell.xib; path = bogota/Home/View/CustomView/HomeStationCell.xib; sourceTree = SOURCE_ROOT; };
+		CAA6DF5C27CBA5D0009D2AAF /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Setting.storyboard; path = Bogota/Setting/Setting.storyboard; sourceTree = SOURCE_ROOT; };
+		CAA6DF6127CBA93B009D2AAF /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingViewController.swift; path = Bogota/Setting/ViewController/SettingViewController.swift; sourceTree = SOURCE_ROOT; };
+		CAA6DF6327CBBEDE009D2AAF /* OpenSourcViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OpenSourcViewController.swift; path = Bogota/Setting/ViewController/OpenSourcViewController.swift; sourceTree = SOURCE_ROOT; };
+		CAA6DF6527CBBEF0009D2AAF /* DonationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DonationViewController.swift; path = Bogota/Setting/ViewController/DonationViewController.swift; sourceTree = SOURCE_ROOT; };
+		CAA6DF6727CBBF07009D2AAF /* AppReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppReviewViewController.swift; path = Bogota/Setting/ViewController/AppReviewViewController.swift; sourceTree = SOURCE_ROOT; };
+		CAA6DF6927CBBF2B009D2AAF /* PersonalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PersonalViewController.swift; path = Bogota/Setting/ViewController/PersonalViewController.swift; sourceTree = SOURCE_ROOT; };
+		CAA6DF6B27CBBF3E009D2AAF /* explanationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = explanationViewController.swift; path = Bogota/Setting/ViewController/explanationViewController.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -330,6 +344,7 @@
 		BDA82E31279E691A005D5683 /* bogota */ = {
 			isa = PBXGroup;
 			children = (
+				CAA6DF5B27CBA5B8009D2AAF /* Setting */,
 				BD1847DB27A0E3D800E7CE78 /* Common */,
 				BD1847CD279FC44900E7CE78 /* API */,
 				BDF9F334279E7F3900E4DAB3 /* Home */,
@@ -417,6 +432,28 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		CAA6DF5B27CBA5B8009D2AAF /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				CAA6DF5C27CBA5D0009D2AAF /* Setting.storyboard */,
+				CAA6DF6027CBA5EB009D2AAF /* ViewController */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		CAA6DF6027CBA5EB009D2AAF /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CAA6DF6127CBA93B009D2AAF /* SettingViewController.swift */,
+				CAA6DF6327CBBEDE009D2AAF /* OpenSourcViewController.swift */,
+				CAA6DF6527CBBEF0009D2AAF /* DonationViewController.swift */,
+				CAA6DF6727CBBF07009D2AAF /* AppReviewViewController.swift */,
+				CAA6DF6927CBBF2B009D2AAF /* PersonalViewController.swift */,
+				CAA6DF6B27CBBF3E009D2AAF /* explanationViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		DACBBAE42978AE35191D0DD6 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -486,6 +523,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAA6DF5D27CBA5D0009D2AAF /* Setting.storyboard in Resources */,
 				BD1847E027A0E42F00E7CE78 /* CommonPopupView.xib in Resources */,
 				BDE7964F27BA10AC0086CD6B /* SearchGuideView.xib in Resources */,
 				BDA32DA727B63C7C007E1983 /* SearchBusCell.xib in Resources */,
@@ -565,6 +603,7 @@
 				BD35A3E027A3BC0700F74D4F /* StationByRouteResponse.swift in Sources */,
 				BDF9F345279E9AE500E4DAB3 /* HomeStationCell.swift in Sources */,
 				BD35A3DB27A3737700F74D4F /* EmptyView.swift in Sources */,
+				CAA6DF6427CBBEDE009D2AAF /* OpenSourcViewController.swift in Sources */,
 				BD1847D6279FC84600E7CE78 /* BusAPI.swift in Sources */,
 				BD1847E927A11CD300E7CE78 /* StationByNameResponse.swift in Sources */,
 				BDED587B27BCBED500CBD762 /* SearchHistoryModel.swift in Sources */,
@@ -577,6 +616,10 @@
 				BDE7965127BA10B80086CD6B /* SearchGuideView.swift in Sources */,
 				BD1847E327A0E66500E7CE78 /* BaseViewController.swift in Sources */,
 				BDE7964B27B9E78E0086CD6B /* SearchBarView.swift in Sources */,
+				CAA6DF6627CBBEF0009D2AAF /* DonationViewController.swift in Sources */,
+				CAA6DF6227CBA93B009D2AAF /* SettingViewController.swift in Sources */,
+				CAA6DF6A27CBBF2B009D2AAF /* PersonalViewController.swift in Sources */,
+				CAA6DF6C27CBBF3E009D2AAF /* explanationViewController.swift in Sources */,
 				BDAB846D27C360C30046661C /* UIButton+Extension.swift in Sources */,
 				BDB2CFB927C5F3B50011C8A8 /* FavoriteViewController.swift in Sources */,
 				BDA32DA327B623CC007E1983 /* SearchViewController.swift in Sources */,
@@ -584,6 +627,7 @@
 				BD1847DA27A0CFA400E7CE78 /* HomeViewController.swift in Sources */,
 				BD35A3D327A26DB500F74D4F /* BusInfoCell.swift in Sources */,
 				BD1847E527A0E74A00E7CE78 /* Utils.swift in Sources */,
+				CAA6DF6827CBBF07009D2AAF /* AppReviewViewController.swift in Sources */,
 				BD1847DE27A0E42400E7CE78 /* CommonPopupView.swift in Sources */,
 				BD1847EE27A14BA100E7CE78 /* LocationManager.swift in Sources */,
 				BDA82E35279E691A005D5683 /* SceneDelegate.swift in Sources */,
@@ -753,6 +797,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				NEW_SETTING = "";
+				PODS_ROOT = "${SRCROOT}/Pods";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hoxvi.bogota;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -784,6 +830,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				NEW_SETTING = "";
+				PODS_ROOT = "${SRCROOT}/Pods";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hoxvi.bogota;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
