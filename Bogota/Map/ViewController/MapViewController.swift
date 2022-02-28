@@ -186,7 +186,6 @@ class MapViewController: BaseViewController {
         markers.append(marker)
     }
     
-    // TODO: - 마커 선택여부에 따라 이미지 변경
     private func markerTouchHandler(_ marker: NMFMarker) {
         marker.touchHandler = { (overlay: NMFOverlay) -> Bool in
             self.setDefaultAllMarkers()

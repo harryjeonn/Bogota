@@ -16,6 +16,7 @@ enum AdmobType {
     case station
     case bus
     case search
+    case more
     
     func adUnitID() -> String {
         switch self {
@@ -29,6 +30,8 @@ enum AdmobType {
             return "ca-app-pub-6497545219748270/8991430986"
         case .search:
             return "ca-app-pub-6497545219748270/7103634240"
+        case .more:
+            return "ca-app-pub-6497545219748270/5016171738"
         }
     }
 }
@@ -54,7 +57,7 @@ class AdmobManager: NSObject {
         vc.view.addSubview(bannerView)
         
         switch type {
-        case .home, .favorite:
+        case .home, .favorite, .more:
             NSLayoutConstraint.activate([
                 bannerView.topAnchor.constraint(equalTo: vc.view.safeAreaLayoutGuide.topAnchor, constant: 5),
                 bannerView.leadingAnchor.constraint(equalTo: vc.view.safeAreaLayoutGuide.leadingAnchor),
