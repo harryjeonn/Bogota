@@ -10,6 +10,7 @@ import UIKit
 protocol SearchGuideViewDelegate {
     func cellClicked(searchHistoryModel: SearchHistoryModel)
     func didScroll()
+    func changeType(isStation: Bool)
 }
 
 class SearchGuideView: UIView {
@@ -91,6 +92,7 @@ class SearchGuideView: UIView {
         busButton.layer.borderWidth = 0
         stationButton.setTitleColor(.black, for: .normal)
         busButton.setTitleColor(.gray, for: .normal)
+        delegate?.changeType(isStation: isStation)
     }
     
     @IBAction func busButtonClicked(_ sender: Any) {
@@ -99,6 +101,7 @@ class SearchGuideView: UIView {
         busButton.layer.borderWidth = 2
         stationButton.setTitleColor(.gray, for: .normal)
         busButton.setTitleColor(.black, for: .normal)
+        delegate?.changeType(isStation: isStation)
     }
 }
 

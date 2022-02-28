@@ -130,4 +130,12 @@ extension SearchBarView: SearchGuideViewDelegate {
     func didScroll() {
         dismissKeyboard()
     }
+    
+    func changeType(isStation: Bool) {
+        if isStation {
+            textField.placeholder = "정류장, 정류장 번호 검색"
+        } else {
+            textField.placeholder = "버스번호 검색"
+        }
+    }
 }
