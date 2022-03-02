@@ -218,7 +218,7 @@ class BusDetailViewController: BaseViewController {
         var row = 0
         routes.enumerated().forEach { index, route in
             if route.arsId == arsId {
-                row = index - 3
+                row = index - 2
                 let indexPath = IndexPath(row: row, section: 0)
                 tableView.scrollToRow(at: indexPath, at: .top, animated: true)
                 return
