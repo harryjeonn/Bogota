@@ -113,22 +113,27 @@
                                     <action selector="searchCameraButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="alW-WE-VhK"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TextField" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mtM-iR-SBV">
-                                <rect key="frame" x="108" y="100" width="70" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yhZ-ha-gms">
+                                <rect key="frame" x="118" y="100" width="60" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="70" id="LdX-6L-86k"/>
-                                    <constraint firstAttribute="height" constant="30" id="OzJ-T3-v9e"/>
+                                    <constraint firstAttribute="width" constant="60" id="hwx-To-6Ju"/>
+                                    <constraint firstAttribute="height" constant="30" id="yRD-NA-vhM"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="distanceButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="NTr-3L-cFJ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="bHf-1l-23q" firstAttribute="leading" secondItem="yhZ-ha-gms" secondAttribute="trailing" constant="12" id="BTl-uN-KW9"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="mOw-uq-Mnf" secondAttribute="trailing" id="JDA-rY-20s"/>
                             <constraint firstItem="XQ2-Vd-PKX" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="NsN-sW-FFd"/>
                             <constraint firstItem="mOw-uq-Mnf" firstAttribute="top" secondItem="XQ2-Vd-PKX" secondAttribute="bottom" constant="2" id="X3r-fY-0LY"/>
+                            <constraint firstItem="yhZ-ha-gms" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="12" id="Xkj-Xd-Rcu"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="XQ2-Vd-PKX" secondAttribute="trailing" id="YpI-Kd-4J0"/>
                             <constraint firstItem="mOw-uq-Mnf" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="aUI-YM-f2O"/>
                             <constraint firstItem="dFg-2b-PDf" firstAttribute="leading" secondItem="bHf-1l-23q" secondAttribute="trailing" constant="12" id="een-m2-QTj"/>
@@ -138,15 +143,13 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="dFg-2b-PDf" secondAttribute="trailing" constant="12" id="kMY-xT-Efl"/>
                             <constraint firstItem="bHf-1l-23q" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="12" id="keW-Li-Wrx"/>
                             <constraint firstItem="mOw-uq-Mnf" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="lfE-hx-IG9"/>
-                            <constraint firstItem="bHf-1l-23q" firstAttribute="leading" secondItem="mtM-iR-SBV" secondAttribute="trailing" constant="12" id="nNj-MB-SNx"/>
                             <constraint firstItem="XQ2-Vd-PKX" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="t53-0T-etD"/>
-                            <constraint firstItem="mtM-iR-SBV" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="12" id="ziZ-Wm-FS7"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Uct-vC-5F3"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="distanceTextField" destination="mtM-iR-SBV" id="fzD-C7-wgc"/>
+                        <outlet property="distanceButton" destination="yhZ-ha-gms" id="uDw-Xc-KXp"/>
                         <outlet property="goMyLocationButton" destination="ZIZ-I8-CYI" id="zip-iF-u72"/>
                         <outlet property="infoView" destination="mOw-uq-Mnf" id="ubL-bA-2ID"/>
                         <outlet property="infoViewHeight" destination="bR1-9k-3RV" id="K3f-ae-0cl"/>

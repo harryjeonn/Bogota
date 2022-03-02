@@ -32,6 +32,8 @@
 		BDA1B19827CC879D00FBF84F /* More.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDA1B19727CC879C00FBF84F /* More.storyboard */; };
 		BDA1B19B27CC87EB00FBF84F /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA1B19A27CC87EB00FBF84F /* MoreViewController.swift */; };
 		BDA1B19E27CC8CC800FBF84F /* MoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA1B19D27CC8CC800FBF84F /* MoreModel.swift */; };
+		BDA1B1A227CF5A6100FBF84F /* CustomPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA1B1A127CF5A6100FBF84F /* CustomPickerView.swift */; };
+		BDA1B1A427CF5A6A00FBF84F /* CustomPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BDA1B1A327CF5A6A00FBF84F /* CustomPickerView.xib */; };
 		BDA32DA127B623B0007E1983 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDA32DA027B623B0007E1983 /* Search.storyboard */; };
 		BDA32DA327B623CC007E1983 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA32DA227B623CC007E1983 /* SearchViewController.swift */; };
 		BDA32DA627B63C7C007E1983 /* SearchBusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA32DA427B63C7C007E1983 /* SearchBusCell.swift */; };
@@ -92,6 +94,8 @@
 		BDA1B19727CC879C00FBF84F /* More.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = More.storyboard; path = Bogota/More/More.storyboard; sourceTree = SOURCE_ROOT; };
 		BDA1B19A27CC87EB00FBF84F /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MoreViewController.swift; path = Bogota/More/ViewController/MoreViewController.swift; sourceTree = SOURCE_ROOT; };
 		BDA1B19D27CC8CC800FBF84F /* MoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MoreModel.swift; path = Bogota/More/Model/MoreModel.swift; sourceTree = SOURCE_ROOT; };
+		BDA1B1A127CF5A6100FBF84F /* CustomPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomPickerView.swift; path = Bogota/Map/View/CustomPickerView.swift; sourceTree = SOURCE_ROOT; };
+		BDA1B1A327CF5A6A00FBF84F /* CustomPickerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CustomPickerView.xib; path = Bogota/Map/View/CustomPickerView.xib; sourceTree = SOURCE_ROOT; };
 		BDA32DA027B623B0007E1983 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Search.storyboard; path = Bogota/Search/Search.storyboard; sourceTree = SOURCE_ROOT; };
 		BDA32DA227B623CC007E1983 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchViewController.swift; path = Bogota/Search/ViewController/SearchViewController.swift; sourceTree = SOURCE_ROOT; };
 		BDA32DA427B63C7C007E1983 /* SearchBusCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchBusCell.swift; path = Bogota/Search/View/SearchBusCell.swift; sourceTree = SOURCE_ROOT; };
@@ -302,6 +306,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		BDA1B1A027CF5A4800FBF84F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BDA1B1A127CF5A6100FBF84F /* CustomPickerView.swift */,
+				BDA1B1A327CF5A6A00FBF84F /* CustomPickerView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		BDA32D9D27B62347007E1983 /* Search */ = {
 			isa = PBXGroup;
 			children = (
@@ -429,6 +442,7 @@
 			isa = PBXGroup;
 			children = (
 				BDF9F33E279E82E700E4DAB3 /* Map.storyboard */,
+				BDA1B1A027CF5A4800FBF84F /* View */,
 				BDF9F33D279E82D700E4DAB3 /* ViewController */,
 			);
 			path = Map;
@@ -533,6 +547,7 @@
 				BDB2CFB627C5F3330011C8A8 /* Favorite.storyboard in Resources */,
 				BDA82E3C279E691C005D5683 /* Assets.xcassets in Resources */,
 				BDF9F33F279E82E700E4DAB3 /* Map.storyboard in Resources */,
+				BDA1B1A427CF5A6A00FBF84F /* CustomPickerView.xib in Resources */,
 				BDA82E3A279E691B005D5683 /* Main.storyboard in Resources */,
 				BDA32DA127B623B0007E1983 /* Search.storyboard in Resources */,
 				BDF9F339279E7FE900E4DAB3 /* Home.storyboard in Resources */,
@@ -618,6 +633,7 @@
 				BDA32DA327B623CC007E1983 /* SearchViewController.swift in Sources */,
 				BDE1E40C27B3BDC200E83E63 /* UIColor+Extension.swift in Sources */,
 				BD1847DA27A0CFA400E7CE78 /* HomeViewController.swift in Sources */,
+				BDA1B1A227CF5A6100FBF84F /* CustomPickerView.swift in Sources */,
 				BD35A3D327A26DB500F74D4F /* BusInfoCell.swift in Sources */,
 				BD1847E527A0E74A00E7CE78 /* Utils.swift in Sources */,
 				BD1847DE27A0E42400E7CE78 /* CommonPopupView.swift in Sources */,

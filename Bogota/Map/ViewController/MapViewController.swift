@@ -16,8 +16,8 @@ class MapViewController: BaseViewController {
     @IBOutlet weak var infoViewSubTitleLabel: UILabel!
     @IBOutlet weak var searchAroundButton: UIButton!
     @IBOutlet weak var goMyLocationButton: UIButton!
-    @IBOutlet weak var distanceTextField: UITextField!
     @IBOutlet weak var searchCameraButton: UIButton!
+    @IBOutlet weak var distanceButton: UIButton!
     
     private var locationManager = LocationManager.shared
     
@@ -27,7 +27,8 @@ class MapViewController: BaseViewController {
     private var selectedMarkerWidth: CGFloat = 40
     private var unselectedMarkerWidth: CGFloat = 30
     
-    private var pickerView = UIPickerView()
+    private var customPickerView = CustomPickerView()
+    private var isHiddenPickerView = true
     private var pickerViewList = ["100", "300", "500", "1000"]
     
     var stationName: String?
@@ -85,20 +86,15 @@ class MapViewController: BaseViewController {
         goMyLocationButton.layer.borderColor = UIColor.gray.cgColor
         goMyLocationButton.tintColor = .blueColor
         
-        distanceTextField.backgroundColor = .white
-        distanceTextField.layer.cornerRadius = 10
-        distanceTextField.layer.shadowRadius = 1
-        distanceTextField.layer.shadowOpacity = 0.5
-        distanceTextField.layer.shadowColor = UIColor.gray.cgColor
-        distanceTextField.layer.shadowOffset = CGSize(width: 1, height: 1)
-        distanceTextField.layer.borderWidth = 0.5
-        distanceTextField.layer.borderColor = UIColor.gray.cgColor
-        distanceTextField.tintColor = .clear
-        distanceTextField.inputView = pickerView
-        distanceTextField.textAlignment = .center
-        distanceTextField.textColor = .blueColor
-        distanceTextField.font = .systemFont(ofSize: 14)
-//        distanceTextField.text = "\(pickerViewList[2])m"
+        // 거리 설정 버튼
+        distanceButton.backgroundColor = .white
+        distanceButton.layer.cornerRadius = 10
+        distanceButton.titleLabel?.font = .systemFont(ofSize: 14)
+        distanceButton.addShadow(radius: 1, opacity: 0.5, width: 1, height: 1)
+        distanceButton.layer.borderWidth = 0.5
+        distanceButton.layer.borderColor = UIColor.gray.cgColor
+        distanceButton.tintColor = .blueColor
+        distanceButton.backgroundColor = .white
     }
     
     private func setupNavigationBar() {
@@ -322,48 +318,31 @@ class MapViewController: BaseViewController {
     
     // MARK: - PickerView
     private func setupPickerView() {
-        pickerView.delegate = self
-        pickerView.dataSource = self
+        customPickerView.delegate = self
+        customPickerView.pickerView.delegate = self
+        customPickerView.pickerView.dataSource = self
         
-        let toolbar = UIToolbar()
-        toolbar.tintColor = .blueColor
-        toolbar.frame = CGRect(x: 0, y: 0, width: 0, height: 45)
-        
-        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        
-        toolbar.setItems([flexSpace, createToolBarButtonItem()], animated: true)
-        
-        distanceTextField.inputAccessoryView = toolbar
-        
-        pickerView.selectRow(2, inComponent: 0, animated: true)
-        distanceTextField.text = "\(getSelectDistance())m"
-    }
-    
-    private func createToolBarButtonItem() -> UIBarButtonItem {
-        let doneButton = UIBarButtonItem()
-        doneButton.title = "완료"
-        doneButton.target = self
-        doneButton.action = #selector(doneButtonClicked)
-        
-        return doneButton
+        customPickerView.pickerView.selectRow(2, inComponent: 0, animated: true)
+        distanceButton.setTitle("\(getSelectDistance())m", for: .normal)
     }
     
     private func getSelectDistance() -> String {
-        let selectItem = pickerView.selectedRow(inComponent: 0)
-        pickerView.selectRow(selectItem, inComponent: 0, animated: true)
+        let selectItem = customPickerView.pickerView.selectedRow(inComponent: 0)
+        customPickerView.pickerView.selectRow(selectItem, inComponent: 0, animated: true)
         
         return pickerViewList[selectItem]
     }
     
-    @objc private func doneButtonClicked() {
-        let distance = getSelectDistance()
+    private func addPickerView() {
+        self.view.addSubview(customPickerView)
         
-        if distance == "1000" {
-            distanceTextField.text = "1km"
-        } else {
-            distanceTextField.text = "\(distance)m"
-        }
-        self.view.endEditing(true)
+        customPickerView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            customPickerView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 0),
+            customPickerView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0),
+            customPickerView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: 0),
+            customPickerView.heightAnchor.constraint(equalToConstant: 220)
+        ])
     }
     
     // MARK: - Tap Event
@@ -396,6 +375,16 @@ class MapViewController: BaseViewController {
         let tmY = String(format: "%.8f", mapView.cameraPosition.target.lat)
         
         getStationByPos(tmX: tmX, tmY: tmY)
+    }
+    
+    @IBAction func distanceButtonClicked(_ sender: Any) {
+        if isHiddenPickerView {
+            addPickerView()
+        } else {
+            customPickerView.removeFromSuperview()
+        }
+        
+        isHiddenPickerView = !isHiddenPickerView
     }
 }
 
@@ -434,5 +423,20 @@ extension MapViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         } else {
             return "\(pickerViewList[row])m"
         }
+    }
+}
+
+extension MapViewController: CustomPickerViewDelegate {
+    func doneButtonClicked() {
+        let distance = getSelectDistance()
+        
+        if distance == "1000" {
+            distanceButton.setTitle("1km", for: .normal)
+        } else {
+            distanceButton.setTitle("\(distance)m", for: .normal)
+        }
+        
+        customPickerView.removeFromSuperview()
+        isHiddenPickerView = !isHiddenPickerView
     }
 }
