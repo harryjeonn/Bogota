@@ -17,6 +17,7 @@ class MapViewController: BaseViewController {
     @IBOutlet weak var searchAroundButton: UIButton!
     @IBOutlet weak var goMyLocationButton: UIButton!
     @IBOutlet weak var distanceTextField: UITextField!
+    @IBOutlet weak var searchCameraButton: UIButton!
     
     private var locationManager = LocationManager.shared
     
@@ -63,6 +64,16 @@ class MapViewController: BaseViewController {
         searchAroundButton.layer.borderWidth = 0.5
         searchAroundButton.layer.borderColor = UIColor.gray.cgColor
         searchAroundButton.tintColor = .blueColor
+        
+        // 카메라 기준 주변 정류장 버튼
+        searchCameraButton.backgroundColor = .white
+        searchCameraButton.layer.cornerRadius = 10
+        searchCameraButton.setTitle("현 지도 정류장", for: .normal)
+        searchCameraButton.titleLabel?.font = .systemFont(ofSize: 14)
+        searchCameraButton.addShadow(radius: 1, opacity: 0.5, width: 1, height: 1)
+        searchCameraButton.layer.borderWidth = 0.5
+        searchCameraButton.layer.borderColor = UIColor.gray.cgColor
+        searchCameraButton.tintColor = .blueColor
         
         // 내 위치 버튼
         goMyLocationButton.backgroundColor = .white
@@ -115,8 +126,6 @@ class MapViewController: BaseViewController {
         let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: lat, lng: lng))
         if isAnimation {
             cameraUpdate.animation = .easeIn
-        } else {
-            mapView.zoomLevel = 16
         }
         
         mapView.moveCamera(cameraUpdate)
@@ -380,6 +389,13 @@ class MapViewController: BaseViewController {
         guard let coord = getCurrentCoord() else { return }
         cameraUpdate(latStr: "\(coord.latitude)", lngStr: "\(coord.longitude)", isAnimation: true)
         goMyLocationButton.tintColor = .blueColor
+    }
+    
+    @IBAction func searchCameraButtonClicked(_ sender: Any) {
+        let tmX = String(format: "%.8f", mapView.cameraPosition.target.lng)
+        let tmY = String(format: "%.8f", mapView.cameraPosition.target.lat)
+        
+        getStationByPos(tmX: tmX, tmY: tmY)
     }
 }
 
