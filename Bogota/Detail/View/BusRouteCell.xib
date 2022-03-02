@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -51,7 +51,6 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="EqG-pb-46K" firstAttribute="centerX" secondItem="v0M-ro-uCP" secondAttribute="centerX" id="5B6-df-mXx"/>
-                            <constraint firstItem="2Vm-vY-IGN" firstAttribute="centerY" secondItem="v0M-ro-uCP" secondAttribute="centerY" id="Ha8-r4-oJb"/>
                             <constraint firstAttribute="width" constant="3" id="OWY-4h-fWM"/>
                             <constraint firstItem="EqG-pb-46K" firstAttribute="width" secondItem="EqG-pb-46K" secondAttribute="height" id="QxZ-Vj-luW"/>
                             <constraint firstItem="2Vm-vY-IGN" firstAttribute="centerX" secondItem="v0M-ro-uCP" secondAttribute="centerX" id="ZzJ-eA-SkD"/>
@@ -101,6 +100,7 @@
                     <constraint firstAttribute="bottom" secondItem="v0M-ro-uCP" secondAttribute="bottom" id="bI0-Ng-8TS"/>
                     <constraint firstItem="Jxz-Gd-5Na" firstAttribute="leading" secondItem="v0M-ro-uCP" secondAttribute="trailing" constant="30" id="bYJ-16-WIV"/>
                     <constraint firstItem="EqG-pb-46K" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="f1q-t5-2ko"/>
+                    <constraint firstItem="2Vm-vY-IGN" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="lPH-0D-p16"/>
                     <constraint firstItem="Jxz-Gd-5Na" firstAttribute="top" secondItem="MTv-bU-PYv" secondAttribute="bottom" constant="8" id="opf-Gc-EVR"/>
                 </constraints>
             </tableViewCellContentView>
