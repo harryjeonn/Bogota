@@ -22,6 +22,7 @@ class BusRouteCell: UITableViewCell {
     @IBOutlet weak var stationIdLabel: UILabel!
     @IBOutlet weak var firstArrMsgLabel: UILabel!
     @IBOutlet weak var secondArrMsgLabel: UILabel!
+    @IBOutlet weak var shareModeView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -59,6 +60,8 @@ class BusRouteCell: UITableViewCell {
         
         busImageView.tintColor = .blueColor
         busImageView.backgroundColor = .white
+        
+        shareModeView.backgroundColor = .white.withAlphaComponent(0.7)
         
         self.selectionStyle = .none
     }

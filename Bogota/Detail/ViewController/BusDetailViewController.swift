@@ -18,6 +18,8 @@ class BusDetailViewController: BaseViewController {
     @IBOutlet weak var intervalLabel: UILabel!
     @IBOutlet weak var addFavoriteButton: UIButton!
     @IBOutlet weak var addFavoriteTitleButton: UIButton!
+    @IBOutlet weak var shareButton: UIButton!
+    @IBOutlet weak var shareTitleButton: UIButton!
     
     var busInfo: LowBusInfo?
     var arsId: String?
@@ -27,6 +29,7 @@ class BusDetailViewController: BaseViewController {
     private var busPositions = [BusPosition]()
     private var saveFavorite: FavoriteModel?
     private var isFavorite = false
+    private var isShareMode = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -93,6 +96,16 @@ class BusDetailViewController: BaseViewController {
         
         addFavoriteTitleButton.setTitle("즐겨찾기", for: .normal)
         addFavoriteTitleButton.tintColor = .gray
+        
+        shareButton.setTitle("", for: .normal)
+        shareButton.tintColor = .black
+        shareButton.backgroundColor = .white
+        shareButton.layer.cornerRadius = shareButton.frame.width / 2
+        shareButton.addShadow(radius: 2, opacity: 0.5, width: 0, height: 0)
+        shareButton.setImage(UIImage(systemName: "square.and.arrow.up"), for: .normal)
+        
+        shareTitleButton.setTitle("공유", for: .normal)
+        shareTitleButton.tintColor = .gray
     }
     
     private func checkFavorite() {
@@ -235,6 +248,30 @@ class BusDetailViewController: BaseViewController {
         tableView.reloadData()
     }
     
+    private func shareInfomation(_ text: String) {
+        let shareItems = [text]
+        
+        let activityVC = UIActivityViewController(activityItems: shareItems, applicationActivities: nil)
+        activityVC.popoverPresentationController?.sourceView = self.view
+        
+        self.present(activityVC, animated: true, completion: nil)
+    }
+    
+    private func changeShareMode() {
+        isShareMode = !isShareMode
+        tableView.reloadData()
+    }
+    
+    private func getCurrentTime() -> String {
+        let nowDate = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy년 MM월 dd일 a HH시 mm분"
+        dateFormatter.locale = Locale(identifier: "ko_KR")
+        let dateStr = dateFormatter.string(from: nowDate)
+        
+        return dateStr
+    }
+    
     @IBAction func refreshButtonClicked(_ sender: Any) {
         getBusPosByRtidList()
         guard let arsId = arsId else { return }
@@ -265,6 +302,16 @@ class BusDetailViewController: BaseViewController {
         }
         isFavorite = !isFavorite
     }
+    
+    @IBAction func shareButtonClicked(_ sender: Any) {
+        if isShareMode {
+            self.showCommonPopupView(title: "공유 취소", desc: "공유를 취소하였습니다.")
+        } else {
+            self.showCommonPopupView(title: "공유", desc: "공유할 버스를 선택해주세요.")
+        }
+        
+        changeShareMode()
+    }
 }
 
 extension BusDetailViewController: UITableViewDelegate, UITableViewDataSource {
@@ -273,18 +320,38 @@ extension BusDetailViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let arsId = routes[indexPath.row].arsId,
-              let stationNm = routes[indexPath.row].stationNm else { return }
+        let route = routes[indexPath.row]
+        guard let arsId = route.arsId,
+              let stationNm = route.stationNm else { return }
         
-        let sb = UIStoryboard(name: "Detail", bundle: nil)
-        guard let vc = sb.instantiateViewController(withIdentifier: "StationDetailViewController") as? StationDetailViewController else { return }
-        vc.arsId = arsId
-        vc.stationNm = stationNm
-        self.navigationController?.pushViewController(vc, animated: true)
+        if isShareMode {
+            busPositions.forEach { busPosition in
+                if busPosition.busType == "1" && busPosition.lastStnId == route.station {
+                    if let busNumber = busNumerLabel.text,
+                       let plainNo = busPosition.plainNo {
+                        let text = "[보고타]\n\n\(stationNm)(\(arsId))에서 \(busNumber)번을 공유했습니다.\n\n\n차량 번호: \(plainNo)\n공유 시간: \(self.getCurrentTime())"
+                        
+                        self.shareInfomation(text)
+                        
+                    } else {
+                        self.showCommonPopupView(title: "공유 실패", desc: "공유에 실패하였습니다.")
+                    }
+                    self.changeShareMode()
+                }
+            }
+        } else {
+            let sb = UIStoryboard(name: "Detail", bundle: nil)
+            guard let vc = sb.instantiateViewController(withIdentifier: "StationDetailViewController") as? StationDetailViewController else { return }
+            vc.arsId = arsId
+            vc.stationNm = stationNm
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "BusRouteCell") as? BusRouteCell else { return UITableViewCell() }
+        
+        cell.shareModeView.isHidden = !isShareMode
         
         let route = routes[indexPath.row]
         var busStartPoint: CGFloat = 0
