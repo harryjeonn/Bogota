@@ -328,8 +328,9 @@ extension BusDetailViewController: UITableViewDelegate, UITableViewDataSource {
             busPositions.forEach { busPosition in
                 if busPosition.busType == "1" && busPosition.lastStnId == route.station {
                     if let busNumber = busNumerLabel.text,
+                       let busType = busTypeLabel.text,
                        let plainNo = busPosition.plainNo {
-                        let text = "[보고타]\n\n\(stationNm)(\(arsId))에서 \(busNumber)번을 공유했습니다.\n\n\n차량 번호: \(plainNo)\n공유 시간: \(self.getCurrentTime())"
+                        let text = "[보고타]\n\n\(busNumber)번 \(busType)버스를 공유했습니다.\n\n버스 위치: \(stationNm)(\(arsId))\n차량 번호: \(plainNo)\n공유 시간: \(self.getCurrentTime())"
                         
                         self.shareInfomation(text)
                         
