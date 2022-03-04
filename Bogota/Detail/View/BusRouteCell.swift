@@ -14,6 +14,8 @@ class BusRouteCell: UITableViewCell {
     @IBOutlet weak var lineViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var busImageView: UIImageView!
     @IBOutlet weak var busImageViewTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var busNumberView: UIView!
+    @IBOutlet weak var busNumberLabel: UILabel!
     
     @IBOutlet weak var downImageStackView: UIStackView!
     @IBOutlet weak var downImageView: UIImageView!
@@ -44,12 +46,14 @@ class BusRouteCell: UITableViewCell {
         firstArrMsgLabel.font = .systemFont(ofSize: 14)
         secondArrMsgLabel.font = .systemFont(ofSize: 14)
         roundLabel.font = .systemFont(ofSize: 14)
+        busNumberLabel.adjustsFontSizeToFitWidth = true
         
         stationLabel.textColor = .black
         stationIdLabel.textColor = .gray
         firstArrMsgLabel.textColor = .red
         secondArrMsgLabel.textColor = .red
         roundLabel.textColor = .lightGray
+        busNumberLabel.textColor = .gray
         
         downImageStackView.backgroundColor = .white
         downImageStackView.layer.borderColor = UIColor.lightGray.cgColor
@@ -60,6 +64,13 @@ class BusRouteCell: UITableViewCell {
         
         busImageView.tintColor = .blueColor
         busImageView.backgroundColor = .white
+        
+        busNumberView.backgroundColor = .white
+        busNumberView.layer.shadowRadius = 2
+        busNumberView.layer.shadowOpacity = 0.5
+        busNumberView.layer.shadowColor = UIColor.gray.cgColor
+        busNumberView.layer.shadowOffset = CGSize(width: 0, height: 0)
+        busNumberView.layer.cornerRadius = 5
         
         shareModeView.backgroundColor = .white.withAlphaComponent(0.7)
         

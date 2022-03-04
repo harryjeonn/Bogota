@@ -18,7 +18,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v0M-ro-uCP">
-                        <rect key="frame" x="40" y="0.0" width="3" height="148"/>
+                        <rect key="frame" x="50" y="0.0" width="3" height="148"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Vm-vY-IGN">
                                 <rect key="frame" x="-37" y="56" width="77.5" height="36"/>
@@ -49,7 +49,7 @@
                         </constraints>
                     </view>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="MTv-bU-PYv">
-                        <rect key="frame" x="73" y="15.5" width="41.5" height="45"/>
+                        <rect key="frame" x="83" y="15.5" width="41.5" height="45"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hEK-Jw-tcW">
                                 <rect key="frame" x="0.0" y="0.0" width="41.5" height="20.5"/>
@@ -66,7 +66,7 @@
                         </subviews>
                     </stackView>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Jxz-Gd-5Na">
-                        <rect key="frame" x="73" y="68.5" width="41.5" height="49"/>
+                        <rect key="frame" x="83" y="68.5" width="41.5" height="49"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d73-MU-i6X">
                                 <rect key="frame" x="0.0" y="0.0" width="41.5" height="20.5"/>
@@ -86,8 +86,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="148"/>
                         <color key="backgroundColor" white="1" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="63R-dY-0Be">
+                        <rect key="frame" x="5" y="2.5" width="32.5" height="25"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OEU-qA-BPW">
+                                <rect key="frame" x="2" y="0.0" width="28.5" height="25"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="CQD-UW-6xB"/>
+                            <constraint firstItem="OEU-qA-BPW" firstAttribute="top" secondItem="63R-dY-0Be" secondAttribute="top" id="OYL-9R-oCM"/>
+                            <constraint firstAttribute="trailing" secondItem="OEU-qA-BPW" secondAttribute="trailing" constant="2" id="kCi-Zy-Src"/>
+                            <constraint firstItem="OEU-qA-BPW" firstAttribute="leading" secondItem="63R-dY-0Be" secondAttribute="leading" constant="2" id="mDN-Wu-UE5"/>
+                            <constraint firstAttribute="bottom" secondItem="OEU-qA-BPW" secondAttribute="bottom" id="w72-1y-xKZ"/>
+                        </constraints>
+                    </view>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bus" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="EqG-pb-46K">
-                        <rect key="frame" x="31.5" y="4" width="20" height="21.5"/>
+                        <rect key="frame" x="41.5" y="4" width="20" height="21.5"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="20" id="1qR-vT-efc"/>
                             <constraint firstAttribute="width" secondItem="EqG-pb-46K" secondAttribute="height" id="c8u-ml-IfN"/>
@@ -95,7 +114,7 @@
                     </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="v0M-ro-uCP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="40" id="2Ig-zr-SzI"/>
+                    <constraint firstItem="v0M-ro-uCP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="50" id="2Ig-zr-SzI"/>
                     <constraint firstItem="EqG-pb-46K" firstAttribute="centerX" secondItem="v0M-ro-uCP" secondAttribute="centerX" id="2s2-8M-qda"/>
                     <constraint firstItem="v0M-ro-uCP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="3Yd-MW-U2P"/>
                     <constraint firstItem="z8C-66-Qnq" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="9WI-XH-jTV"/>
@@ -104,8 +123,11 @@
                     <constraint firstItem="EqG-pb-46K" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="ROG-tx-PG0"/>
                     <constraint firstItem="MTv-bU-PYv" firstAttribute="leading" secondItem="v0M-ro-uCP" secondAttribute="trailing" constant="30" id="U7G-mf-mwH"/>
                     <constraint firstAttribute="bottom" secondItem="v0M-ro-uCP" secondAttribute="bottom" id="bI0-Ng-8TS"/>
+                    <constraint firstItem="63R-dY-0Be" firstAttribute="centerY" secondItem="EqG-pb-46K" secondAttribute="centerY" id="bV3-XJ-3R4"/>
                     <constraint firstItem="Jxz-Gd-5Na" firstAttribute="leading" secondItem="v0M-ro-uCP" secondAttribute="trailing" constant="30" id="bYJ-16-WIV"/>
                     <constraint firstAttribute="bottom" secondItem="z8C-66-Qnq" secondAttribute="bottom" id="dgU-AH-q5a"/>
+                    <constraint firstItem="63R-dY-0Be" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="eg2-Mp-F6R"/>
+                    <constraint firstItem="63R-dY-0Be" firstAttribute="trailing" secondItem="EqG-pb-46K" secondAttribute="leading" constant="-4" id="igz-nV-KrH"/>
                     <constraint firstItem="2Vm-vY-IGN" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="lPH-0D-p16"/>
                     <constraint firstItem="Jxz-Gd-5Na" firstAttribute="top" secondItem="MTv-bU-PYv" secondAttribute="bottom" constant="8" id="opf-Gc-EVR"/>
                     <constraint firstItem="z8C-66-Qnq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="vff-Hp-6mg"/>
@@ -116,6 +138,8 @@
             <connections>
                 <outlet property="busImageView" destination="EqG-pb-46K" id="zHU-xG-hiL"/>
                 <outlet property="busImageViewTopConstraint" destination="ROG-tx-PG0" id="Fmd-hr-WLi"/>
+                <outlet property="busNumberLabel" destination="OEU-qA-BPW" id="UcU-vu-DfN"/>
+                <outlet property="busNumberView" destination="63R-dY-0Be" id="J0q-1h-bD0"/>
                 <outlet property="downImageStackView" destination="2Vm-vY-IGN" id="HVd-Ch-sgP"/>
                 <outlet property="downImageView" destination="kHM-K1-R4W" id="qif-pe-nyX"/>
                 <outlet property="firstArrMsgLabel" destination="d73-MU-i6X" id="GPG-TJ-sk5"/>

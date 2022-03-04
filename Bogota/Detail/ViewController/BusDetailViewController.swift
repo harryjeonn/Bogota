@@ -420,11 +420,16 @@ extension BusDetailViewController: UITableViewDelegate, UITableViewDataSource {
                     }
                 }
                 
+                if let plainNo = busPosition.plainNo {
+                    cell.busNumberLabel.text = "\(plainNo.suffix(4))"
+                    
+                }
                 isBusHide = false
             }
         }
         
         cell.busImageView.isHidden = isBusHide
+        cell.busNumberView.isHidden = isBusHide
         
         // 회차지
         if let trnstnid = route.trnstnid {
