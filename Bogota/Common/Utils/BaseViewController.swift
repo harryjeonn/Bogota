@@ -40,22 +40,22 @@ class BaseViewController: UIViewController {
     
     // MARK: - Show common popup
     func showCommonPopupView(title: String, desc: String) {
-//        guard let vc = Utils.shared.topViewController() else { return }
-        guard let vc = UIApplication.shared.windows.last else { return }
+        guard let vc = Utils.shared.topViewController() else { return }
+//        guard let vc = UIApplication.shared.windows.last else { return }
         
         let popupView = CommonPopupView()
         popupView.titleLabel.text = title
         popupView.descriptionLabel.text = desc
         popupView.confirmButton.setTitle("확인", for: .normal)
         
-        vc.addSubview(popupView)
+        vc.view.addSubview(popupView)
         
         popupView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            popupView.topAnchor.constraint(equalTo: vc.topAnchor, constant: 0),
-            popupView.leadingAnchor.constraint(equalTo: vc.leadingAnchor, constant: 0),
-            popupView.trailingAnchor.constraint(equalTo: vc.trailingAnchor, constant: 0),
-            popupView.bottomAnchor.constraint(equalTo: vc.bottomAnchor, constant: 0)
+            popupView.topAnchor.constraint(equalTo: vc.view.topAnchor, constant: 0),
+            popupView.leadingAnchor.constraint(equalTo: vc.view.leadingAnchor, constant: 0),
+            popupView.trailingAnchor.constraint(equalTo: vc.view.trailingAnchor, constant: 0),
+            popupView.bottomAnchor.constraint(equalTo: vc.view.bottomAnchor, constant: 0)
         ])
     }
     
