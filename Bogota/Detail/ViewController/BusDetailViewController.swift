@@ -305,8 +305,10 @@ class BusDetailViewController: BaseViewController {
     
     @IBAction func shareButtonClicked(_ sender: Any) {
         if isShareMode {
+            shareButton.backgroundColor = .white
             self.showCommonPopupView(title: "공유 취소", desc: "공유를 취소하였습니다.")
         } else {
+            shareButton.backgroundColor = .blueColor.withAlphaComponent(0.5)
             self.showCommonPopupView(title: "공유", desc: "공유할 버스를 선택해주세요.")
         }
         
