@@ -29,7 +29,16 @@ class BusDetailViewController: BaseViewController {
     private var busPositions = [BusPosition]()
     private var saveFavorite: FavoriteModel?
     private var isFavorite = false
-    private var isShareMode = false
+    private var isShareMode = false {
+        didSet {
+            if isShareMode {
+                shareButton.backgroundColor = .blueColor.withAlphaComponent(0.5)
+            } else {
+                shareButton.backgroundColor = .white
+            }
+            tableView.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -257,11 +266,6 @@ class BusDetailViewController: BaseViewController {
         self.present(activityVC, animated: true, completion: nil)
     }
     
-    private func changeShareMode() {
-        isShareMode = !isShareMode
-        tableView.reloadData()
-    }
-    
     private func getCurrentTime() -> String {
         let nowDate = Date()
         let dateFormatter = DateFormatter()
@@ -305,14 +309,12 @@ class BusDetailViewController: BaseViewController {
     
     @IBAction func shareButtonClicked(_ sender: Any) {
         if isShareMode {
-            shareButton.backgroundColor = .white
             self.showCommonPopupView(title: "공유 취소", desc: "공유를 취소하였습니다.")
         } else {
-            shareButton.backgroundColor = .blueColor.withAlphaComponent(0.5)
             self.showCommonPopupView(title: "공유", desc: "공유할 버스를 선택해주세요.")
         }
         
-        changeShareMode()
+        isShareMode = !isShareMode
     }
 }
 
@@ -339,7 +341,7 @@ extension BusDetailViewController: UITableViewDelegate, UITableViewDataSource {
                     } else {
                         self.showCommonPopupView(title: "공유 실패", desc: "공유에 실패하였습니다.")
                     }
-                    self.changeShareMode()
+                    isShareMode = !isShareMode
                 }
             }
         } else {
