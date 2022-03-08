@@ -7,8 +7,7 @@
 
 import Foundation
 import GoogleMobileAds
-import AdSupport
-import AppTrackingTransparency
+import UIKit
 
 enum AdmobType {
     case home
@@ -41,9 +40,9 @@ class AdmobManager: NSObject {
     
     let testBannerAdUnitID = "ca-app-pub-3940256099942544/2934735716"
     
-    func addAdmobView(_ type: AdmobType) {
+    func addAdmobView(type: AdmobType, view: UIView) {
         guard let vc = Utils.shared.topViewController() else { return }
-        let adSize = GADAdSizeFromCGSize(CGSize(width: vc.view.frame.width, height: 50))
+        let adSize = GADAdSizeFromCGSize(CGSize(width: view.frame.width, height: 50))
         
         let bannerView = GADBannerView(adSize: adSize)
         bannerView.backgroundColor = .clear
@@ -54,21 +53,21 @@ class AdmobManager: NSObject {
         bannerView.delegate = self
         
         bannerView.translatesAutoresizingMaskIntoConstraints = false
-        vc.view.addSubview(bannerView)
+        view.addSubview(bannerView)
         
         switch type {
         case .home, .favorite, .more:
             NSLayoutConstraint.activate([
-                bannerView.topAnchor.constraint(equalTo: vc.view.safeAreaLayoutGuide.topAnchor, constant: 5),
-                bannerView.leadingAnchor.constraint(equalTo: vc.view.safeAreaLayoutGuide.leadingAnchor),
-                bannerView.trailingAnchor.constraint(equalTo: vc.view.safeAreaLayoutGuide.trailingAnchor),
+                bannerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 5),
+                bannerView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+                bannerView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
                 bannerView.heightAnchor.constraint(equalToConstant: 50)
             ])
         case .station, .bus, .search:
             NSLayoutConstraint.activate([
-                bannerView.leadingAnchor.constraint(equalTo: vc.view.safeAreaLayoutGuide.leadingAnchor),
-                bannerView.trailingAnchor.constraint(equalTo: vc.view.safeAreaLayoutGuide.trailingAnchor),
-                bannerView.bottomAnchor.constraint(equalTo: vc.view.safeAreaLayoutGuide.bottomAnchor, constant: -5),
+                bannerView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+                bannerView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+                bannerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -5),
                 bannerView.heightAnchor.constraint(equalToConstant: 50)
             ])
         }

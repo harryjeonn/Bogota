@@ -34,12 +34,12 @@ class StationDetailViewController: BaseViewController {
         setupUI()
         setupInfo()
         setupTableView()
+        AdmobManager.shared.addAdmobView(type: .station, view: self.view)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         checkFavorite()
-        AdmobManager.shared.addAdmobView(.station)
     }
     
     private func setupUI() {

@@ -16,12 +16,12 @@ class MoreViewController: BaseViewController {
         MoreModel.shared.makeMoreList()
         setupTabbar()
         setupTableView()
+        AdmobManager.shared.addAdmobView(type: .more, view: self.view)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupNavigationBar()
-        AdmobManager.shared.addAdmobView(.more)
     }
     
     private func setupTabbar() {

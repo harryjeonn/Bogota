@@ -22,12 +22,12 @@ class SearchViewController: BaseViewController {
         super.viewDidLoad()
         getInfo()
         setupTableView()
+        AdmobManager.shared.addAdmobView(type: .search, view: self.view)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.title = "검색결과"
-        AdmobManager.shared.addAdmobView(.search)
     }
     
     private func getInfo() {

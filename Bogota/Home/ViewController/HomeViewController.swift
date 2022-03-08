@@ -27,12 +27,12 @@ class HomeViewController: BaseViewController {
         setupGestures()
         getStationByPos()
         checkFirstLaunch()
+        AdmobManager.shared.addAdmobView(type: .home, view: self.view)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupNavigationBar()
-        AdmobManager.shared.addAdmobView(.home)
     }
     
     override func viewDidDisappear(_ animated: Bool) {

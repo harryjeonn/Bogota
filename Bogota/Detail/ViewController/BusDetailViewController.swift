@@ -50,12 +50,12 @@ class BusDetailViewController: BaseViewController {
         getStationByRoute()
         getBusPosByRtidList()
         updateBusInfo()
+        AdmobManager.shared.addAdmobView(type: .bus, view: self.view)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         checkFavorite()
-        AdmobManager.shared.addAdmobView(.bus)
     }
     
     private func setupUI() {
