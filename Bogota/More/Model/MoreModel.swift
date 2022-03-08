@@ -43,8 +43,7 @@ class MoreModel: NSObject {
         var list = [MoreList]()
         list.append(MoreList(type: .description))
         list.append(MoreList(type: .donation))
-        // TODO: - 앱 배포 후 리뷰URL 연결
-//        list.append(MoreList(type: .review))
+        list.append(MoreList(type: .review))
         list.append(MoreList(type: .openSource))
         list.append(MoreList(type: .policy))
         

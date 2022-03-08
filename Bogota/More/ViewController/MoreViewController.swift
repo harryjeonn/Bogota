@@ -71,8 +71,10 @@ extension MoreViewController: UITableViewDelegate, UITableViewDataSource {
         case .donation:
             url = URL(string: "https://devhoxvi.blogspot.com/2022/02/blog-post_27.html")
         case .review:
-            // TODO: - 앱 배포 후 리뷰URL 연결
-            print("review")
+            if let url = URL(string: "itms-apps://itunes.apple.com/app/1612002644?action=write-review") {
+                UIApplication.shared.open(url, options: [:])
+            }
+            return
         case .openSource:
             url = URL(string: "https://devhoxvi.blogspot.com/2022/02/blog-post_5.html")
         case .policy:
