@@ -36,5 +36,7 @@
 	<string>4m2g8rko4r</string>
 	<key>GADApplicationIdentifier</key>
 	<string>ca-app-pub-6497545219748270~6621398458</string>
+    <key>ITSAppUsesNonExemptEncryption</key>
+    <false/>
 </dict>
 </plist>
