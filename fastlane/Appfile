@@ -1,0 +1,5 @@
+app_identifier("com.hox.bogota") # The bundle identifier of your app
+apple_id("octxvi@naver.com") # Your Apple Developer Portal username
+
+# For more information about the Appfile, see:
+#     https://docs.fastlane.tools/advanced/#appfile
