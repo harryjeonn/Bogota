@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8240E03F29893085005340EF /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 8240E03E29893085005340EF /* RxCocoa */; };
+		8240E04129893085005340EF /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 8240E04029893085005340EF /* RxRelay */; };
+		8240E04329893085005340EF /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8240E04229893085005340EF /* RxSwift */; };
+		8240E0492994C5C0005340EF /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = 8240E0482994C5C0005340EF /* RxDataSources */; };
 		AC8A4616A62D99BB21E8B247 /* Pods_bogota.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 399580D1581E0EAA47EC19E5 /* Pods_bogota.framework */; };
 		BD1847D2279FC4C300E7CE78 /* StationByPosResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1847D1279FC4C300E7CE78 /* StationByPosResponse.swift */; };
 		BD1847D6279FC84600E7CE78 /* BusAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1847D5279FC84600E7CE78 /* BusAPI.swift */; };
@@ -135,6 +139,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8240E04129893085005340EF /* RxRelay in Frameworks */,
+				8240E03F29893085005340EF /* RxCocoa in Frameworks */,
+				8240E04329893085005340EF /* RxSwift in Frameworks */,
+				8240E0492994C5C0005340EF /* RxDataSources in Frameworks */,
 				AC8A4616A62D99BB21E8B247 /* Pods_bogota.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -491,6 +499,12 @@
 			dependencies = (
 			);
 			name = bogota;
+			packageProductDependencies = (
+				8240E03E29893085005340EF /* RxCocoa */,
+				8240E04029893085005340EF /* RxRelay */,
+				8240E04229893085005340EF /* RxSwift */,
+				8240E0482994C5C0005340EF /* RxDataSources */,
+			);
 			productName = bogota;
 			productReference = BDA82E2F279E691A005D5683 /* bogota.app */;
 			productType = "com.apple.product-type.application";
@@ -519,6 +533,10 @@
 				Base,
 			);
 			mainGroup = BDA82E26279E691A005D5683;
+			packageReferences = (
+				8240E03D29893085005340EF /* XCRemoteSwiftPackageReference "RxSwift" */,
+				8240E0472994C5C0005340EF /* XCRemoteSwiftPackageReference "RxDataSources" */,
+			);
 			productRefGroup = BDA82E30279E691A005D5683 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -872,6 +890,48 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8240E03D29893085005340EF /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		8240E0472994C5C0005340EF /* XCRemoteSwiftPackageReference "RxDataSources" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxDataSources.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8240E03E29893085005340EF /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8240E03D29893085005340EF /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		8240E04029893085005340EF /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8240E03D29893085005340EF /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+		8240E04229893085005340EF /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8240E03D29893085005340EF /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		8240E0482994C5C0005340EF /* RxDataSources */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8240E0472994C5C0005340EF /* XCRemoteSwiftPackageReference "RxDataSources" */;
+			productName = RxDataSources;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BDA82E27279E691A005D5683 /* Project object */;
 }
