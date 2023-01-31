@@ -82,6 +82,11 @@ fastlane/Preview.html
 fastlane/screenshots/**/*.png
 fastlane/test_output
 
+# fastlane 적용하면서 생긴 인증서들
+fastlane/3HTZ82WGNV.json
+6QHVF48CTJ.cer
+AppStore_com.hox.bogota.mobileprovision
+
 # Code Injection
 # After new code Injection tools there's a generated folder /iOSInjectionProject
 # https://github.com/johnno1962/injectionforxcode
