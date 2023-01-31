@@ -349,7 +349,7 @@
 		BDA82E26279E691A005D5683 = {
 			isa = PBXGroup;
 			children = (
-				BDA82E31279E691A005D5683 /* bogota */,
+				BDA82E31279E691A005D5683 /* Bogota */,
 				BDA82E30279E691A005D5683 /* Products */,
 				DACBBAE42978AE35191D0DD6 /* Pods */,
 				E6EB90736011D8ED567EFBBA /* Frameworks */,
@@ -364,7 +364,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		BDA82E31279E691A005D5683 /* bogota */ = {
+		BDA82E31279E691A005D5683 /* Bogota */ = {
 			isa = PBXGroup;
 			children = (
 				BD1847DB27A0E3D800E7CE78 /* Common */,
@@ -383,7 +383,7 @@
 				BDA82E3D279E691C005D5683 /* LaunchScreen.storyboard */,
 				BDA82E40279E691C005D5683 /* Info.plist */,
 			);
-			path = bogota;
+			path = Bogota;
 			sourceTree = "<group>";
 		};
 		BDB2CFB427C5F2FA0011C8A8 /* Favorite */ = {
@@ -789,10 +789,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = D64MDUWZ72;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = bogota/Info.plist;
+				INFOPLIST_FILE = Bogota/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "보고타";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "정류장, 버스 조회를 위해 위치정보가 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -807,7 +807,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hox.bogota;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -823,10 +823,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = D64MDUWZ72;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = bogota/Info.plist;
+				INFOPLIST_FILE = Bogota/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "보고타";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "정류장, 버스 조회를 위해 위치정보가 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -841,7 +841,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hox.bogota;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
