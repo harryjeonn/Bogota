@@ -6,11 +6,17 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
+import RxDataSources
 import CoreLocation
 
 class HomeViewController: BaseViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var refreshButton: UIButton!
+    
+    private var viewModel = HomeViewModel()
+    private var disposeBag = DisposeBag()
     
     private var locationManager = LocationManager.shared
     
@@ -20,8 +26,9 @@ class HomeViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        locationManager.getCurrentLocation()
         setupTableView()
+        bind()
+        locationManager.getCurrentLocation()
         setupTabbar()
         setupUI()
         setupGestures()
@@ -76,11 +83,47 @@ class HomeViewController: BaseViewController {
     }
     
     private func setupTableView() {
-        tableView.delegate = self
-        tableView.dataSource = self
+//        tableView.delegate = self
+//        tableView.dataSource = self
         
         let nib = UINib(nibName: "HomeStationCell", bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: "HomeStationCell")
+        tableView.register(nib, forCellReuseIdentifier: HomeStationCell.identifier)
+    }
+    
+    private func bind() {
+        viewModel.showEmpty
+            .bind(to: emptyView.rx.isHidden)
+            .disposed(by: disposeBag)
+        
+        // TableView
+        let dataSource = RxTableViewSectionedReloadDataSource<SectionOfPosStation> { dataSource, tableView, indexPath, item in
+            let cell = tableView.dequeueReusableCell(withIdentifier: HomeStationCell.identifier, for: indexPath) as! HomeStationCell
+            cell.bind(item: item)
+            
+            return cell
+        }
+        
+        dataSource.titleForHeaderInSection = { dataSource, index in
+            return dataSource.sectionModels[index].header
+        }
+        
+        viewModel.posStations
+            .bind(to: tableView.rx.items(dataSource: dataSource))
+            .disposed(by: disposeBag)
+        
+        tableView.rx
+            .modelSelected(PosStation.self)
+            .subscribe { [weak self] posStation in
+                guard let arsId = posStation.arsId,
+                      let stationNm = posStation.stationNm else { return }
+                
+                let sb = UIStoryboard(name: "Detail", bundle: nil)
+                guard let vc = sb.instantiateViewController(withIdentifier: "StationDetailViewController") as? StationDetailViewController else { return }
+                vc.arsId = arsId
+                vc.stationNm = stationNm
+                self?.navigationController?.pushViewController(vc, animated: true)
+            }
+            .disposed(by: disposeBag)
     }
     
     private func setupGestures() {
@@ -106,10 +149,10 @@ class HomeViewController: BaseViewController {
         Task {
             do {
                 if let response = try await BusAPI.shared.getStationByPos(tmX: tmX, tmY: tmY, radius: "500") {
-                    self.posStations = response.filter({ $0.arsId != "0" })
-                    self.tableView.reloadData()
+                    let items = response.filter { $0.arsId != "0" }
+                    viewModel.posStations.accept([SectionOfPosStation(header: "내 주변 정류장", items: items)])
                 }
-                emptyView.isHidden = !posStations.isEmpty
+                viewModel.showEmpty.accept(!viewModel.posStations.value.isEmpty)
             } catch {
                 print("*** Error: \(error.localizedDescription) - \(error)")
                 self.showCommonPopupView(title: "불러오기 실패", desc: "정보를 불러올 수 없습니다.\n잠시 후 다시 시도해주세요.")
@@ -129,55 +172,5 @@ class HomeViewController: BaseViewController {
     
     @IBAction func refreshButtonClicked(_ sender: Any) {
         getStationByPos()
-    }
-}
-
-// MARK: - TableView Delegate
-extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return posStations.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "HomeStationCell") as? HomeStationCell else { return UITableViewCell() }
-        let posStation = posStations[indexPath.row]
-        
-        if let stationNm = posStation.stationNm {
-            cell.titleLabel.text = stationNm
-        }
-        
-        if let arsId = posStation.arsId,
-           let distance = posStation.dist {
-            cell.subTitleLabel.text = "\(arsId) | \(distance)m"
-        }
-        
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let arsId = posStations[indexPath.row].arsId,
-              let stationNm = posStations[indexPath.row].stationNm else { return }
-        
-        let sb = UIStoryboard(name: "Detail", bundle: nil)
-        guard let vc = sb.instantiateViewController(withIdentifier: "StationDetailViewController") as? StationDetailViewController else { return }
-        vc.arsId = arsId
-        vc.stationNm = stationNm
-        self.navigationController?.pushViewController(vc, animated: true)
-        
-    }
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 20))
-        headerView.backgroundColor = .white
-        
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 20))
-        
-        label.text = "내 주변 정류장"
-        label.font = .systemFont(ofSize: 14)
-        label.textColor = .gray
-        
-        headerView.addSubview(label)
-        
-        return headerView
     }
 }

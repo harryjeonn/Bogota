@@ -10,6 +10,7 @@
 		8240E03F29893085005340EF /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 8240E03E29893085005340EF /* RxCocoa */; };
 		8240E04129893085005340EF /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 8240E04029893085005340EF /* RxRelay */; };
 		8240E04329893085005340EF /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8240E04229893085005340EF /* RxSwift */; };
+		8240E0462994C43E005340EF /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8240E0452994C43E005340EF /* HomeViewModel.swift */; };
 		8240E0492994C5C0005340EF /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = 8240E0482994C5C0005340EF /* RxDataSources */; };
 		AC8A4616A62D99BB21E8B247 /* Pods_bogota.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 399580D1581E0EAA47EC19E5 /* Pods_bogota.framework */; };
 		BD1847D2279FC4C300E7CE78 /* StationByPosResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1847D1279FC4C300E7CE78 /* StationByPosResponse.swift */; };
@@ -73,10 +74,11 @@
 /* Begin PBXFileReference section */
 		11C1EA9D17F98257EABAB360 /* Pods-bogota.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bogota.debug.xcconfig"; path = "Target Support Files/Pods-bogota/Pods-bogota.debug.xcconfig"; sourceTree = "<group>"; };
 		399580D1581E0EAA47EC19E5 /* Pods_bogota.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bogota.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8240E0452994C43E005340EF /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		B3979DEB4A2A110971A83AA4 /* Pods-bogota.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bogota.release.xcconfig"; path = "Target Support Files/Pods-bogota/Pods-bogota.release.xcconfig"; sourceTree = "<group>"; };
 		BD1847D1279FC4C300E7CE78 /* StationByPosResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StationByPosResponse.swift; path = bogota/API/Bus/Model/StationByPosResponse.swift; sourceTree = SOURCE_ROOT; };
 		BD1847D5279FC84600E7CE78 /* BusAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BusAPI.swift; path = Bogota/API/Bus/BusAPI.swift; sourceTree = SOURCE_ROOT; };
-		BD1847D927A0CFA400E7CE78 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = Bogota/Home/ViewController/HomeViewController.swift; sourceTree = SOURCE_ROOT; };
+		BD1847D927A0CFA400E7CE78 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = Bogota/Home/View/HomeViewController.swift; sourceTree = SOURCE_ROOT; };
 		BD1847DD27A0E42400E7CE78 /* CommonPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CommonPopupView.swift; path = Bogota/Common/View/CommonPopupView.swift; sourceTree = SOURCE_ROOT; };
 		BD1847DF27A0E42F00E7CE78 /* CommonPopupView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CommonPopupView.xib; path = Bogota/Common/View/CommonPopupView.xib; sourceTree = SOURCE_ROOT; };
 		BD1847E227A0E66500E7CE78 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BaseViewController.swift; path = Bogota/Common/Utils/BaseViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -150,6 +152,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8240E0442994C419005340EF /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8240E0452994C43E005340EF /* HomeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		BD1847CD279FC44900E7CE78 /* API */ = {
 			isa = PBXGroup;
 			children = (
@@ -424,18 +434,10 @@
 			isa = PBXGroup;
 			children = (
 				BDF9F338279E7FE900E4DAB3 /* Home.storyboard */,
-				BDF9F335279E7F4400E4DAB3 /* ViewController */,
 				BDF9F342279E9A2E00E4DAB3 /* View */,
+				8240E0442994C419005340EF /* ViewModel */,
 			);
 			path = Home;
-			sourceTree = "<group>";
-		};
-		BDF9F335279E7F4400E4DAB3 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				BD1847D927A0CFA400E7CE78 /* HomeViewController.swift */,
-			);
-			path = ViewController;
 			sourceTree = "<group>";
 		};
 		BDF9F33C279E82D300E4DAB3 /* Map */ = {
@@ -459,6 +461,7 @@
 		BDF9F342279E9A2E00E4DAB3 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BD1847D927A0CFA400E7CE78 /* HomeViewController.swift */,
 				BD1847D727A0CE5700E7CE78 /* CustomView */,
 			);
 			path = View;
@@ -655,6 +658,7 @@
 				BD35A3D327A26DB500F74D4F /* BusInfoCell.swift in Sources */,
 				BD1847E527A0E74A00E7CE78 /* Utils.swift in Sources */,
 				BD1847DE27A0E42400E7CE78 /* CommonPopupView.swift in Sources */,
+				8240E0462994C43E005340EF /* HomeViewModel.swift in Sources */,
 				BD1847EE27A14BA100E7CE78 /* LocationManager.swift in Sources */,
 				BDA82E35279E691A005D5683 /* SceneDelegate.swift in Sources */,
 				BDF9F341279E82F000E4DAB3 /* MapViewController.swift in Sources */,

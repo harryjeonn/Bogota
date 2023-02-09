@@ -12,6 +12,8 @@ class HomeStationCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subTitleLabel: UILabel!
     
+    static let identifier = "HomeStationCell"
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -29,6 +31,11 @@ class HomeStationCell: UITableViewCell {
         
         subTitleLabel.textColor = .gray
         subTitleLabel.font = .systemFont(ofSize: 14)
+    }
+    
+    func bind(item: PosStation) {
+        titleLabel.text = item.stationNm
+        subTitleLabel.text = "\(item.arsId ?? "") | \(item.dist ?? "")m"
     }
     
 }
