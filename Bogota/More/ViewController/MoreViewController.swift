@@ -14,19 +14,8 @@ class MoreViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         MoreModel.shared.makeMoreList()
-        setupTabbar()
         setupTableView()
         AdmobManager.shared.addAdmobView(type: .more, view: self.view)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        setupNavigationBar()
-    }
-    
-    private func setupTabbar() {
-        self.tabBarController?.tabBar.tintColor = .black
-        self.tabBarController?.tabBar.backgroundColor = .tabBarBgColor
     }
     
     private func setupTableView() {
@@ -35,10 +24,6 @@ class MoreViewController: BaseViewController {
         
         tableView.rowHeight = 60
         tableView.separatorStyle = .none
-    }
-    
-    private func setupNavigationBar() {
-        navigationItem.titleView = self.searchBarView
     }
     
 }

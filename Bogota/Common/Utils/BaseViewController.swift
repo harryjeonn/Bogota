@@ -16,18 +16,8 @@ class BaseViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.topItem?.title = ""
-        self.navigationController?.navigationBar.tintColor = .black
-        
-        // Navigation Bar 경계선 지우기
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        
+        setupTabbar()
+        setupNavigation()
         searchBarView.delegate = self
     }
     
@@ -37,6 +27,22 @@ class BaseViewController: UIViewController {
         searchBarView.textField.text = nil
     }
     
+    private func setupTabbar() {
+        // TabBar 색상 설정
+        self.tabBarController?.tabBar.tintColor = .black
+        self.tabBarController?.tabBar.backgroundColor = .tabBarBgColor
+    }
+    
+    private func setupNavigation() {
+        self.navigationController?.navigationBar.topItem?.title = ""
+        self.navigationController?.navigationBar.tintColor = .black
+        
+        // Navigation Bar 경계선 지우기
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        
+        self.navigationItem.titleView = self.searchBarView
+    }
     
     // MARK: - Show common popup
     func showCommonPopupView(title: String, desc: String) {

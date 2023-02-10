@@ -43,7 +43,6 @@ class MapViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setupNavigationBar()
         getStationByNameList()
     }
     
@@ -95,10 +94,6 @@ class MapViewController: BaseViewController {
         distanceButton.layer.borderColor = UIColor.gray.cgColor
         distanceButton.tintColor = .blueColor
         distanceButton.backgroundColor = .white
-    }
-    
-    private func setupNavigationBar() {
-        navigationItem.titleView = self.searchBarView
     }
     
     // MARK: - Map

@@ -28,8 +28,8 @@ class HomeViewController: BaseViewController {
         super.viewDidLoad()
         setupTableView()
         bind()
+        
         locationManager.getCurrentLocation()
-        setupTabbar()
         setupUI()
         setupGestures()
         getStationByPos()
@@ -37,49 +37,8 @@ class HomeViewController: BaseViewController {
         AdmobManager.shared.addAdmobView(type: .home, view: self.view)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        setupNavigationBar()
-    }
-    
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-    }
-    
-    private func setupNavigationBar() {
-        navigationItem.titleView = self.searchBarView
-    }
-    
-    private func setupTabbar() {
-        // TabBar 색상 설정
-        self.tabBarController?.tabBar.tintColor = .black
-        self.tabBarController?.tabBar.backgroundColor = .tabBarBgColor
-    }
-    
-    private func setupUI() {
-        // Button
-        refreshButton.backgroundColor = .white
-        refreshButton.tintColor = .black
-        refreshButton.layer.cornerRadius = refreshButton.frame.width / 2
-        refreshButton.addShadow(radius: 1, opacity: 0.5, width: 1, height: 1)
-        refreshButton.layer.borderWidth = 0.5
-        refreshButton.layer.borderColor = UIColor.gray.cgColor
-        
-        // TableView
-        tableView.rowHeight = 100
-        tableView.separatorStyle = .none
-        tableView.showsVerticalScrollIndicator = false
-        
-        // emptyView
-        emptyView.bounds = tableView.bounds
-        emptyView.emptyLabel.text = "정류장 정보가 없습니다."
-        tableView.addSubview(emptyView)
-        
-        emptyView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            emptyView.centerXAnchor.constraint(equalTo: tableView.centerXAnchor),
-            emptyView.centerYAnchor.constraint(equalTo: tableView.centerYAnchor)
-        ])
     }
     
     private func setupTableView() {
@@ -169,6 +128,33 @@ class HomeViewController: BaseViewController {
             self.showCommonPopupView(title: "안내", desc: "서울시 저상버스 전용 앱입니다.\n타 지역 및 일반 버스의 정보는 부정확할 수 있습니다.\n\n서비스 지역을 늘려 나갈 계획입니다.")
             UserDefaults.standard.set(true, forKey: "firstLaunch")
         }
+    }
+    
+    // MARK: - UI
+    private func setupUI() {
+        // Button
+        refreshButton.backgroundColor = .white
+        refreshButton.tintColor = .black
+        refreshButton.layer.cornerRadius = refreshButton.frame.width / 2
+        refreshButton.addShadow(radius: 1, opacity: 0.5, width: 1, height: 1)
+        refreshButton.layer.borderWidth = 0.5
+        refreshButton.layer.borderColor = UIColor.gray.cgColor
+        
+        // TableView
+        tableView.rowHeight = 100
+        tableView.separatorStyle = .none
+        tableView.showsVerticalScrollIndicator = false
+        
+        // emptyView
+        emptyView.bounds = tableView.bounds
+        emptyView.emptyLabel.text = "정류장 정보가 없습니다."
+        tableView.addSubview(emptyView)
+        
+        emptyView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            emptyView.centerXAnchor.constraint(equalTo: tableView.centerXAnchor),
+            emptyView.centerYAnchor.constraint(equalTo: tableView.centerYAnchor)
+        ])
     }
 }
 
