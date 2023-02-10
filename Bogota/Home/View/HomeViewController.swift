@@ -96,6 +96,12 @@ class HomeViewController: BaseViewController {
             .bind(to: emptyView.rx.isHidden)
             .disposed(by: disposeBag)
         
+        refreshButton.rx.tap
+            .subscribe(onNext: { [weak self] _ in
+                self?.getStationByPos()
+            })
+            .disposed(by: disposeBag)
+        
         // TableView
         let dataSource = RxTableViewSectionedReloadDataSource<SectionOfPosStation> { dataSource, tableView, indexPath, item in
             let cell = tableView.dequeueReusableCell(withIdentifier: HomeStationCell.identifier, for: indexPath) as! HomeStationCell
@@ -163,12 +169,6 @@ class HomeViewController: BaseViewController {
             self.showCommonPopupView(title: "안내", desc: "서울시 저상버스 전용 앱입니다.\n타 지역 및 일반 버스의 정보는 부정확할 수 있습니다.\n\n서비스 지역을 늘려 나갈 계획입니다.")
             UserDefaults.standard.set(true, forKey: "firstLaunch")
         }
-    }
-    
-    // MARK: - Button event
-    
-    @IBAction func refreshButtonClicked(_ sender: Any) {
-        getStationByPos()
     }
 }
 
