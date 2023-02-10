@@ -83,11 +83,12 @@ class HomeViewController: BaseViewController {
     }
     
     private func setupTableView() {
-//        tableView.delegate = self
-//        tableView.dataSource = self
-        
         let nib = UINib(nibName: "HomeStationCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: HomeStationCell.identifier)
+        
+        tableView.rx
+            .setDelegate(self)
+            .disposed(by: disposeBag)
     }
     
     private func bind() {
@@ -101,10 +102,6 @@ class HomeViewController: BaseViewController {
             cell.bind(item: item)
             
             return cell
-        }
-        
-        dataSource.titleForHeaderInSection = { dataSource, index in
-            return dataSource.sectionModels[index].header
         }
         
         viewModel.posStations
@@ -173,4 +170,22 @@ class HomeViewController: BaseViewController {
     @IBAction func refreshButtonClicked(_ sender: Any) {
         getStationByPos()
     }
+}
+
+extension HomeViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 20))
+        headerView.backgroundColor = .white
+        
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 20))
+
+        label.text = "내 주변 정류장"
+        label.font = .systemFont(ofSize: 14)
+        label.textColor = .gray
+        
+        headerView.addSubview(label)
+        
+        return headerView
+    }
+
 }
