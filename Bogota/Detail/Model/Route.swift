@@ -93,4 +93,30 @@ class Route: NSObject {
             return .unknown
         }
     }
+    
+    func convertCongetionToColor(_ congetion: String) -> UIColor {
+        switch congetion {
+        case "3":
+            return .greenColor
+        case "4":
+            return .yellowColor
+        case "5", "6":
+            return .redColor
+        default:
+            return .gray
+        }
+    }
+    
+    func convertCongetionToState(_ congetion: String) -> String {
+        switch congetion {
+        case "3":
+            return "여유"
+        case "4":
+            return "보통"
+        case "5", "6":
+            return "혼잡"
+        default:
+            return "알수없음"
+        }
+    }
 }

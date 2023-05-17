@@ -425,9 +425,16 @@ extension BusDetailViewController: UITableViewDelegate, UITableViewDataSource {
                     }
                 }
                 
-                if let plainNo = busPosition.plainNo {
-                    cell.busNumberLabel.text = "\(plainNo.suffix(4))"
+                if let plainNo = busPosition.plainNo,
+                   let congetion = busPosition.congetion {
+                    let congetionState = Route.shared.convertCongetionToState(congetion)
+                    let congetionColor = Route.shared.convertCongetionToColor(congetion)
+                    let text = "\(plainNo.suffix(4))\n\(congetionState)"
                     
+                    let attributtedString = NSMutableAttributedString(string: text)
+                        attributtedString.addAttribute(NSAttributedString.Key.foregroundColor, value: congetionColor, range: (text as NSString).range(of:congetionState))
+                            
+                    cell.busNumberLabel.attributedText = attributtedString
                 }
                 isBusHide = false
             }

@@ -55,6 +55,9 @@ class BusRouteCell: UITableViewCell {
         roundLabel.textColor = .lightGray
         busNumberLabel.textColor = .gray
         
+        busNumberLabel.textAlignment = .center
+        busNumberLabel.numberOfLines = 2
+        
         downImageStackView.backgroundColor = .white
         downImageStackView.layer.borderColor = UIColor.lightGray.cgColor
         
