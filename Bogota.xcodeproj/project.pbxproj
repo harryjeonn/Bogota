@@ -12,6 +12,8 @@
 		8240E04329893085005340EF /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8240E04229893085005340EF /* RxSwift */; };
 		8240E0462994C43E005340EF /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8240E0452994C43E005340EF /* HomeViewModel.swift */; };
 		8240E0492994C5C0005340EF /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = 8240E0482994C5C0005340EF /* RxDataSources */; };
+		826B3C702A16456A006A53FD /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 826B3C6F2A16456A006A53FD /* FirebaseAnalytics */; };
+		826B3C722A16459E006A53FD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 826B3C712A16459E006A53FD /* GoogleService-Info.plist */; };
 		AC8A4616A62D99BB21E8B247 /* Pods_bogota.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 399580D1581E0EAA47EC19E5 /* Pods_bogota.framework */; };
 		BD1847D2279FC4C300E7CE78 /* StationByPosResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1847D1279FC4C300E7CE78 /* StationByPosResponse.swift */; };
 		BD1847D6279FC84600E7CE78 /* BusAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1847D5279FC84600E7CE78 /* BusAPI.swift */; };
@@ -75,6 +77,7 @@
 		11C1EA9D17F98257EABAB360 /* Pods-bogota.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bogota.debug.xcconfig"; path = "Target Support Files/Pods-bogota/Pods-bogota.debug.xcconfig"; sourceTree = "<group>"; };
 		399580D1581E0EAA47EC19E5 /* Pods_bogota.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bogota.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8240E0452994C43E005340EF /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		826B3C712A16459E006A53FD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B3979DEB4A2A110971A83AA4 /* Pods-bogota.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bogota.release.xcconfig"; path = "Target Support Files/Pods-bogota/Pods-bogota.release.xcconfig"; sourceTree = "<group>"; };
 		BD1847D1279FC4C300E7CE78 /* StationByPosResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StationByPosResponse.swift; path = bogota/API/Bus/Model/StationByPosResponse.swift; sourceTree = SOURCE_ROOT; };
 		BD1847D5279FC84600E7CE78 /* BusAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BusAPI.swift; path = Bogota/API/Bus/BusAPI.swift; sourceTree = SOURCE_ROOT; };
@@ -143,6 +146,7 @@
 			files = (
 				8240E04129893085005340EF /* RxRelay in Frameworks */,
 				8240E03F29893085005340EF /* RxCocoa in Frameworks */,
+				826B3C702A16456A006A53FD /* FirebaseAnalytics in Frameworks */,
 				8240E04329893085005340EF /* RxSwift in Frameworks */,
 				8240E0492994C5C0005340EF /* RxDataSources in Frameworks */,
 				AC8A4616A62D99BB21E8B247 /* Pods_bogota.framework in Frameworks */,
@@ -385,6 +389,7 @@
 		BDA82E31279E691A005D5683 /* Bogota */ = {
 			isa = PBXGroup;
 			children = (
+				826B3C712A16459E006A53FD /* GoogleService-Info.plist */,
 				BD1847DB27A0E3D800E7CE78 /* Common */,
 				BD1847CD279FC44900E7CE78 /* API */,
 				BDF9F334279E7F3900E4DAB3 /* Home */,
@@ -507,6 +512,7 @@
 				8240E04029893085005340EF /* RxRelay */,
 				8240E04229893085005340EF /* RxSwift */,
 				8240E0482994C5C0005340EF /* RxDataSources */,
+				826B3C6F2A16456A006A53FD /* FirebaseAnalytics */,
 			);
 			productName = bogota;
 			productReference = BDA82E2F279E691A005D5683 /* bogota.app */;
@@ -539,6 +545,7 @@
 			packageReferences = (
 				8240E03D29893085005340EF /* XCRemoteSwiftPackageReference "RxSwift" */,
 				8240E0472994C5C0005340EF /* XCRemoteSwiftPackageReference "RxDataSources" */,
+				826B3C6E2A16456A006A53FD /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = BDA82E30279E691A005D5683 /* Products */;
 			projectDirPath = "";
@@ -565,6 +572,7 @@
 				BD35A3E427A3BEA400F74D4F /* BusRouteCell.xib in Resources */,
 				BD35A3D927A3736700F74D4F /* EmptyView.xib in Resources */,
 				BD35A3D027A25A2400F74D4F /* Detail.storyboard in Resources */,
+				826B3C722A16459E006A53FD /* GoogleService-Info.plist in Resources */,
 				BDB2CFB627C5F3330011C8A8 /* Favorite.storyboard in Resources */,
 				BDA82E3C279E691C005D5683 /* Assets.xcassets in Resources */,
 				BDF9F33F279E82E700E4DAB3 /* Map.storyboard in Resources */,
@@ -912,6 +920,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		826B3C6E2A16456A006A53FD /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -934,6 +950,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 8240E0472994C5C0005340EF /* XCRemoteSwiftPackageReference "RxDataSources" */;
 			productName = RxDataSources;
+		};
+		826B3C6F2A16456A006A53FD /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 826B3C6E2A16456A006A53FD /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

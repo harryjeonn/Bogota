@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 import GoogleMobileAds
 
 @main
@@ -18,6 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Google Admob
         GADMobileAds.sharedInstance().start(completionHandler: nil)
+        
+        // Google Analytics
+        FirebaseApp.configure()
         
         return true
     }
